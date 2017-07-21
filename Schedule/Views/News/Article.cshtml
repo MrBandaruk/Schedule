@@ -1,0 +1,35 @@
+﻿@model Schedule.BLL.Model.NewsViewModelItem
+
+@{
+    ViewBag.Title = Model.ShortTitle;
+}
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+
+<h2 class="name-news">@Model.FullTitle</h2>
+
+<div id="items-slick" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+    @foreach (var img in Model.NewsImages)
+    {
+        <div>
+            <img class="img-responsive img-article" src="data:image;base64,@System.Convert.ToBase64String(img.ImageItem)" />
+        </div>
+    }
+</div>
+
+<p class="text-news">@Model.FullArticle</p>
+
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script type="text/javascript">
+    $("#items-slick").slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true
+    });
+</script>

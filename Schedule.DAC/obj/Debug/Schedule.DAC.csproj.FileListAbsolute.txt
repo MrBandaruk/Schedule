@@ -1,0 +1,12 @@
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\Schedule.DAC.dll.config
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\Schedule.DAC.dll
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\Schedule.DAC.pdb
+C:\Projects\Schedule\Schedule\Schedule.DAC\obj\Debug\Schedule.DAC.dll
+C:\Projects\Schedule\Schedule\Schedule.DAC\obj\Debug\Schedule.DAC.pdb
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\Database2.dll
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\Database2.pdb
+C:\Projects\Schedule\Schedule\Schedule.DAC\obj\Debug\Schedule.DAC.csprojResolveAssemblyReference.cache
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.dll
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.xml
+C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.xml

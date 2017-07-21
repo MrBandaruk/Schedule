@@ -1,0 +1,55 @@
+﻿@model Schedule.BLL.Model.NewsViewModel
+@using Schedule.Helpers;
+
+@{
+    ViewBag.Title = "News";
+}
+
+<hr />
+<a class="btn btn-default" href="@Url.Action("Panel","News")">News Panel</a>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+        <div class="dropdown dropdown-inline">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                Sort by
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Old", "Index", new { sortOrder = ViewBag.IdSortParm })</li>
+                <li>@Html.ActionLink("New", "Index", new { sortOrder = ViewBag.IdSortParm })</li>
+                <li>@Html.ActionLink("A-Z", "Index", new { sortOrder = ViewBag.TitleSortParm })</li>
+                <li>@Html.ActionLink("Z-A", "Index", new { sortOrder = ViewBag.TitleSortParm })</li>
+            </ul>
+        </div>
+
+        @Html.TextBox("SearchString", null, new { @class = "form-control" })
+
+        <input type="submit" value="Search" class="btn" />
+    </div>
+}
+
+
+@foreach (var newsItem in Model.News)
+{ 
+    <div class="row news-column-1">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <a href="@Url.Action("Article", "News", new { id = newsItem.Id }, null)">
+                <img src="data:image;base64,@System.Convert.ToBase64String(newsItem.NewsImages.FirstOrDefault().ImageItem)" class="img-responsive img-news" alt="@newsItem.ShortTitle" />
+            </a>
+            </div>
+            <div class="col-md-6">
+                <h1>@Html.ActionLink(@newsItem.ShortTitle, "Article", "News", new { id = newsItem.Id }, new { @class = "news-link" })</h1>
+                <span class="glyphicon glyphicon-calendar news-span"></span><p class="spanP">@DateTime.Now</p><span class="glyphicon glyphicon-comment news-span"></span><p class="spanP">37</p>
+                <p class="text-news">@newsItem.ShortArticle</p>
+            </div>
+        </div>
+
+}
+
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+</div>
+

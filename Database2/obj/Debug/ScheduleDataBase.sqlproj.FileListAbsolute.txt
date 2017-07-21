@@ -1,0 +1,9 @@
+C:\Projects\Schedule\Schedule\Database2\bin\Debug\ScheduleDataBase.dacpac
+C:\Projects\Schedule\Schedule\Database2\bin\Debug\Database2.dll
+C:\Projects\Schedule\Schedule\Database2\bin\Debug\Database2.pdb
+C:\Projects\Schedule\Schedule\Database2\obj\Debug\Database2.dll
+C:\Projects\Schedule\Schedule\Database2\obj\Debug\Database2.pdb
+C:\Projects\Schedule\Schedule\Database2\obj\Debug\Model.xml
+C:\Projects\Schedule\Schedule\Database2\obj\Debug\refactor.xml
+C:\Projects\Schedule\Schedule\Database2\obj\Debug\postdeploy.sql
+C:\Projects\Schedule\Schedule\Database2\obj\Debug\predeploy.sql

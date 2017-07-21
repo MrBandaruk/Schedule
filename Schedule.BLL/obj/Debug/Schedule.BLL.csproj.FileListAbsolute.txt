@@ -1,0 +1,9 @@
+C:\Projects\Schedule\Schedule\Schedule.BLL\obj\Debug\Schedule.BLL.csprojResolveAssemblyReference.cache
+C:\Projects\Schedule\Schedule\Schedule.BLL\bin\Debug\Schedule.BLL.dll
+C:\Projects\Schedule\Schedule\Schedule.BLL\bin\Debug\Schedule.BLL.pdb
+C:\Projects\Schedule\Schedule\Schedule.BLL\bin\Debug\Schedule.DAC.dll
+C:\Projects\Schedule\Schedule\Schedule.BLL\bin\Debug\Schedule.DAC.pdb
+C:\Projects\Schedule\Schedule\Schedule.BLL\obj\Debug\Schedule.BLL.dll
+C:\Projects\Schedule\Schedule\Schedule.BLL\obj\Debug\Schedule.BLL.pdb
+C:\Projects\Schedule\Schedule\Schedule.BLL\bin\Debug\EntityFramework.dll
+C:\Projects\Schedule\Schedule\Schedule.BLL\bin\Debug\EntityFramework.xml

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Schedule" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Schedule;Integrated Security=True" SettingsObjectName="Schedule.DAC.Properties.Settings" SettingsPropertyName="ScheduleConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.FinalNews" Member="FinalNews">
+    <Type Name="FinalNew">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShortTitle" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="FullTitle" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ShortArticle" Type="System.String" DbType="NVarChar(410) NOT NULL" CanBeNull="false" />
+      <Column Name="FullArticle" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="FinalNew_FinalNewsImage" Member="FinalNewsImages" ThisKey="Id" OtherKey="NewsId" Type="FinalNewsImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsV" Member="NewsVs">
+    <Type Name="NewsV">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(410) NOT NULL" CanBeNull="false" />
+      <Association Name="NewsV_NewsImage" Member="NewsImages" ThisKey="Id" OtherKey="NewsId" Type="NewsImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinalNewsImages" Member="FinalNewsImages">
+    <Type Name="FinalNewsImage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageItem" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="NewsId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="FinalNew_FinalNewsImage" Member="FinalNew" ThisKey="NewsId" OtherKey="Id" Type="FinalNew" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Image" Member="Images">
+    <Type Name="Image">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageItem" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MainNews" Member="MainNews">
+    <Type Name="MainNew">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShortTitle" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="FullTitle" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ShortArticle" Type="System.String" DbType="NVarChar(410) NOT NULL" CanBeNull="false" />
+      <Column Name="FullArticle" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News" Member="News">
+    <Type Name="New">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="ImageLink" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(410) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsImage" Member="NewsImages">
+    <Type Name="NewsImage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageItem" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="NewsId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NewsV_NewsImage" Member="NewsV" ThisKey="NewsId" OtherKey="Id" Type="NewsV" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsOld" Member="NewsOlds">
+    <Type Name="NewsOld">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
