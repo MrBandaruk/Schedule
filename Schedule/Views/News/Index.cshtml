@@ -14,18 +14,18 @@
     <div class="form-inline">
         <div class="dropdown dropdown-inline">
             <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
-                Sort by
+                @ViewBag.sortOrder
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Old", "Index", new { sortOrder = ViewBag.IdSortParm })</li>
-                <li>@Html.ActionLink("New", "Index", new { sortOrder = ViewBag.IdSortParm })</li>
-                <li>@Html.ActionLink("A-Z", "Index", new { sortOrder = ViewBag.TitleSortParm })</li>
-                <li>@Html.ActionLink("Z-A", "Index", new { sortOrder = ViewBag.TitleSortParm })</li>
+                <li>@Html.ActionLink("Old", "Index", new { sortOrder = "Old", searchString = @ViewBag.searchString, page = 1 })</li>
+                <li>@Html.ActionLink("New", "Index", new { sortOrder = "New", searchString = @ViewBag.searchString, page = 1 })</li>
+                <li>@Html.ActionLink("A-Z", "Index", new { sortOrder = "A-Z", searchString = @ViewBag.searchString, page = 1 })</li>
+                <li>@Html.ActionLink("Z-A", "Index", new { sortOrder = "Z-A", searchString = @ViewBag.searchString, page = 1 })</li>
             </ul>
         </div>
 
-        @Html.TextBox("SearchString", null, new { @class = "form-control" })
+        <input type="text" name="searchString" value="@ViewBag.searchString" class="form-control" placeholder="Search..." />
 
         <input type="submit" value="Search" class="btn" />
     </div>
@@ -50,6 +50,6 @@
 }
 
 <div class="btn-group">
-    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { sortOrder = @ViewBag.sortOrder, searchString = @ViewBag.searchString, page = x  }))
 </div>
 

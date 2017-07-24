@@ -127,10 +127,25 @@ namespace Schedule.Controllers
 
         public BLL.Model.NewsViewModel GetAll(string sortOrder, string searchString, int? pageSize, int? page)
         {
-            ViewBag.CurrentSort = sortOrder;
+            if (String.IsNullOrEmpty(sortOrder) && ViewBag.sortParam == null)
+            {
+                sortOrder = ViewBag.sortOrder = "New";
+            }
+            else if (ViewBag.sortParam != null)
+            {
+                sortOrder = ViewBag.sortOrder;
+            }
+            else
+            {
+                ViewBag.sortOrder = sortOrder;
+            }
 
-            ViewBag.IdSortParm = string.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
-            ViewBag.TitleSortParm = sortOrder == "title" ? "title_desc" : "title";
+
+
+            ViewBag.searchString = String.IsNullOrEmpty(searchString) ? "" : searchString;
+
+            //ViewBag.IdSortParm = string.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
+            //ViewBag.TitleSortParm = sortOrder == "title" ? "title_desc" : "title";
 
 
             if (pageSize == null)

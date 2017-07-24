@@ -38,44 +38,54 @@ namespace Schedule.DAC
         {
             List<NewsDtoItem> result = new List<NewsDtoItem>();
             IQueryable<FinalNew> dbItems;
+            PageInfo pageInfo;
+            
 
             using (var db = new DataBaseDataContext())
             {
-                int allItems = db.FinalNews.Count();
-                PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = allItems };
-
+                var totalItems = db.FinalNews.Count();
                 if (!string.IsNullOrEmpty(searchString))
                 {
-                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                    n.FullArticle.Contains(searchString)).Include(n => n.FinalNewsImages);
+                    //dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+                    //n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+                    //n.FullArticle.Contains(searchString)).Include(n => n.FinalNewsImages);
 
                     switch (sortOrder)
                     {
-                        case "title":
+                        case "A-Z":
                             dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                             n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                            n.FullArticle.Contains(searchString)).OrderBy(x => x.ShortTitle).Include(n => n.FinalNewsImages);
+                            n.FullArticle.Contains(searchString)).OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
 
-                        case "title_desc":
+                        case "Z-A":
                             dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                             n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.ShortTitle).Include(n => n.FinalNewsImages);
+                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
 
-                        case "id_desc":
+                        case "Old":
                             dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                             n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                            n.FullArticle.Contains(searchString)).OrderBy(x => x.Id).Include(n => n.FinalNewsImages);
+                            n.FullArticle.Contains(searchString)).OrderBy(x => x.Id).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                            break;
+
+                        case "New":
+                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
 
                         default:
                             dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                             n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Include(n => n.FinalNewsImages);
+                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
                     }
+
+                    pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+                            n.FullArticle.Contains(searchString)).Count() };
 
                 }
                 else
@@ -83,28 +93,36 @@ namespace Schedule.DAC
 
                     switch (sortOrder)
                     {
-                        case "title":
-                            dbItems = db.FinalNews.OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize).Take(pageSize).Include(n => n.FinalNewsImages);
+                        case "A-Z":
+                            dbItems = db.FinalNews.OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
 
-                        case "title_desc":
-                            dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize).Take(pageSize).Include(n => n.FinalNewsImages);
+                        case "Z-A":
+                            dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
 
-                        case "id_desc":
-                            dbItems = db.FinalNews.OrderBy(x => x.Id).Skip((page - 1) * pageSize).Take(pageSize).Include(n => n.FinalNewsImages);
+                        case "Old":
+                            dbItems = db.FinalNews.OrderBy(x => x.Id).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                            break;
+
+                        case "New":
+                            dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
 
                         default:
-                            dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize).Take(pageSize).Include(n => n.FinalNewsImages);
+                            dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize).Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
                             break;
                     }
+
+                    pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = totalItems };
+
                 }
 
                 foreach (var dbItem in dbItems.ToList())
                 {
                     result.Add(MapDbToDto(dbItem));
                 }
+
 
 
                 return (MapDtoItemsToModel(result, pageInfo));
@@ -256,6 +274,16 @@ namespace Schedule.DAC
             }
 
             return null;
+        }
+
+        private int All(int totalItems, int pageSize, int page)
+        {
+            int total = totalItems - ((page - 1) * pageSize);
+            if (total >= pageSize)
+            {
+                return pageSize;
+            }
+            return totalItems - ((page - 1) * pageSize);
         }
 
         #endregion
