@@ -10,3 +10,15 @@ C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.dll
 C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.xml
 C:\Projects\Schedule\Schedule\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.xml
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\Schedule.DAC.dll.config
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\Schedule.DAC.dll
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\Schedule.DAC.pdb
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\Database2.dll
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\EntityFramework.dll
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.dll
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\Database2.pdb
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\EntityFramework.xml
+C:\ScheduleGIT\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.xml
+C:\ScheduleGIT\Schedule.DAC\obj\Debug\Schedule.DAC.csprojResolveAssemblyReference.cache
+C:\ScheduleGIT\Schedule.DAC\obj\Debug\Schedule.DAC.dll
+C:\ScheduleGIT\Schedule.DAC\obj\Debug\Schedule.DAC.pdb

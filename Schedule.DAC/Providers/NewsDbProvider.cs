@@ -112,58 +112,27 @@ namespace Schedule.DAC
             }
 
         }
-        
 
-
-        /*
-        public NewsDtoModel GetAll(string sortOrder, string searchString, int pageSize, int page)
+        public List<NewsDtoItem> GetAll()
         {
             List<NewsDtoItem> result = new List<NewsDtoItem>();
-            IQueryable<FinalNew> dbItems;
-
             using (var db = new DataBaseDataContext())
             {
-                int allItems = db.FinalNews.Count();
-                if (!string.IsNullOrEmpty(searchString))
-                {
-                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) || 
-                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) || n.FullArticle.Contains(searchString)).Include(n => n.FinalNewsImages);
-
-                }
-                else
-                {
-                    dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize).Take(pageSize).Include(n => n.FinalNewsImages);
-                }
+                var dbItems = db.FinalNews.Select(x => x).Include(n => n.FinalNewsImages).ToList();
 
                 foreach (var dbItem in dbItems)
                 {
                     result.Add(MapDbToDto(dbItem));
                 }
 
-                PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = allItems };
-
-                switch (sortOrder)
-                {
-                    case "title":
-                        return MapDtoItemsToModel(result.OrderBy(x => x.ShortTitle).ToList(), pageInfo);
-
-                    case "title_desc":
-                        return MapDtoItemsToModel(result.OrderByDescending(x => x.ShortTitle).ToList(), pageInfo);
-
-                    case "id_desc":
-                        return MapDtoItemsToModel(result.OrderBy(x => x.Id).ToList(), pageInfo);
-
-                    default:
-                        return MapDtoItemsToModel(result.OrderByDescending(x => x.Id).ToList(), pageInfo);
-
-                }
-
             }
 
+            return result;
         }
-        
-        */
 
+
+
+     
 
         public NewsDtoItem GetById(int id)
         {

@@ -23,9 +23,9 @@ namespace Schedule.Helpers
            
                 if (i == pageInfo.PageNumber)
                 {                   
-                    tag.AddCssClass("btn-primary");
+                    tag.AddCssClass("btn-default");
                 }
-                tag.AddCssClass("btn btn-info");
+                tag.AddCssClass("btn btn-default");
                 result.Append(tag.ToString());
             }
             return MvcHtmlString.Create(result.ToString());

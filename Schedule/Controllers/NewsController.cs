@@ -62,10 +62,17 @@ namespace Schedule.Controllers
             return View(model);
         }
 
-
+        /*
         public ActionResult Panel(string sortOrder, string searchString, int? pageSize, int? page)
         {
             var model = GetAll(sortOrder, searchString, pageSize, page);
+            return View(model);
+        }
+        */
+
+        public ActionResult Panel()
+        {
+            var model = newsDbProv.GetAll();
             return View(model);
         }
 

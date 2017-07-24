@@ -36,8 +36,10 @@ namespace Schedule
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/jquery-confirm.min.css"));
+                      "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/confirmCss").Include(
+                "~/Content/jquery-confirm.min.css"));
 
 
 

@@ -1,4 +1,4 @@
-﻿@model Schedule.BLL.Model.NewsViewModel
+﻿@model List<Schedule.BLL.Model.NewsViewModelItem>
 @using Schedule.Helpers;
 
 @{
@@ -8,42 +8,82 @@
 <hr />
 <a class="btn btn-default" href="@Url.Action("Create", "News")">Add Article</a>
 <hr />
+@Styles.Render("~/Content/confirmCss")
+@Scripts.Render("~/bundles/jqueryconf")
+<!--скачать и объеденить в бандлы-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
+<link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.2/css/select.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/select/1.2.2/js/dataTables.select.min.js"></script>
+<script type="text/javascript" src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+<script type="text/javascript" src="https://editor.datatables.net/extensions/Editor/js/editor.bootstrap.min.js"></script>
 
 
-<table class="table table-bordered">
+<table class="table table-bordered table-hover" id="myTable">
     <thead style="font-weight: bold; font-size: 18px">
         <tr>
-            <td style="width: 20px">@Html.ActionLink("Id", "Panel", new { sortOrder = ViewBag.IdSortParm })</td>
+            <td style="width: 10px" >Id</td>
             <td style="width: 200px">Main Photo</td>
-            <td>@Html.ActionLink("Title", "Panel", new { sortOrder = ViewBag.TitleSortParm })</td> 
+            <td style="width: 200px" >Title</td> 
             <td>Full article</td>
-            <td style="width: 145px"></td>
+            <td style="width: 30px"></td>
+            <td style="width: 30px"></td>
         </tr>
     </thead>
     <tbody>
 
-        @foreach (var item in Model.News)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>@item.Id</td>
                 <td>
-                    
-                        <img src="data:image;base64,@System.Convert.ToBase64String(item.NewsImages.FirstOrDefault().ImageItem)" class="img-tests" />
-                   
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.NewsImages.FirstOrDefault().ImageItem)" class="img-tests" />
                 </td>
                 <td>@item.FullTitle</td>
                 <td>@item.FullArticle</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { Id = item.Id }, new { @class = "btn btn-info", id = "btn-edit" })
+                    @Html.ActionLink("Edit", "Edit", new { Id = item.Id }, new { @class = "btn btn-default", id = "btn-edit" })
+                </td>
+                <td>
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure you want to delete this article?');", id = "btn-delete" })
                 </td>
             </tr>
         }
-
+        <!--the new english file-->
     </tbody>
 </table>
-
+<!--
 <div class="btn-group">
-    @Html.PageLinks(Model.PageInfo, x => Url.Action("Panel", new { page = x }))
+    Html.PageLinks(Model.PageInfo, x => Url.Action("Panel", new { page = x }))
 </div>
+-->
 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            //"bServerSide": true,
+            //"sAjaxSource": "News/AjaxHandler",
+            //"bProcessing": true,
+            "aoColumnDefs": [{               
+                "aTargets": [ 1,4,5 ],
+                "bSortable": false
+            }],
+            
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $("#btn-edit").click(function () {
+        $.alert({
+            title: 'Alert!',
+            content: 'Simple alert!',
+        });
+    });
+</script>

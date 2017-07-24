@@ -54,6 +54,20 @@ namespace Schedule.BLL.Providers
             return MapModelItem(dbProv.GetLast());
         }
 
+        public List<NewsViewModelItem> GetAll()
+        {
+            List<NewsViewModelItem> result = new List<NewsViewModelItem>();
+
+            var dbItems = dbProv.GetAll();
+
+            foreach (var dbItem in dbItems)
+            {
+                result.Add(MapModelItem(dbItem));
+            }
+
+            return result;
+        }
+
         #endregion
 
 
@@ -150,6 +164,8 @@ namespace Schedule.BLL.Providers
 
             return null;
         }
+
+
 
         private NewsImageModelItem MapNewsImageDto(NewsImageDto x)
         {
