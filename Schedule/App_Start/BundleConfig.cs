@@ -23,10 +23,6 @@ namespace Schedule
             bundles.Add(new StyleBundle("~/Content/FU").Include(
             "~/Content/jQuery.FileUpload/css/jquery.fileupload.css"));
 
-
-
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
@@ -41,6 +37,21 @@ namespace Schedule
             bundles.Add(new StyleBundle("~/Content/confirmCss").Include(
                 "~/Content/jquery-confirm.min.css"));
 
+
+            bundles.Add(new StyleBundle("~/Content/dataTables").Include(
+                "~/Content/dataTables/dataTables.bootstrap.min.css",
+                "~/Content/dataTables/editor.bootstrap.min.css",
+                "~/Content/dataTables/select.bootstrap.min.css",
+                "~/Content/dataTables/buttons.bootstrap.min.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/dataTables").Include(
+                "~/Scripts/dataTables/jquery.dataTables.min.js",
+                "~/Scripts/dataTables/dataTables.bootstrap.min.js",
+                "~/Scripts/dataTables/dataTables.buttons.min.js",
+                "~/Scripts/dataTables/buttons.bootstrap.min.js",
+                "~/Scripts/dataTables/dataTables.select.min.js",
+                "~/Scripts/dataTables/dataTables.editor.min.js",
+                "~/Scripts/dataTables/editor.bootstrap.min.js"));
 
 
         }

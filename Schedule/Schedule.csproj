@@ -171,6 +171,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dataTables\buttons.bootstrap.min.css" />
+    <Content Include="Content\dataTables\dataTables.bootstrap.min.css" />
+    <Content Include="Content\dataTables\editor.bootstrap.min.css" />
+    <Content Include="Content\dataTables\select.bootstrap.min.css" />
     <Content Include="Content\jquery-confirm.min.css" />
     <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-noscript.css" />
     <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui-noscript.css" />
@@ -236,6 +240,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\dataTables\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\dataTables\dataTables.buttons.min.js" />
+    <Content Include="Scripts\dataTables\dataTables.editor.min.js" />
+    <Content Include="Scripts\dataTables\dataTables.select.min.js" />
+    <Content Include="Scripts\dataTables\editor.bootstrap.min.js" />
+    <Content Include="Scripts\dataTables\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />

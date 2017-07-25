@@ -76,6 +76,14 @@ namespace Schedule.Controllers
             return View(model);
         }
 
+        /*
+        public ActionResult dataTablesData ()
+        {
+            var model = newsDbProv.GetAll();
+            return Json(new { aaData = model }, JsonRequestBehavior.AllowGet);
+        }
+        */
+
         public ActionResult Article(int id)
         {
             return View(newsDbProv.GetById(id));
@@ -141,11 +149,7 @@ namespace Schedule.Controllers
             }
 
 
-
             ViewBag.searchString = String.IsNullOrEmpty(searchString) ? "" : searchString;
-
-            //ViewBag.IdSortParm = string.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
-            //ViewBag.TitleSortParm = sortOrder == "title" ? "title_desc" : "title";
 
 
             if (pageSize == null)
