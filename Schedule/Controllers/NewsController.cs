@@ -84,7 +84,7 @@ namespace Schedule.Controllers
             var result = model.News.ConvertAll(x => new {
                 x.Id,
                 x.FullTitle,
-                x.FullArticle                
+                x.FullArticle            
             });
 
             return Json(new {

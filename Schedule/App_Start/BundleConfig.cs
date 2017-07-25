@@ -40,7 +40,6 @@ namespace Schedule
 
             bundles.Add(new StyleBundle("~/Content/dataTables").Include(
                 "~/Content/dataTables/dataTables.bootstrap.min.css",
-                "~/Content/dataTables/editor.bootstrap.min.css",
                 "~/Content/dataTables/select.bootstrap.min.css",
                 "~/Content/dataTables/buttons.bootstrap.min.css"));
 
@@ -49,9 +48,7 @@ namespace Schedule
                 "~/Scripts/dataTables/dataTables.bootstrap.min.js",
                 "~/Scripts/dataTables/dataTables.buttons.min.js",
                 "~/Scripts/dataTables/buttons.bootstrap.min.js",
-                "~/Scripts/dataTables/dataTables.select.min.js",
-                "~/Scripts/dataTables/dataTables.editor.min.js",
-                "~/Scripts/dataTables/editor.bootstrap.min.js"));
+                "~/Scripts/dataTables/dataTables.select.min.js"));
 
 
         }

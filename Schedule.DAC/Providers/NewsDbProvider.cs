@@ -159,10 +159,6 @@ namespace Schedule.DAC
 
                 if (!string.IsNullOrEmpty(search))
                 {
-                    //dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                            //n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                            //n.FullArticle.Contains(search)).Skip(start).Take(DTAll(allItems, length, start));
-
                     switch (sortType)
                     {
                         case "asc":
@@ -229,14 +225,12 @@ namespace Schedule.DAC
                         default:
                             dbItems = null;
                             break;
-
                     }
 
                     
                 }
                 else
                 {
-                    //dbItems = db.FinalNews.Skip(start).Take(DTAll(allItems, length, start));
                     switch (sortType)
                     {
                         case "asc":
@@ -286,16 +280,9 @@ namespace Schedule.DAC
                             dbItems = null;
                             break;
                     }
-
-
-
-                }
-                
-
-
+                }               
                 return MapDbToDto(dbItems.ToList(), allItems);
             }
-
         }
 
 
