@@ -148,9 +148,20 @@ namespace Schedule.DAC
             return result;
         }
 
+        
 
+        public DataTablesDtoModel GetAllData(int start, int length, int sortcol, string search)
+        {            
+            using (var db = new DataBaseDataContext())
+            {
+                var allItems = db.FinalNews.Count();
+                var dbItems = db.FinalNews.Skip(start).Take(DTAll(allItems, length, start));
 
-     
+                return MapDbToDto(dbItems.ToList(), allItems);
+            }
+
+        }
+
 
         public NewsDtoItem GetById(int id)
         {
@@ -262,6 +273,21 @@ namespace Schedule.DAC
         }
 
 
+        private DataTablesDtoModel MapDbToDto(List<FinalNew> dbItem, int allItems)
+        {
+            if (dbItem != null)
+            {
+                return new DataTablesDtoModel
+                {
+                    News = dbItem.ConvertAll(x => new NewsDtoItem() { Id = x.Id, ShortTitle = x.ShortTitle, FullTitle = x.FullTitle, ShortArticle = x.ShortArticle, FullArticle = x.FullArticle }),
+                    iTotalRecords = allItems
+                };
+            }
+
+            return null;
+        }
+
+
         private NewsDtoModel MapDtoItemsToModel(List<NewsDtoItem> dbItems, PageInfo pageInfo)
         {
             if (dbItems != null)
@@ -283,7 +309,17 @@ namespace Schedule.DAC
             {
                 return pageSize;
             }
-            return totalItems - ((page - 1) * pageSize);
+            return total;
+        }
+
+        private int DTAll(int totalItems, int lenth, int start)
+        {
+            int total = totalItems - start;
+            if (total >= lenth)
+            {
+                return lenth;
+            }
+            return total;
         }
 
         #endregion

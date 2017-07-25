@@ -41,4 +41,10 @@ namespace Schedule.DAC.Dto
         public PageInfo PageInfo { get; set; }
     }
 
+    public class DataTablesDtoModel
+    {
+        public List<NewsDtoItem> News { get; set; }
+        public int iTotalRecords { get; set; }
+    }
+
 }

@@ -72,17 +72,31 @@ namespace Schedule.Controllers
 
         public ActionResult Panel()
         {
-            var model = newsDbProv.GetAll();
-            return View(model);
+            //var model = newsDbProv.GetAll();
+            return View();
         }
 
-        /*
-        public ActionResult dataTablesData ()
+        
+        public ActionResult dataTablesData (BLL.Model.jQueryDataTableParamModel param)
         {
-            var model = newsDbProv.GetAll();
-            return Json(new { aaData = model }, JsonRequestBehavior.AllowGet);
+            var model = newsDbProv.GetAllData(param.iDisplayStart, param.iDisplayLength, 1, null);
+
+            var result = model.News.ConvertAll(x => new {
+                x.Id,
+                x.FullTitle,
+                x.FullArticle                
+            });
+
+            return Json(new {
+                sEcho = param.sEcho,
+                iTotalRecords = model.iTotalRecords,
+                iTotalDisplayRecords = model.iTotalRecords,
+                aaData = result
+
+
+            }, JsonRequestBehavior.AllowGet);
         }
-        */
+        
 
         public ActionResult Article(int id)
         {

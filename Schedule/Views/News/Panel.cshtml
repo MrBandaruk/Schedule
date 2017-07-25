@@ -17,32 +17,32 @@
     <thead style="font-weight: bold; font-size: 18px">
         <tr>
             <td style="width: 10px">Id</td>
-            <td style="width: 200px">Main Photo</td>
+            <!--<td style="width: 200px">Main Photo</td>-->
             <td style="width: 200px">Title</td>
-            <td>Full article</td>
-            <td style="width: 30px"></td>
-            <td style="width: 30px"></td>
+            <td>Article</td>
+            <!--<td style="width: 30px"></td>
+            <td style="width: 30px"></td>-->
         </tr>
     </thead>
     <tbody>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>
-                    <img src="data:image;base64,@System.Convert.ToBase64String(item.NewsImages.FirstOrDefault().ImageItem)" class="img-tests" />
-                </td>
-                <td>@item.FullTitle</td>
-                <td>@item.FullArticle</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { Id = item.Id }, new { @class = "btn btn-default", id = "btn-edit" })
-                </td>
-                <td>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure you want to delete this article?');", id = "btn-delete" })
-                </td>
-            </tr>
-        }
+       @* @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.NewsImages.FirstOrDefault().ImageItem)" class="img-tests" />
+            </td>
+            <td>@item.FullTitle</td>
+            <td>@item.FullArticle</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Id = item.Id }, new { @class = "btn btn-default", id = "btn-edit" })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure you want to delete this article?');", id = "btn-delete" })
+            </td>
+        </tr>
+    }*@
 
     </tbody>
 </table>
@@ -51,15 +51,23 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#myTable').DataTable({
-            //"bServerSide": true,
-            //ajax: 'Url.Action("dataTablesData", "News")',
+            "bServerSide": true,
+            "sAjaxSource": "dataTablesData",
+            
+            columns: [
+                { data: 'Id' },
+                { data: 'FullTitle' },
+                { data: 'FullArticle' }
+            ]
 
+
+            /*
             "bProcessing": true,
             "aoColumnDefs": [{
                 "aTargets": [1, 4, 5],
                 "bSortable": false
             }],
-
+            */
 
 
         });

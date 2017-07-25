@@ -43,6 +43,12 @@ namespace Schedule.BLL.Providers
             return MapViewModel(dbNews, pageInfo);
         }
 
+        public DataTablesPanelModel GetAllData(int start, int length, int sortcol, string search)
+        {
+            var dbItems = dbProv.GetAllData(start, length, sortcol, search);
+            return MapViewModel(dbItems);
+        }
+
         public NewsViewModelItem GetById(int id)
         {
             var dbItem = dbProv.GetById(id);
@@ -139,6 +145,21 @@ namespace Schedule.BLL.Providers
                 {
                     News = convert,
                     PageInfo = pageInfo
+                };
+            }
+
+            return null;
+        }
+
+
+        private DataTablesPanelModel MapViewModel(DataTablesDtoModel dbItem)
+        {
+            if (dbItem != null)
+            {
+                return new DataTablesPanelModel
+                {
+                    News = dbItem.News.ConvertAll(x => new NewsViewModelItem() { Id = x.Id, ShortTitle = x.ShortTitle, FullTitle = x.FullTitle, ShortArticle = x.ShortArticle, FullArticle = x.FullArticle}),
+                    iTotalRecords = dbItem.iTotalRecords
                 };
             }
 
