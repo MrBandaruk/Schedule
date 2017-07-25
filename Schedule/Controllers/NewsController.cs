@@ -137,11 +137,11 @@ namespace Schedule.Controllers
         {
             if (String.IsNullOrEmpty(sortOrder) && ViewBag.sortParam == null)
             {
-                sortOrder = ViewBag.sortOrder = "New";
+                sortOrder = ViewBag.SortOrder = "New";
             }
             else if (ViewBag.sortParam != null)
             {
-                sortOrder = ViewBag.sortOrder;
+                sortOrder = ViewBag.SortOrder;
             }
             else
             {

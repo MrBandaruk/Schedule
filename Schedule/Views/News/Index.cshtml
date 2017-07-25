@@ -14,7 +14,7 @@
     <div class="form-inline">
         <div class="dropdown dropdown-inline">
             <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
-                @ViewBag.sortOrder
+                @ViewBag.SortOrder
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
@@ -25,8 +25,8 @@
             </ul>
         </div>
 
-        <input type="text" name="searchString" value="@ViewBag.searchString" class="form-control" placeholder="Search..." />
-
+        <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" placeholder="Search..." />
+        <input type="hidden" value="1" name="page" />
         <input type="submit" value="Search" class="btn" />
     </div>
 }
@@ -50,6 +50,6 @@
 }
 
 <div class="btn-group">
-    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { sortOrder = @ViewBag.sortOrder, searchString = @ViewBag.searchString, page = x  }))
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { sortOrder = @ViewBag.SortOrder, searchString = @ViewBag.SearchString, page = x  }))
 </div>
 
