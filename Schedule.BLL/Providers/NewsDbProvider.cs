@@ -43,9 +43,9 @@ namespace Schedule.BLL.Providers
             return MapViewModel(dbNews, pageInfo);
         }
 
-        public DataTablesPanelModel GetAllData(int start, int length, int sortcol, string search)
+        public DataTablesPanelModel GetAllData(int start, int length, int sortcol, string sortType, string search)
         {
-            var dbItems = dbProv.GetAllData(start, length, sortcol, search);
+            var dbItems = dbProv.GetAllData(start, length, sortcol, sortType, search);
             return MapViewModel(dbItems);
         }
 

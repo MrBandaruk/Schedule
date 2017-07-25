@@ -79,7 +79,7 @@ namespace Schedule.Controllers
         
         public ActionResult dataTablesData (BLL.Model.jQueryDataTableParamModel param)
         {
-            var model = newsDbProv.GetAllData(param.iDisplayStart, param.iDisplayLength, 1, null);
+            var model = newsDbProv.GetAllData(param.iDisplayStart, param.iDisplayLength, param.iSortCol_0, param.sSortDir_0, param.sSearch);
 
             var result = model.News.ConvertAll(x => new {
                 x.Id,
@@ -159,11 +159,11 @@ namespace Schedule.Controllers
             }
             else
             {
-                ViewBag.sortOrder = sortOrder;
+                ViewBag.SortOrder = sortOrder;
             }
 
 
-            ViewBag.searchString = String.IsNullOrEmpty(searchString) ? "" : searchString;
+            ViewBag.SearchString = String.IsNullOrEmpty(searchString) ? "" : searchString;
 
 
             if (pageSize == null)

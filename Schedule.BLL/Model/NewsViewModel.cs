@@ -86,6 +86,16 @@ namespace Schedule.BLL.Model
         public int iSortingCols { get; set; }
 
         /// <summary>
+        /// Number of columns witch need to sort
+        /// </summary>
+        public int iSortCol_0 { get; set; }
+
+        /// <summary>
+        /// Type of sorting sort
+        /// </summary>
+        public string sSortDir_0 { get; set; }
+
+        /// <summary>
         /// Comma separated list of column names
         /// </summary>
         public string sColumns { get; set; }
