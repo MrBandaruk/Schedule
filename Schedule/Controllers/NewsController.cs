@@ -70,7 +70,7 @@ namespace Schedule.Controllers
 
         
         public ActionResult dataTablesData (BLL.Model.jQueryDataTableParamModel param)
-        {
+        {            
             var model = newsDbProv.GetAllData(param.iDisplayStart, param.iDisplayLength, param.iSortCol_0, param.sSortDir_0, param.sSearch);
 
             var result = model.News.ConvertAll(x => new {
@@ -127,6 +127,17 @@ namespace Schedule.Controllers
             newsDbProv.Delete(id);
 
             return RedirectToAction("Panel");
+        }
+
+        [HttpGet]
+        public ActionResult DeleteMany(List<int> id)
+        {
+            foreach(var i in id)
+            {
+                newsDbProv.Delete(i);
+            }
+
+            return Json(new { success = true}, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

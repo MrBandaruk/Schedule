@@ -3,12 +3,16 @@
     ViewBag.Title = "Edit";
 }
 
+@Styles.Render("~/Content/confirmCss")
+@Scripts.Render("~/Scripts/jqueryconf")
+<script type="text/javascript" src="~/Scripts/jquery.redirect.js"></script>
 
 <h2>Edit</h2>
 
 @using (Html.BeginForm("Edit", "News", FormMethod.Post))
 {
     <br />
+    @Html.HiddenFor(x => x.Id, "Id")
     <h4>Short Title</h4>
     @Html.TextBox("ShortTitle", (string)Model.ShortTitle, new { @class = "form-control", required = "required" })
     <br />
@@ -16,10 +20,10 @@
     @Html.TextBox("FullTitle", (string)Model.FullTitle, new { @class = "form-control", required = "required" })
     <br />
     <h4>Images</h4>
-    @Html.TextBox("NewsImages", Model.NewsImages, new { type = "file", name = "uploadImage", multiple = "true", @class = "btn btn-info" })
+    @Html.TextBox("NewsImages", Model.NewsImages, new { type = "file", name = "uploadImage", multiple = "true", @class = "btn btn-default", value =  Model.NewsImages})
     <div id="ImgPrew">
         @foreach (var img in Model.NewsImages)
-        {
+        {            
             <img src="data:image;base64,@System.Convert.ToBase64String(img.ImageItem)" class="img-tests" />
         }
     </div>
@@ -32,7 +36,7 @@
     <br />
     <br />
     <input type="submit" value="Save" class="btn btn-success" id="btn-save" />
-    @Html.ActionLink("Back to all items", "Panel", null, new { @class = "btn btn-danger", id = "btn-back" })
+    @Html.ActionLink("Back to all items", "Panel", null, new { @class = "btn btn-default", id = "btn-back" })
 
 }
 

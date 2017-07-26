@@ -7,7 +7,6 @@
 
 <hr />
 <a class="btn btn-default" href="@Url.Action("Create", "News")"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-font"></span></a>
-<button class="btn btn-default" id="btn-edit"><span class="glyphicon glyphicon-edit"></span></button>
 <button class="btn btn-default " id="btn-delete"><span class="glyphicon glyphicon-trash"></span></button>
 <hr />
 @Styles.Render("~/Content/panelCss")
@@ -16,9 +15,10 @@
 <table class="table table-bordered table-hover" id="myTable">
     <thead style="font-weight: bold; font-size: 18px">
         <tr>
-            <td style="width: 10px">Id</td>
+            <td style="width: 10px"></td>
             <td style="width: 200px">Title</td>
             <td>Article</td>
+            <td style="width: 10px"></td>
         </tr>
     </thead>
     <tbody>

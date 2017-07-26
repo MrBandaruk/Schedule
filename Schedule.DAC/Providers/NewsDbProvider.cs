@@ -227,6 +227,8 @@ namespace Schedule.DAC
                             break;
                     }
 
+                    allItems = dbItems.Count();
+
                     
                 }
                 else
@@ -316,12 +318,19 @@ namespace Schedule.DAC
             using (var db = new DataBaseDataContext())
             {
                 var editignItem = db.FinalNews.Where(i => i.Id == item.Id).FirstOrDefault();
+
                 if (editignItem != null)
                 {
                     editignItem.ShortTitle = item.ShortTitle;
                     editignItem.FullTitle = item.FullTitle;
                     editignItem.ShortArticle = item.ShortArticle;
                     editignItem.FullArticle = item.FullArticle;
+
+                    //if (item.NewsImages.Any())
+                    //{
+                    //    //db.FinalNewsImages.Add   
+                    //}
+
                     db.SubmitChanges();
                 };
             }
@@ -437,6 +446,10 @@ namespace Schedule.DAC
 
         private int DTAll(int totalItems, int lenth, int start)
         {
+            if (lenth == -1)
+            {
+                lenth = totalItems;
+            }
             int total = totalItems - start;
             if (total >= lenth)
             {

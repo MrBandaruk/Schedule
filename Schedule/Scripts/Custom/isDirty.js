@@ -8,16 +8,14 @@ var linkClicked = false;
     $(":input").change(function () {
         isDirty = true;
     });
+ 
+    $(window).on('beforeunload ', function (e) {
 
-    $("#article").change(function () {
-        isDirty = true;
-    });
-
-
-    $(window).on('beforeunload ', function () {
         if (isDirty && !linkClicked) {
             return 'Are you sure?';
         } else return;
+
     });
+
 
 
