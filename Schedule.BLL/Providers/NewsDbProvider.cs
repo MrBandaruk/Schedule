@@ -115,11 +115,13 @@ namespace Schedule.BLL.Providers
                     FullArticle = dbItem.FullArticle,
                 };
 
+                
                 if (dbItem.NewsImages.Any())
                 {
                     result.NewsImages = dbItem.NewsImages.Select(MapNewsImageDto).ToList();
                 }
-
+                
+                
                 return result;
             }
 

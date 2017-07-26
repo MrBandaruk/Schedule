@@ -13,7 +13,7 @@ namespace Schedule.Controllers
         public BLL.Providers.NewsDbProvider newsDbProv = new BLL.Providers.NewsDbProvider();
 
 
-        #region News
+
 
        
         #region Create
@@ -62,17 +62,9 @@ namespace Schedule.Controllers
             return View(model);
         }
 
-        /*
-        public ActionResult Panel(string sortOrder, string searchString, int? pageSize, int? page)
-        {
-            var model = GetAll(sortOrder, searchString, pageSize, page);
-            return View(model);
-        }
-        */
 
         public ActionResult Panel()
         {
-            //var model = newsDbProv.GetAll();
             return View();
         }
 
@@ -92,8 +84,6 @@ namespace Schedule.Controllers
                 iTotalRecords = model.iTotalRecords,
                 iTotalDisplayRecords = model.iTotalRecords,
                 aaData = result
-
-
             }, JsonRequestBehavior.AllowGet);
         }
         
@@ -131,7 +121,7 @@ namespace Schedule.Controllers
 
 
         #region Delete
-
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             newsDbProv.Delete(id);
@@ -142,7 +132,6 @@ namespace Schedule.Controllers
         #endregion
 
 
-        #endregion
 
 
         #region Helpers

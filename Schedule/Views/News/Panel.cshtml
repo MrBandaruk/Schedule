@@ -6,17 +6,17 @@
 }
 
 <hr />
-<a class="btn btn-default" href="@Url.Action("Create", "News")">Add Article</a>
+<a class="btn btn-default" href="@Url.Action("Create", "News")"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-font"></span></a>
+<button class="btn btn-default" id="btn-edit"><span class="glyphicon glyphicon-edit"></span></button>
+<button class="btn btn-default " id="btn-delete"><span class="glyphicon glyphicon-trash"></span></button>
 <hr />
-@Styles.Render("~/Content/confirmCss")
-@Scripts.Render("~/bundles/jqueryconf")
-@Styles.Render("~/Content/dataTables")
-@Scripts.Render("~/Scripts/dataTables")
+@Styles.Render("~/Content/panelCss")
+@Scripts.Render("~/Scripts/panelScripts")
 
 <table class="table table-bordered table-hover" id="myTable">
     <thead style="font-weight: bold; font-size: 18px">
         <tr>
-            <td style="width: 10px" >Id</td>
+            <td style="width: 10px">Id</td>
             <td style="width: 200px">Title</td>
             <td>Article</td>
         </tr>
@@ -27,35 +27,4 @@
 </table>
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $('#myTable').DataTable({
-            "bServerSide": true,
-            "sAjaxSource": "dataTablesData",
-            
-            columns: [
-                { data: 'Id' },
-                { data: 'FullTitle' },
-                { data: 'FullArticle' }
-            ],
-            "order": [[ 0, "desc" ]],
-            select: {
-                style: 'single'
-            },
-        });
-
-
-    });
-
-
-</script>
-
-<script type="text/javascript">
-    $("#btn-edit").click(function () {
-        $.alert({
-            title: 'Alert!',
-            content: 'Simple alert!',
-        });
-    });
-</script>
+<script type="text/javascript" src="~/Scripts/Custom/Panel.js"></script>

@@ -50,6 +50,20 @@ namespace Schedule
                 "~/Scripts/dataTables/buttons.bootstrap.min.js",
                 "~/Scripts/dataTables/dataTables.select.min.js"));
 
+            bundles.Add(new StyleBundle("~/Content/panelCss").Include(
+                "~/Content/jquery-confirm.min.css",
+                "~/Content/dataTables/dataTables.bootstrap.min.css",
+                "~/Content/dataTables/select.bootstrap.min.css",
+                "~/Content/dataTables/buttons.bootstrap.min.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/panelScripts").Include(
+                "~/Scripts/jquery-confirm.min.js",
+                "~/Scripts/dataTables/jquery.dataTables.min.js",
+                "~/Scripts/dataTables/dataTables.bootstrap.min.js",
+                "~/Scripts/dataTables/dataTables.buttons.min.js",
+                "~/Scripts/dataTables/buttons.bootstrap.min.js",
+                "~/Scripts/dataTables/dataTables.select.min.js",
+                "~/Scripts/jquery.redirect.js"));
 
         }
     }

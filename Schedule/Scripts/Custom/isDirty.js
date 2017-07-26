@@ -9,6 +9,10 @@ var linkClicked = false;
         isDirty = true;
     });
 
+    $("#article").change(function () {
+        isDirty = true;
+    });
+
 
     $(window).on('beforeunload ', function () {
         if (isDirty && !linkClicked) {
