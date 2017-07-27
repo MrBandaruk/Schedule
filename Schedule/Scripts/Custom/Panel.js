@@ -63,7 +63,7 @@
 
         if (e.ctrlKey) {
             $(this).toggleClass('selected');
-
+        
             var index = selected.indexOf(table.row(this).data().Id);
             if (index == -1) {
                 selected.push(table.row(this).data().Id);
@@ -88,7 +88,7 @@
     });
 
     function format(data) {
-        return '<div class="mySlick" style="width: 900px;">' +
+        return '<div class="mySlick" style="width: 1120px;">' +
             '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
             '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
             '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
@@ -118,9 +118,14 @@
             slidesToScroll: 1
         });
 
+
+
         }
 
+
     });
+
+
 
 
     //DeleteMany confirmation
@@ -150,7 +155,17 @@
                             })               
                     }
                 },
-                cancel: {}
+                cancel: {
+                    action: function () {
+                        $("#myTable tbody tr").removeClass("selected");
+                        selected = [];
+                        $("#btn-delete").prop("disabled", true);
+                        $("#btn-delete").css("color", "grey");
+                        $("#btn-delete").hover(function () {
+                            $(this).css("color", "grey");
+                        });
+                    }
+                }
             }
         });
     });

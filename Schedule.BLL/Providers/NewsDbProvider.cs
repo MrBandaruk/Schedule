@@ -88,6 +88,11 @@ namespace Schedule.BLL.Providers
             return result;
         }
 
+        public NewsImageModelItem GetImageById(int id)
+        {
+            return MapModelItem(dbProv.GetImageById(id));
+        }
+
         #endregion
 
 

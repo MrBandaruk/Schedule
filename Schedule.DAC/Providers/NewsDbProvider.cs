@@ -309,6 +309,19 @@ namespace Schedule.DAC
         }
 
 
+        public NewsImageDto GetImageById(int id)
+        {
+            using (var db = new DataBaseDataContext())
+            {
+                var dbItem = db.FinalNewsImages.Where(x => x.Id == id).FirstOrDefault();
+
+                return MapDbToDto(dbItem);
+
+            }
+
+            
+        }
+
         public List<NewsImageDto> GetImagesByNewsId(int id)
         {
             List<NewsImageDto> result = new List<NewsImageDto>();
