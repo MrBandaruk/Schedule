@@ -25,3 +25,12 @@ C:\ScheduleGIT\Schedule.BLL\bin\Debug\EntityFramework.xml
 C:\ScheduleGIT\Schedule.BLL\obj\Debug\Schedule.BLL.csprojResolveAssemblyReference.cache
 C:\ScheduleGIT\Schedule.BLL\obj\Debug\Schedule.BLL.dll
 C:\ScheduleGIT\Schedule.BLL\obj\Debug\Schedule.BLL.pdb
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\bin\Debug\Schedule.BLL.dll
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\bin\Debug\Schedule.BLL.pdb
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\bin\Debug\Schedule.DAC.dll
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\bin\Debug\EntityFramework.dll
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\bin\Debug\Schedule.DAC.pdb
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\bin\Debug\EntityFramework.xml
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\obj\Debug\Schedule.BLL.csprojResolveAssemblyReference.cache
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\obj\Debug\Schedule.BLL.dll
+E:\C#\Projects\ScheduleGIT\Schedule.BLL\obj\Debug\Schedule.BLL.pdb
