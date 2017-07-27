@@ -135,7 +135,7 @@ namespace Schedule.BLL.Providers
                 };
 
                 
-                if (dbItem.NewsImages.Any())
+                if (dbItem.NewsImages != null)
                 {
                     result.NewsImages = dbItem.NewsImages.Select(MapNewsImageDto).ToList();
                 }

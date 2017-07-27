@@ -3,13 +3,10 @@
     ViewBag.Title = "Edit";
 }
 
-@Styles.Render("~/Content/confirmCss")
-@Scripts.Render("~/Scripts/jqueryconf")
-<script type="text/javascript" src="~/Scripts/jquery.redirect.js"></script>
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm("Edit", "News", FormMethod.Post))
+@using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <br />
     @Html.HiddenFor(x => x.Id, "Id")
@@ -20,7 +17,8 @@
     @Html.TextBox("FullTitle", (string)Model.FullTitle, new { @class = "form-control", required = "required" })
     <br />
     <h4>Images</h4>
-    @Html.TextBox("NewsImages", Model.NewsImages, new { type = "file", name = "uploadImage", multiple = "true", @class = "btn btn-default", value =  Model.NewsImages})
+    @Html.TextBoxFor(x => x.NewsImages, new { type = "file", name = "uploadImage", multiple = "true", @class = "btn btn-default" })
+    <br />
     <div id="ImgPrew">
         @foreach (var img in Model.NewsImages)
         {            
@@ -29,7 +27,7 @@
     </div>
     <br />
     <h4>Short Article</h4>
-    @Html.TextArea("ShortArticle", (string)Model.ShortArticle, 20, 0, new { @class = "form-control", required = "required", id="article" })
+    @Html.TextArea("ShortArticle", (string)Model.ShortArticle, 5, 0, new { @class = "form-control", required = "required", id="article" })
     <br />
     <h4>Full Article</h4>
     @Html.TextArea("FullArticle", (string)Model.FullArticle, 20, 0, new { @class = "form-control", required = "required", id = "article" })

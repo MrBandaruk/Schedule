@@ -349,7 +349,7 @@ namespace Schedule.DAC
         {
             using (var db = new DataBaseDataContext())
             {
-                var editignItem = db.FinalNews.Where(i => i.Id == item.Id).FirstOrDefault();
+                var editignItem = db.FinalNews.Where(i => i.Id == item.Id).Include(x => x.FinalNewsImages).FirstOrDefault();
 
                 if (editignItem != null)
                 {
@@ -358,10 +358,15 @@ namespace Schedule.DAC
                     editignItem.ShortArticle = item.ShortArticle;
                     editignItem.FullArticle = item.FullArticle;
 
-                    //if (item.NewsImages.Any())
-                    //{
-                    //    //db.FinalNewsImages.Add   
-                    //}
+                    if (item.NewsImages != null)
+                    {
+                        
+                        var images = item.NewsImages.Select(x => x).ToList();
+                        foreach (var img in images)
+                        {
+                            editignItem.FinalNewsImages.Add(MapNewsImage(img));
+                        }
+                    }
 
                     db.SubmitChanges();
                 };

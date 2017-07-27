@@ -15,7 +15,7 @@ namespace Schedule.Controllers
 
 
 
-       
+
         #region Create
 
         [HttpGet]
@@ -68,25 +68,27 @@ namespace Schedule.Controllers
             return View();
         }
 
-        
-        public ActionResult dataTablesData (BLL.Model.jQueryDataTableParamModel param)
-        {            
+
+        public ActionResult dataTablesData(BLL.Model.jQueryDataTableParamModel param)
+        {
             var model = newsDbProv.GetAllData(param.iDisplayStart, param.iDisplayLength, param.iSortCol_0, param.sSortDir_0, param.sSearch);
 
-            var result = model.News.ConvertAll(x => new {
+            var result = model.News.ConvertAll(x => new
+            {
                 x.Id,
                 x.FullTitle,
-                x.FullArticle            
+                x.FullArticle
             });
 
-            return Json(new {
+            return Json(new
+            {
                 sEcho = param.sEcho,
                 iTotalRecords = model.iTotalRecords,
                 iTotalDisplayRecords = model.iTotalRecords,
                 aaData = result
             }, JsonRequestBehavior.AllowGet);
         }
-        
+
 
         public ActionResult Article(int id)
         {
@@ -94,13 +96,13 @@ namespace Schedule.Controllers
         }
 
 
-        public ActionResult GetImagesByNewsId (int id)
+        public ActionResult GetImagesByNewsId(int id)
         {
-            var images = newsDbProv.GetImageByNewsId(id);         
+            var images = newsDbProv.GetImageByNewsId(id);
             return File(images.FirstOrDefault().ImageItem, "image/jpeg");
         }
 
-        public ActionResult GetImageById (int id)
+        public ActionResult GetImageById(int id)
         {
             return File(newsDbProv.GetImageById(id).ImageItem, "image/jpeg");
         }
@@ -114,7 +116,7 @@ namespace Schedule.Controllers
         public ActionResult Edit(int? id)
         {
             if (id == null)
-            {               
+            {
                 return View(newsDbProv.GetLast());
             }
 
@@ -124,6 +126,29 @@ namespace Schedule.Controllers
         [HttpPost]
         public ActionResult Edit(BLL.Model.NewsViewModelItem item)
         {
+            if (Request.Files.Count != 0)
+            {
+                for (var i = 0; i < Request.Files.Count; i++)
+                {
+                    var image = Request.Files[i];
+
+
+                    if (image != null)
+                    {
+                        byte[] imageData = null;
+                        using (var binaryReader = new BinaryReader(image.InputStream))
+                        {
+                            imageData = binaryReader.ReadBytes(image.ContentLength);
+                            item.NewsImages.Add(new BLL.Model.NewsImageModelItem { NewsId = item.Id, ImageItem = imageData });
+                        }
+                    }
+                }
+            } else
+            {
+                item.NewsImages = null;
+            }
+
+
             newsDbProv.Edit(item);
 
             return RedirectToAction("Panel");
@@ -144,12 +169,12 @@ namespace Schedule.Controllers
         [HttpGet]
         public ActionResult DeleteMany(List<int> id)
         {
-            foreach(var i in id)
+            foreach (var i in id)
             {
                 newsDbProv.Delete(i);
             }
 
-            return Json(new { success = true}, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -202,7 +227,7 @@ namespace Schedule.Controllers
         }
 
 
-       
+
 
         #endregion
 
