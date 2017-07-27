@@ -93,6 +93,25 @@ namespace Schedule.Controllers
             return View(newsDbProv.GetById(id));
         }
 
+
+        public ActionResult GetImagesByNewsId (int id)
+        {
+            var images = newsDbProv.GetImageByNewsId(id);
+
+            var result = images.ConvertAll(x => new
+            {
+                x.ImageItem
+            });
+
+            //return Json(new
+            //{
+            //    result
+
+            //}, JsonRequestBehavior.AllowGet);
+
+            return File(images.FirstOrDefault().ImageItem, "image/jpeg");
+        }
+
         #endregion
 
 

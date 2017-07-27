@@ -219,3 +219,16 @@ textarea {
     display: inline-block;
 }
 
+td.details-control {
+    background: url('../Content/Images/if_plus.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('../Content/Images/if_minus.png') no-repeat center center;
+}
+
+
+.img-shown {
+    width: 100px;
+    height: 200px;
+}

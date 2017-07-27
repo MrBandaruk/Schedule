@@ -36,7 +36,7 @@
 { 
     <div class="row news-column-1">
         <div class="col-md-6 col-sm-12 col-xs-12">
-            <a href="@Url.Action("Article", "News", new { id = newsItem.Id }, null)">
+            <a href="@Url.Action("Article", "News", new { id = newsItem.Id })">
                 <img src="data:image;base64,@System.Convert.ToBase64String(newsItem.NewsImages.FirstOrDefault().ImageItem)" class="img-responsive img-news" alt="@newsItem.ShortTitle" />
             </a>
             </div>

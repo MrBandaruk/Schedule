@@ -1,13 +1,24 @@
 ﻿$(document).ready(function () {
+    
+
+
     var selected = [];
     $("#btn-delete").prop("disabled", true);
-    $("#btn-delete").css("color", "black");
+    $("#btn-delete").css("color", "grey");
 
+
+    //dataTables
     table = $('#myTable').DataTable({
         "bServerSide": true,
         "sAjaxSource": "dataTablesData",
         "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
         columns: [
+            {
+              "className": 'details-control',
+              "orderable": false,
+              "data": null,
+              "defaultContent": ''
+            },
             { data: 'Id' },
             { data: 'FullTitle' },
             { data: 'FullArticle' },
@@ -17,60 +28,102 @@
         ],
         "columnDefs": [
             {
-                "targets": [ 4 ],
+                "targets": [5],
                 "visible": false,
                 "searchable": false
             },
 
             {
-                "targets": [0],
+                "targets": [1],
                 "searchable": false,
                 "sortable": false
             },
 
             {
-                "targets": [3],
+                "targets": [4],
                 "searchable": false,
                 "sortable": false
             },
 
             ],
 
-        "order": [[4, "desc"]],
+        "order": [[5, "desc"]],
 
-
-        //select: true,
 
         "createdRow": function (row, data, index) {
-            $('td:eq(0)', row).html('<a class="btn btn-default" href="Edit/' + data.Id + '"><span class="glyphicon glyphicon-edit"></span></button>');
-            $('td:eq(3)', row).html('<button class="btn btn-default" onclick="btnDelete(' + data.Id + ')"><span class="glyphicon glyphicon-trash"></span></button>');
+            $('td:eq(1)', row).html('<a class="btn btn-default" href="Edit/' + data.Id + '"><span class="glyphicon glyphicon-edit"></span></button>');
+            $('td:eq(4)', row).html('<button class="btn btn-default" onclick="btnDelete(' + data.Id + ')"><span class="glyphicon glyphicon-trash"></span></button>');
         },
+    });
 
 
+
+    //click to select
+    $('#myTable tbody').on('click', 'tr', function (e) {
+
+        if (e.ctrlKey) {
+            $(this).toggleClass('selected');
+
+            var index = selected.indexOf(table.row(this).data().Id);
+            if (index == -1) {
+                selected.push(table.row(this).data().Id);
+            } else {
+                selected.splice(index, 1);
+            }
+
+            if (selected.length != 0) {
+                $("#btn-delete").prop("disabled", false);
+                $("#btn-delete").css("color", "white");
+                $("#btn-delete").hover(function () {
+                    $(this).css("color", "white");
+                });
+            } else {
+                $("#btn-delete").prop("disabled", true);
+                $("#btn-delete").css("color", "grey");
+                $("#btn-delete").hover(function () {
+                    $(this).css("color", "grey");
+                });
+            }
+        }
+    });
+
+    function format(data) {
+        return '<div class="mySlick" style="width: 900px;">' +
+            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
+            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
+            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
+            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
+            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
+            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
+            '</div>'
+    }
+
+    $('#myTable tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row(tr);
+
+        if (row.child.isShown()) {
+            row.child.hide();
+            tr.removeClass('shown');
+            //$('#mySlick').slick('unslick');
+
+        }
+        else {
+            row.child(format(row.data())).show();
+            tr.addClass('shown');
+        $('.mySlick').slick({
+            accessibility: 'true',
+            arrows: 'true',
+            slidesToShow: 3,
+            slidesToScroll: 1
+        });
+
+        }
 
     });
 
-    $('#myTable tbody').on('click', 'tr', function () {
 
-        $(this).toggleClass('selected');
-
-        var index = selected.indexOf(table.row(this).data().Id);
-        if (index == -1) {
-            selected.push(table.row(this).data().Id);
-        } else {
-            selected.splice(index, 1);
-        }
-
-        if (selected.length != 0) {
-            $("#btn-delete").prop("disabled", false);
-            $("#btn-delete").css("color", "white");
-        } else {
-            $("#btn-delete").prop("disabled", true);
-            $("#btn-delete").css("color", "black");
-        }
-        
-    });
-
+    //DeleteMany confirmation
     $('#btn-delete').click(function () {
 
         $.confirm({
@@ -94,9 +147,7 @@
                                 success: function () {
                                     table.rows($('#myTable tr.active')).remove().draw(false);
                                 }
-                            })
-
-                                          
+                            })               
                     }
                 },
                 cancel: {}
@@ -104,8 +155,11 @@
         });
     });
 
+
 });
 
+
+//Delete confirmation
 function btnDelete(id) {
     $.confirm({
         title: 'Are you sure?',
