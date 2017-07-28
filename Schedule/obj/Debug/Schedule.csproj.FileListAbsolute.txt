@@ -334,7 +334,6 @@ C:\ScheduleGIT\Schedule\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.d
 C:\ScheduleGIT\Schedule\bin\Microsoft.Web.Infrastructure.dll
 C:\ScheduleGIT\Schedule\bin\Newtonsoft.Json.dll
 C:\ScheduleGIT\Schedule\bin\PagedList.dll
-C:\ScheduleGIT\Schedule\bin\PagedList.Mvc.dll
 C:\ScheduleGIT\Schedule\bin\Schedule.BLL.dll
 C:\ScheduleGIT\Schedule\bin\System.Web.Helpers.dll
 C:\ScheduleGIT\Schedule\bin\System.Web.Mvc.dll
@@ -350,7 +349,6 @@ C:\ScheduleGIT\Schedule\bin\EntityFramework.xml
 C:\ScheduleGIT\Schedule\bin\EntityFramework.SqlServer.xml
 C:\ScheduleGIT\Schedule\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\ScheduleGIT\Schedule\bin\PagedList.xml
-C:\ScheduleGIT\Schedule\bin\PagedList.Mvc.xml
 C:\ScheduleGIT\Schedule\bin\System.Web.Helpers.xml
 C:\ScheduleGIT\Schedule\bin\System.Web.Mvc.xml
 C:\ScheduleGIT\Schedule\bin\System.Web.Optimization.xml

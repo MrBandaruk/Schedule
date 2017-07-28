@@ -14,15 +14,6 @@ namespace Schedule
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryconf").Include(
-                        "~/Scripts/jquery-confirm.min.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryFU").Include(
-                        "~/Scripts/jQuery.FileUpload/jquery.fileupload.js"));
-
-            bundles.Add(new StyleBundle("~/Content/FU").Include(
-            "~/Content/jQuery.FileUpload/css/jquery.fileupload.css"));
-
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
@@ -37,6 +28,8 @@ namespace Schedule
             bundles.Add(new StyleBundle("~/Content/confirmCss").Include(
                 "~/Content/jquery-confirm.min.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryconf").Include(
+                        "~/Scripts/jquery-confirm.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/dataTables").Include(
                 "~/Content/dataTables/dataTables.bootstrap.min.css",
@@ -64,6 +57,21 @@ namespace Schedule
                 "~/Scripts/dataTables/buttons.bootstrap.min.js",
                 "~/Scripts/dataTables/dataTables.select.min.js",
                 "~/Scripts/jquery.redirect.js"));
+
+            bundles.Add(new StyleBundle("~/Content/jqueryUI").Include(
+                "~/Content/UI/jquery-ui.structure.min.css",
+                "~/Content/UI/jquery-ui.theme.min.css",
+                "~/Content/UI/jquery-ui.min.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/jqueryUI").Include(
+                "~/Scripts/UI/jquery-ui.js"));
+
+            bundles.Add(new StyleBundle("~/Content/jqueryWC").Include(
+                "~/Scripts/WeekCalendar/jquery.weekcalendar.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/jqueryWC").Include(
+                "~/Scripts/WeekCalendar/date.js",
+                "~/Scripts/WeekCalendar/jquery.weekcalendar.js"));
 
         }
     }

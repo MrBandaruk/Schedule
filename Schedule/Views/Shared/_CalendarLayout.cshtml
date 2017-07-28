@@ -8,7 +8,11 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryconf")
+    @Styles.Render("~/Content/jqueryUI")
+    @Scripts.Render("~/Scripts/jqueryUI")
+    @Styles.Render("~/Content/jqueryWC")
+    @Scripts.Render("~/Scripts/jqueryWC")
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,11 +28,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", null, new { style = "color: white" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", null, new { style = "color: white" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { style = "color: white" })</li>
-                    <li>@Html.ActionLink("Feedback", "Feedback", "Home", null, new { style = "color: white" })</li>
                     <li>@Html.ActionLink("News", "Index", "News", null, new { style = "color: white" })</li>
-                    <li>@Html.ActionLink("Calendar", "Index", "Calendar", null, new { style = "color: white" })</li>
                 </ul>
             </div>
         </div>
@@ -42,7 +42,6 @@
             <p>&copy; @DateTime.Now.Year - Schedule</p>
         </footer>
     </div>
-
 
 </body>
 </html>
