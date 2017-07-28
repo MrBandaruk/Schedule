@@ -73,6 +73,18 @@ namespace Schedule
                 "~/Scripts/WeekCalendar/date.js",
                 "~/Scripts/WeekCalendar/jquery.weekcalendar.js"));
 
+
+            //WC Tests
+            bundles.Add(new StyleBundle("~/Content/WC").Include(
+                "~/Content/WCTests/smoothness/jquery-ui-1.8.11.custom.css",
+                "~/Content/WCTests/jquery.weekcalendar.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/WC").Include(
+                "~/Scripts/WCTests/jquery-1.4.4.min.js",
+                "~/Scripts/WCTests/jquery-ui-1.8.11.custom.min.js",
+                "~/Scripts/WCTests/date.js",
+                "~/Scripts/WCTests/jquery.weekcalendar.js"));
+
         }
     }
 }

@@ -180,6 +180,7 @@
     <Content Include="Content\UI\jquery-ui.min.css" />
     <Content Include="Content\UI\jquery-ui.structure.min.css" />
     <Content Include="Content\UI\jquery-ui.theme.min.css" />
+    <Content Include="Content\WCTests\jquery.weekcalendar.css" />
     <Content Include="Content\WeekCalendar\jquery.weekcalendar.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
@@ -224,6 +225,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UI\jquery-ui.js" />
+    <Content Include="Scripts\WCTests\date.js" />
+    <Content Include="Scripts\WCTests\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\WCTests\jquery-ui-1.8.11.custom.min.js" />
+    <Content Include="Scripts\WCTests\jquery.weekcalendar.js" />
     <Content Include="Scripts\WeekCalendar\date.js" />
     <Content Include="Scripts\WeekCalendar\jquery.weekcalendar.js" />
     <Content Include="Web.config">
@@ -259,6 +264,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\UI\images\" />
+    <Folder Include="Content\WCTests\smoothness\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
