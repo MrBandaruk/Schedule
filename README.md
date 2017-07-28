@@ -2,16 +2,16 @@
 
 Schedule is an ASP.NET MVC 5 Web-Application.
 
--Feedback
+-Feedback:
 mailTo function
 
--News
+-News: 
 CRUD
 Paging
 Sorting
 Searching
 
--News Panel
+-News Panel:
 CRUD
 jQuery DataTables
 jQuery slick
@@ -19,7 +19,7 @@ Paging
 Sorting
 Searching
 
--Article
+-Article:
 jQuery slick
 
 -Calendar
