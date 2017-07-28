@@ -102,6 +102,12 @@ namespace Schedule.Controllers
             return File(images.FirstOrDefault().ImageItem, "image/jpeg");
         }
 
+        public ActionResult GetImagesIdByNewsId(int id)
+        {
+            var images = newsDbProv.GetImagesIdByNewsId(id);
+            return Json(new { success = true, images }, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult GetImageById(int id)
         {
             return File(newsDbProv.GetImageById(id).ImageItem, "image/jpeg");

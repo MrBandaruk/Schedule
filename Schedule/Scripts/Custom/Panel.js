@@ -87,14 +87,36 @@
         }
     });
 
+    function imgIds(Nid) {
+        var content = "";
+
+        $.ajax({
+            url: 'GetImagesIdByNewsId',
+            data: { id: Nid },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                for (var i = 0; i < data.images.length; i++) {
+                    content += '<div><img style="height: 250px; width: 373px" src="GetImageById/';
+                    content += data.images[i].Id;
+                    content += '" class="img-responsive"/></div>';
+                    
+                };
+                //alert(content);
+            }
+        });
+
+        return content;
+
+    };
+
+
     function format(data) {
-        return '<div class="mySlick" style="width: 1120px;">' +
-            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
-            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
-            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
-            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
-            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
-            '<div>' + '<img src="GetImagesByNewsId/' + data.Id + '" class="img-responsive"/>' + '</div>' +
+
+        var htmlText = imgIds(data.Id);
+
+        return '<div class="mySlick" style="width: 1120px; ">' +
+            htmlText +
             '</div>'
     }
 

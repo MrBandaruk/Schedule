@@ -82,6 +82,20 @@ namespace Schedule.BLL.Providers
 
             foreach (var dbItem in dbItems)
             {
+                result.Add(MapNewsImageDto(dbItem));
+            }
+
+            return result;
+        }
+
+        public List<NewsImageModelItem> GetImagesIdByNewsId(int id)
+        {
+            List<NewsImageModelItem> result = new List<NewsImageModelItem>();
+
+            var dbItems = dbProv.GetImagesByNewsId(id);
+
+            foreach (var dbItem in dbItems)
+            {
                 result.Add(MapModelItem(dbItem));
             }
 
@@ -223,6 +237,19 @@ namespace Schedule.BLL.Providers
                     Id = dbItem.Id,
                     ImageItem = dbItem.ImageItem,
                     NewsId = dbItem.NewsId
+                };
+            }
+
+            return null;
+        }
+
+        private NewsImageModelItem MapModelItemId (NewsImageDto dbItem)
+        {
+            if (dbItem != null)
+            {
+                return new NewsImageModelItem
+                {
+                    Id = dbItem.Id
                 };
             }
 

@@ -340,6 +340,24 @@ namespace Schedule.DAC
             return result;
         }
 
+        public List<NewsImageDto> GetImagesIdByNewsId(int id)
+        {
+            List<NewsImageDto> result = new List<NewsImageDto>();
+            using (var db = new DataBaseDataContext())
+            {
+
+                var allItems = db.FinalNewsImages.Where(x => x.NewsId == id).ToList();
+
+                foreach (var img in allItems)
+                {
+                    result.Add(MapDbIdToDto(img));
+                }
+
+            }
+
+            return result;
+        }
+
         #endregion
 
 
@@ -466,6 +484,19 @@ namespace Schedule.DAC
                     Id = dbItem.Id,
                     ImageItem = dbItem.ImageItem.ToArray(),
                     NewsId = dbItem.NewsId
+                };
+            }
+
+            return null;
+        }
+
+        private NewsImageDto MapDbIdToDto(FinalNewsImage dbItem)
+        {
+            if (dbItem != null)
+            {
+                return new NewsImageDto
+                {
+                    Id = dbItem.Id
                 };
             }
 
