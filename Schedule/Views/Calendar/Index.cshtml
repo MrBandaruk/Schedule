@@ -21,12 +21,30 @@
     
   $(document).ready(function() {
     $('#calendar').weekCalendar({
-      timeslotsPerHour: 6,
-      timeslotHeigh: 30,
-      hourLine: true,
-      data: eventData,
-      height: function($calendar) {
-        return $(window).height() - $('h1').outerHeight(true);
+      timeslotsPerHour: 6, //количество колонок на один час
+      timeslotHeigh: 100, //высота колонки часов в пикселях (не работает)
+      daysToShow: 6, 
+      firstDayOfWeek: 1, 
+      timeFormat: "h:i a",
+      dateFormat: "M d, Y",
+      showHeader: false, //показывать header (дату большими буквами)
+      buttons: false, //показывать кнопки (prev/today/next)
+      use24Hour: true,
+      businessHours: {start: 6, end: 20, limitDisplay: true}, //часы
+      shortMonths: ['Янв', 'Фев', 'Мрт', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+      longMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      shortDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+      longDays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+      timeSeparator: " до ",
+      newEventText: "Новое событие",
+      hourLine: true, //линия, которая показывает, который сейчас час
+      readonly: false,
+      startParam: "начало",
+      endParam: "конец",
+      preventDragOnEventCreation: true, //растягивание элемента при создании
+      data: eventData, //информация     
+      height: function($calendar) {  //высота
+          return $(window).height()- 70;
       },
       eventRender : function(calEvent, $event) {
         if (calEvent.end.getTime() < new Date().getTime()) {
@@ -34,26 +52,25 @@
           $event.find('.time').css({'backgroundColor': '#999', 'border':'1px solid #888'});
         }
       },
-      eventNew: function(calEvent, $event) {
-        displayMessage('<strong>Added event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
-        alert('You\'ve added a new event. You would capture this event, add the logic for creating a new event with your own fields, data and whatever backend persistence you require.');
+      eventNew: function(calEvent, $event) { //добавление нового события
+        alert('<strong>Added event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
       eventDrop: function(calEvent, $event) {
         displayMessage('<strong>Moved Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
-      eventResize: function(calEvent, $event) {
+      eventResize: function(calEvent, $event) {  //изменение размера события
         displayMessage('<strong>Resized Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
-      eventClick: function(calEvent, $event) {
+      eventClick: function(calEvent, $event) { //клик по событию
         displayMessage('<strong>Clicked Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
-      eventMouseover: function(calEvent, $event) {
+      eventMouseover: function(calEvent, $event) { //мышка над событем
         displayMessage('<strong>Mouseover Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
-      eventMouseout: function(calEvent, $event) {
+      eventMouseout: function(calEvent, $event) { //мышка убирается с события
         displayMessage('<strong>Mouseout Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
-      noEvents: function() {
+      noEvents: function() { //если запланированных событий нет
         displayMessage('There are no events for this week');
       }
     });

@@ -242,3 +242,14 @@ tr.shown td.details-control {
 .slick-initialized .slick-slide {
     overflow: hidden;
 }
+
+.wc-grid-timeslot-header,
+.wc-header .wc-time-column-header {
+    width: 70px !important;
+}
+
+.wc-time-header-cell {
+    padding-right: 10px !important;
+    margin: 0 auto !important;
+    
+}
