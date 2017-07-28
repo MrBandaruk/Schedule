@@ -28,12 +28,14 @@ namespace Schedule.Controllers
         [HttpPost]
         public ActionResult Create(BLL.Model.NewsViewModelItem item)
         {
+            
             for (var i = 0; i < Request.Files.Count; i++)
             {
                 var image = Request.Files[i];
 
+                
 
-                if (image != null)
+                if (image.ContentLength != 0)
                 {
                     byte[] imageData = null;
                     using (var binaryReader = new BinaryReader(image.InputStream))
@@ -41,6 +43,9 @@ namespace Schedule.Controllers
                         imageData = binaryReader.ReadBytes(image.ContentLength);
                         item.NewsImages.Add(new BLL.Model.NewsImageModelItem { NewsId = item.Id, ImageItem = imageData });
                     }
+                } else
+                {
+                    item.NewsImages = null;
                 }
 
 
@@ -77,7 +82,9 @@ namespace Schedule.Controllers
             {
                 x.Id,
                 x.FullTitle,
-                x.FullArticle
+                x.FullArticle,
+                x.ShortTitle,
+                x.ShortArticle
             });
 
             return Json(new
@@ -132,14 +139,12 @@ namespace Schedule.Controllers
         [HttpPost]
         public ActionResult Edit(BLL.Model.NewsViewModelItem item)
         {
-            if (Request.Files.Count != 0)
-            {
                 for (var i = 0; i < Request.Files.Count; i++)
                 {
                     var image = Request.Files[i];
 
 
-                    if (image != null)
+                    if (image.ContentLength != 0)
                     {
                         byte[] imageData = null;
                         using (var binaryReader = new BinaryReader(image.InputStream))
@@ -147,12 +152,13 @@ namespace Schedule.Controllers
                             imageData = binaryReader.ReadBytes(image.ContentLength);
                             item.NewsImages.Add(new BLL.Model.NewsImageModelItem { NewsId = item.Id, ImageItem = imageData });
                         }
+                    } else
+                    {
+                        item.NewsImages = null;
                     }
+
                 }
-            } else
-            {
-                item.NewsImages = null;
-            }
+
 
 
             newsDbProv.Edit(item);

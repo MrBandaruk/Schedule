@@ -20,10 +20,13 @@ namespace Schedule.DAC
             {
                 var item = MapDtoToDb(newsItem);
 
-                var images = newsItem.NewsImages.Select(MapNewsImage).ToList();
+                if (newsItem.NewsImages != null)
+                {
+                    var images = newsItem.NewsImages.Select(MapNewsImage).ToList();
+                    item.FinalNewsImages.AddRange(images);
+                }
 
                 db.FinalNews.InsertOnSubmit(item);
-                item.FinalNewsImages.AddRange(images);
                 db.SubmitChanges();
             }
         }

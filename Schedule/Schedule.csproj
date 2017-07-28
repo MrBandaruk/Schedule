@@ -309,6 +309,8 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Panel.cshtml" />
     <Content Include="Views\Shared\_IndexLayout.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Calendar\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

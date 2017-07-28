@@ -239,3 +239,6 @@ tr.shown td.details-control {
     background-color: black;
 }
 
+.slick-initialized .slick-slide {
+    overflow: hidden;
+}

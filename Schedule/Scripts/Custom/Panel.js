@@ -20,10 +20,12 @@
               "defaultContent": ''
             },
             { data: 'Id' },
+            { data: 'ShortTitle' },
+            { data: 'ShortArticle' },
+            { data: 'Id' },
+            { data: 'Id' },
             { data: 'FullTitle' },
             { data: 'FullArticle' },
-            { data: 'Id' },
-            { data: 'Id' },
             
         ],
         "columnDefs": [
@@ -41,6 +43,12 @@
 
             {
                 "targets": [4],
+                "searchable": false,
+                "sortable": false
+            },
+            {
+                "targets": [6, 7],
+                "visible": false,
                 "searchable": false,
                 "sortable": false
             },
@@ -107,7 +115,6 @@
         });
 
         return content;
-
     };
 
 
@@ -116,8 +123,10 @@
         var htmlText = imgIds(data.Id);
 
         return '<div class="mySlick" style="width: 1120px; ">' +
-            htmlText +
-            '</div>'
+                    htmlText +
+               '</div>' +
+             '<p>' + data.FullTitle + '</p>' +
+             '<p>' + data.FullArticle + '</p>'
     }
 
     $('#myTable tbody').on('click', 'td.details-control', function () {
