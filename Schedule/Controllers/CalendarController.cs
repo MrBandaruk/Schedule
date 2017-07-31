@@ -14,11 +14,17 @@ namespace Schedule.Controllers
         }
 
 
-        public ActionResult CreateEvent(BLL.Model.CalendarModel item)
+        public ActionResult CreateEvent(string title, string additional, DateTime startDate, DateTime endDate)
         {
+            BLL.Model.CalendarModel item = new BLL.Model.CalendarModel {
+                Title = title,
+                Additional = additional,
+                StartDate = startDate,
+                EndDate = endDate
+            };
             var al = item;
             var gg = al;
-            return RedirectToAction("Index", "Calendar");
+            return Json( new { status = "success" }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult FullIndex()

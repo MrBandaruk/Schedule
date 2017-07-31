@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Schedule" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Schedule;Integrated Security=True" SettingsObjectName="Schedule.DAC.Properties.Settings" SettingsPropertyName="ScheduleConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.FinalNews" Member="FinalNews">
-    <Type Name="FinalNew">
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ShortTitle" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
-      <Column Name="FullTitle" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
-      <Column Name="ShortArticle" Type="System.String" DbType="NVarChar(410) NOT NULL" CanBeNull="false" />
-      <Column Name="FullArticle" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="FinalNew_FinalNewsImage" Member="FinalNewsImages" ThisKey="Id" OtherKey="NewsId" Type="FinalNewsImage" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Additional" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.NewsV" Member="NewsVs">
@@ -16,6 +15,16 @@
       <Column Name="Title" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
       <Column Name="Body" Type="System.String" DbType="NVarChar(410) NOT NULL" CanBeNull="false" />
       <Association Name="NewsV_NewsImage" Member="NewsImages" ThisKey="Id" OtherKey="NewsId" Type="NewsImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinalNews" Member="FinalNews">
+    <Type Name="FinalNew">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShortTitle" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="FullTitle" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ShortArticle" Type="System.String" DbType="NVarChar(410) NOT NULL" CanBeNull="false" />
+      <Column Name="FullArticle" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="FinalNew_FinalNewsImage" Member="FinalNewsImages" ThisKey="Id" OtherKey="NewsId" Type="FinalNewsImage" />
     </Type>
   </Table>
   <Table Name="dbo.FinalNewsImages" Member="FinalNewsImages">

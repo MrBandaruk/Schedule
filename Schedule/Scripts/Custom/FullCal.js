@@ -100,31 +100,47 @@
             $.confirm({
                 title: 'Add new event.',
                 content: '' +
+                '<form id="eventData">'+
                 '<div class="form-group">' +
                 '<label>Title</label>' +
-                '<input type="text" placeholder="Event title.." class="name form-control" required />' +
+                '<input type="text" placeholder="Event title.." class="name form-control" name="Title" required />' +
                 '<br />' +
                 '<label>Additional information</label>' +               
-                '<textarea placeholder="Add some information about event" class="name form-control" required /> </textarea>' +
-                '</div>',
+                '<textarea placeholder="Add some information about event" name="Additional" class="info form-control" required /> </textarea>' +
+                '<br />' +
+                '<label>Start date</label>' +
+                '<input type="date" value="' + formatDate(date._d) + '" class="startDate form-control" name="StartDate" required />' +
+                '<br />' +
+                '<label>End date</label>' +
+                 '<input type="date" value="' + formatDate(date._d) + '" class="endDate form-control" name="EndDate" required />' +
+                '</div>' + 
+                '</form>',
+
                 buttons: {
                     formSubmit: {
                         text: 'Save',
                         btnClass: 'btn-success',
                         action: function () {
 
-                            var name = this.$content.find('.name').val();
+                            var formData = $('eventData').serialize();
+                            var titleF = this.$content.find('.name').val();
+                            var additionalF = this.$content.find('.info').val();
+                            var startDateF = this.$content.find('.startDate').val();
+                            var endDateF = this.$content.find('.endDate').val();
+
+
 
                             $.ajax({
                                 url: 'CreateEvent',
-                                
+                                data: { title: titleF, additional: additionalF, startDate: startDateF, endDate: endDateF},
+                                dataType: "JSON",
                                 success: function () {
-                                    
+                                    //$.alert('Your name is ' + name);
                                 }
                             });
 
 
-                           // $.alert('Your name is ' + name);
+                            
                         }
                             
                     },
@@ -139,4 +155,16 @@
 
     });
 
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-');
+    };
 });
