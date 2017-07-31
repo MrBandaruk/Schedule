@@ -8,23 +8,34 @@ namespace Schedule.Controllers
 {
     public class CalendarController : Controller
     {
+        public BLL.Providers.CalendarDbProvider calDbProv = new BLL.Providers.CalendarDbProvider();
+
+        [HttpGet]
         public ActionResult Index()
-        {
+        {           
             return View();
+        }
+
+        public ActionResult EventsData()
+        {
+            
+            return Json(new { calDbProv.GetAll().Events }, JsonRequestBehavior.AllowGet);
         }
 
 
         public ActionResult CreateEvent(string title, string additional, DateTime startDate, DateTime endDate)
         {
-            BLL.Model.CalendarModel item = new BLL.Model.CalendarModel {
+            BLL.Model.CalendarModelItem item = new BLL.Model.CalendarModelItem {
                 Title = title,
                 Additional = additional,
                 StartDate = startDate,
                 EndDate = endDate
             };
-            var al = item;
-            var gg = al;
-            return Json( new { status = "success" }, JsonRequestBehavior.AllowGet);
+
+            calDbProv.Add(item);
+
+
+            return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult FullIndex()

@@ -43,6 +43,7 @@
     <Compile Include="Model\CalendarModel.cs" />
     <Compile Include="Model\NewsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CalendarDbProvider.cs" />
     <Compile Include="Providers\NewsDbProvider.cs" />
   </ItemGroup>
   <ItemGroup>

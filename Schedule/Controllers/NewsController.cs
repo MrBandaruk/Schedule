@@ -12,10 +12,6 @@ namespace Schedule.Controllers
     {
         public BLL.Providers.NewsDbProvider newsDbProv = new BLL.Providers.NewsDbProvider();
 
-
-
-
-
         #region Create
 
         [HttpGet]
