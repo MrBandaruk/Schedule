@@ -5,7 +5,7 @@
 
     function GetCalData() {
         $.ajax({
-            url: 'EventsData',
+            url: 'Calendar/EventsData',
             dataType: "json",
             async: false,
             success: function (data) {
@@ -146,7 +146,7 @@
                             //var fDate = JSON.stringify($('#eventData').serialize());
 
                             $.ajax({
-                                url: 'CreateEvent',
+                                url: 'Calendar/CreateEvent',
                                 data: { title: titleF, additional: additionalF, startDate: startDateF, endDate: endDateF},
                                 dataType: "JSON",
                                 success: function (data) {
@@ -167,7 +167,7 @@
             var item = [];
 
             $.ajax({
-                url: 'EditEvent',
+                url: 'Calendar/EditEvent',
                 data: {id: calEvent.id},
                 dataType: "json",
                 method: "GET",
@@ -230,8 +230,35 @@
                         });
                         
                     },
-                    delte: {},
-                    cancel: {}
+                    delete: function () {
+                        $.confirm({
+                            title: 'Are you sure?',
+                            content: 'Are you sure, you want to delete this event?',
+                            autoClose: 'cancel|9000',
+                            theme: 'material',
+                            type: 'red',
+                            buttons: {
+                                confirm: {
+                                    text: 'Delete',
+                                    btnClass: 'btn-danger',
+                                    keys: ['enter'],
+                                    action: function () {                                       
+                                        $.ajax({
+                                            url: 'Calendar/DeleteEvent',
+                                            data: { id: item.Id },
+                                            traditional: true,
+                                            dataType: "json",
+                                            success: function () {
+                                                $('#calendar').fullCalendar('removeEvents', calEvent.id);
+                                            }
+                                        })
+                                    }
+                                },
+                                cancel: {}
+                                }
+                        });
+                    },
+                    close: {}
                     }
             });
 

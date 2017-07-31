@@ -266,10 +266,10 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Panel.cshtml" />
     <Content Include="Views\Shared\_IndexLayout.cshtml" />
-    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Calendar\WCIndex.cshtml" />
     <Content Include="Views\Calendar\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_CalendarLayout.cshtml" />
-    <Content Include="Views\Calendar\FullIndex.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

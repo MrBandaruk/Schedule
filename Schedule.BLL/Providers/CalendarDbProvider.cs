@@ -48,6 +48,10 @@ namespace Schedule.BLL.Providers
 
         #region Delete
 
+        public void Delete(int id)
+        {
+            dbProv.Delete(id);
+        } 
 
         #endregion
 

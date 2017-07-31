@@ -10,31 +10,8 @@ namespace Schedule.Controllers
     {
         public BLL.Providers.CalendarDbProvider calDbProv = new BLL.Providers.CalendarDbProvider();
 
-        [HttpGet]
-        public ActionResult Index()
-        {           
-            return View();
-        }
 
-        public ActionResult EventsData()
-        {          
-            return Json(new { calDbProv.GetAll().Events }, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
-        public ActionResult EditEvent(int id)
-        {
-            var item = calDbProv.GetById(id);
-            return Json(new { item }, JsonRequestBehavior.AllowGet);
-        }
-
-
-        //[HttpPost]
-        //public ActionResult EditEvent(?? item)
-        //{
-        //    calDbProv.Update();
-        //    return Json(new { ?? }, JsonRequestBehavior.AllowGet);
-        //}
+        #region Create
 
         public ActionResult CreateEvent(string title, string additional, DateTime startDate, DateTime endDate)
         {
@@ -51,9 +28,64 @@ namespace Schedule.Controllers
             return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult FullIndex()
+        #endregion
+
+
+        #region Read
+
+        [HttpGet]
+        public ActionResult Index()
+        {           
+            return View();
+        }
+
+        public ActionResult EventsData()
+        {          
+            return Json(new { calDbProv.GetAll().Events }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult WCIndex()
         {
             return View();
         }
+
+        #endregion
+
+
+        #region Update
+
+        [HttpGet]
+        public ActionResult EditEvent(int id)
+        {
+            var item = calDbProv.GetById(id);
+            return Json(new { item }, JsonRequestBehavior.AllowGet);
+        }
+
+        //[HttpPost]
+        //public ActionResult EditEvent(?? item)
+        //{
+        //    calDbProv.Update();
+        //    return Json(new { ?? }, JsonRequestBehavior.AllowGet);
+        //}
+
+        #endregion
+
+
+        #region Delete
+
+        public ActionResult DeleteEvent(int id)
+        {
+            calDbProv.Delete(id);
+
+            return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+
+
+
+
+
     }
 }

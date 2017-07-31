@@ -43,10 +43,6 @@ namespace Schedule.DAC
 
         }
 
-        #endregion
-
-
-        #region Update
 
         public CalendarDtoItem GetById(int id)
         {
@@ -61,8 +57,25 @@ namespace Schedule.DAC
         #endregion
 
 
+        #region Update
+
+
+
+        #endregion
+
+
         #region Delete
 
+        public void Delete(int id)
+        {
+            using (var db = new DataBaseDataContext())
+            {
+                var item = db.Events.Where(i => i.Id == id).FirstOrDefault();
+                db.Events.DeleteOnSubmit(item);
+
+                db.SubmitChanges();
+            }
+        }
 
         #endregion
 

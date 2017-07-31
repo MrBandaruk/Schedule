@@ -1,97 +1,22 @@
-﻿<link rel="stylesheet" href="~/Content/WCTests/WCCSS.css" />
+﻿@*@model Schedule.BLL.Model.CalendarModel*@
+@{ 
+    ViewBag.Title = "Calendar";
+}
 
-<script type='text/javascript'>
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/confirmCss")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryconf")
+@Scripts.Render("~/bundles/bootstrap")
 
-  var year = new Date().getFullYear();
-  var month = new Date().getMonth();
-  var day = new Date().getDate();
+<link rel="stylesheet" href="~/Content/FullCalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="~/Content/FullCalendar/scheduler.min.css" />
 
-  var eventData = {
-    events : [
-      {'id':1, 'start': new Date(year, month, day, 12), 'end': new Date(year, month, day, 13, 35),'title':'Lunch with Mike'},
-      {'id':2, 'start': new Date(year, month, day, 14), 'end': new Date(year, month, day, 14, 45),'title':'Dev Meeting'},
-      {'id':3, 'start': new Date(year, month, day + 1, 18), 'end': new Date(year, month, day + 1, 18, 45),'title':'Hair cut'},
-      {'id':4, 'start': new Date(year, month, day - 1, 8), 'end': new Date(year, month, day - 1, 9, 30),'title':'Team breakfast'},
-      {'id':5, 'start': new Date(year, month, day + 1, 14), 'end': new Date(year, month, day + 1, 15),'title':'Product showcase'}
-    ]
-  };
-    
-  $(document).ready(function() {
-    $('#calendar').weekCalendar({
-      timeslotsPerHour: 6, //количество колонок на один час
-      timeslotHeigh: 100, //высота колонки часов в пикселях (не работает)
-      daysToShow: 6, 
-      firstDayOfWeek: 1, 
-      timeFormat: "h:i a",
-      dateFormat: "M d, Y",
-      showHeader: false, //показывать header (дату большими буквами)
-      buttons: false, //показывать кнопки (prev/today/next)
-      use24Hour: true,
-      businessHours: {start: 6, end: 20, limitDisplay: true}, //часы
-      shortMonths: ['Янв', 'Фев', 'Мрт', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-      longMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      shortDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-      longDays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-      timeSeparator: " до ",
-      newEventText: "Новое событие",
-      hourLine: true, //линия, которая показывает, который сейчас час
-      readonly: false,
-      startParam: "начало",
-      endParam: "конец",
-      preventDragOnEventCreation: true, //растягивание элемента при создании
-      data: eventData, //информация     
-      height: function($calendar) {  //высота
-          return $(window).height()- 70;
-      },
-      eventRender : function(calEvent, $event) {
-        if (calEvent.end.getTime() < new Date().getTime()) {
-          $event.css('backgroundColor', '#aaa');
-          $event.find('.time').css({'backgroundColor': '#999', 'border':'1px solid #888'});
-        }
-      },
-      eventNew: function (calEvent, $event) { //добавление нового события
-        
-          $.ajax({
-              url: 'CreateEvent',
-              data: { item: calEvent },
-              success: function (data) {
-                  //alert(content);
-              }
-          });
+<script src="~/Scripts/FullCalendar/moment.min.js" type="text/javascript"></script>
+<script src="~/Scripts/FullCalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="~/Scripts/FullCalendar/scheduler.min.js" type="text/javascript"></script>
+
+<script src="~/Scripts/Custom/FullCal.js"></script>
 
 
-          calEvent.title = prompt('Title');
-        alert('<strong>Added event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
-      },
-      eventDrop: function (calEvent, $event) {
-          
-       // displayMessage('<strong>Moved Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
-      },
-      eventResize: function(calEvent, $event) {  //изменение размера события
-       // displayMessage('<strong>Resized Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
-      },
-      eventClick: function(calEvent, $event) { //клик по событию
-       // displayMessage('<strong>Clicked Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
-      },
-      eventMouseover: function(calEvent, $event) { //мышка над событем
-        //displayMessage('<strong>Mouseover Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
-      },
-      eventMouseout: function(calEvent, $event) { //мышка убирается с события
-       // displayMessage('<strong>Mouseout Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
-      },
-      noEvents: function() { //если запланированных событий нет
-        //displayMessage('There are no events for this week');
-      }
-    });
-
-    function displayMessage(message) {
-      $('#message').html(message).fadeIn();
-    }
-
-    $('<div id="message" class="ui-corner-all"></div>').prependTo($('body'));
-  });
-
-</script>
-
-<div id='calendar'></div>
-
+<div id="calendar"></div>
