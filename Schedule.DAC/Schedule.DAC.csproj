@@ -55,6 +55,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBase.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Dto\CalendarDto.cs" />
     <Compile Include="Dto\NewsDto.cs" />
     <Compile Include="Providers\NewsDbProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

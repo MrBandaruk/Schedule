@@ -171,6 +171,9 @@
     <Content Include="Content\dataTables\dataTables.bootstrap.min.css" />
     <Content Include="Content\dataTables\editor.bootstrap.min.css" />
     <Content Include="Content\dataTables\select.bootstrap.min.css" />
+    <Content Include="Content\FullCalendar\fullcalendar.min.css" />
+    <Content Include="Content\FullCalendar\fullcalendar.print.min.css" />
+    <Content Include="Content\FullCalendar\scheduler.min.css" />
     <Content Include="Content\Images\373-zima-sneg-doroga-oboi-priroda-1366x768.jpg" />
     <Content Include="Content\Images\7-beloe-pero-makro-oboi-1366x768.jpg" />
     <Content Include="Content\Images\8-trava-makro-oboi-1366x768.jpg" />
@@ -181,6 +184,7 @@
     <Content Include="Content\UI\jquery-ui.structure.min.css" />
     <Content Include="Content\UI\jquery-ui.theme.min.css" />
     <Content Include="Content\WCTests\jquery.weekcalendar.css" />
+    <Content Include="Content\WCTests\WCCSS.css" />
     <Content Include="Content\WeekCalendar\jquery.weekcalendar.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
@@ -192,6 +196,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Custom\Feedback.js" />
+    <Content Include="Scripts\Custom\FullCal.js" />
     <Content Include="Scripts\Custom\Index.js" />
     <Content Include="Scripts\Custom\isDirty.js" />
     <Content Include="Scripts\Custom\NewsPanel.js" />
@@ -208,6 +213,8 @@
     <Content Include="Scripts\dataTables\dataTables.select.min.js" />
     <Content Include="Scripts\dataTables\editor.bootstrap.min.js" />
     <Content Include="Scripts\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\FullCalendar\fullcalendar.min.js" />
+    <Content Include="Scripts\FullCalendar\scheduler.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -231,6 +238,7 @@
     <Content Include="Scripts\WCTests\jquery.weekcalendar.js" />
     <Content Include="Scripts\WeekCalendar\date.js" />
     <Content Include="Scripts\WeekCalendar\jquery.weekcalendar.js" />
+    <Content Include="Scripts\FullCalendar\moment.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -260,6 +268,7 @@
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Calendar\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_CalendarLayout.cshtml" />
+    <Content Include="Views\Calendar\FullIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

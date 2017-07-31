@@ -1,7 +1,4 @@
-﻿<style type='text/css'>
-
-
-</style>
+﻿<link rel="stylesheet" href="~/Content/WCTests/WCCSS.css" />
 
 <script type='text/javascript'>
 
@@ -52,26 +49,38 @@
           $event.find('.time').css({'backgroundColor': '#999', 'border':'1px solid #888'});
         }
       },
-      eventNew: function(calEvent, $event) { //добавление нового события
+      eventNew: function (calEvent, $event) { //добавление нового события
+        
+          $.ajax({
+              url: 'CreateEvent',
+              data: { item: calEvent },
+              success: function (data) {
+                  //alert(content);
+              }
+          });
+
+
+          calEvent.title = prompt('Title');
         alert('<strong>Added event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
-      eventDrop: function(calEvent, $event) {
-        displayMessage('<strong>Moved Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
+      eventDrop: function (calEvent, $event) {
+          
+       // displayMessage('<strong>Moved Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
       eventResize: function(calEvent, $event) {  //изменение размера события
-        displayMessage('<strong>Resized Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
+       // displayMessage('<strong>Resized Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
       eventClick: function(calEvent, $event) { //клик по событию
-        displayMessage('<strong>Clicked Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
+       // displayMessage('<strong>Clicked Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
       eventMouseover: function(calEvent, $event) { //мышка над событем
-        displayMessage('<strong>Mouseover Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
+        //displayMessage('<strong>Mouseover Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
       eventMouseout: function(calEvent, $event) { //мышка убирается с события
-        displayMessage('<strong>Mouseout Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
+       // displayMessage('<strong>Mouseout Event</strong><br/>Start: ' + calEvent.start + '<br/>End: ' + calEvent.end);
       },
       noEvents: function() { //если запланированных событий нет
-        displayMessage('There are no events for this week');
+        //displayMessage('There are no events for this week');
       }
     });
 

@@ -12,5 +12,18 @@ namespace Schedule.Controllers
         {
             return View();
         }
+
+
+        public ActionResult CreateEvent(BLL.Model.CalendarModel item)
+        {
+            var al = item;
+            var gg = al;
+            return RedirectToAction("Index", "Calendar");
+        }
+
+        public ActionResult FullIndex()
+        {
+            return View();
+        }
     }
 }
