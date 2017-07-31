@@ -31,6 +31,12 @@ namespace Schedule.BLL.Providers
             return MapDtoToModel(dbProv.GetAll());
         }
 
+
+        public CalendarModelItem GetById(int id)
+        {
+            return MapDtoToModelItem(dbProv.GetById(id));
+        }
+
         #endregion
 
 
@@ -56,6 +62,25 @@ namespace Schedule.BLL.Providers
             if (dbItem != null)
             {
                 return new CalendarDtoItem
+                {
+                    Id = dbItem.Id,
+                    Title = dbItem.Title,
+                    Additional = dbItem.Additional,
+                    StartDate = dbItem.StartDate,
+                    EndDate = dbItem.EndDate,
+                };
+
+            }
+
+            return null;
+        }
+
+
+        private CalendarModelItem MapDtoToModelItem(CalendarDtoItem dbItem)
+        {
+            if (dbItem != null)
+            {
+                return new CalendarModelItem
                 {
                     Id = dbItem.Id,
                     Title = dbItem.Title,

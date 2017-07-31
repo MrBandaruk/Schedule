@@ -17,11 +17,24 @@ namespace Schedule.Controllers
         }
 
         public ActionResult EventsData()
-        {
-            
+        {          
             return Json(new { calDbProv.GetAll().Events }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult EditEvent(int id)
+        {
+            var item = calDbProv.GetById(id);
+            return Json(new { item }, JsonRequestBehavior.AllowGet);
+        }
+
+
+        //[HttpPost]
+        //public ActionResult EditEvent(?? item)
+        //{
+        //    calDbProv.Update();
+        //    return Json(new { ?? }, JsonRequestBehavior.AllowGet);
+        //}
 
         public ActionResult CreateEvent(string title, string additional, DateTime startDate, DateTime endDate)
         {

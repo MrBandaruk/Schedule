@@ -48,6 +48,15 @@ namespace Schedule.DAC
 
         #region Update
 
+        public CalendarDtoItem GetById(int id)
+        {
+            using (var db = new DataBaseDataContext())
+            {
+                var dbItem = db.Events.Where(x => x.Id == id).FirstOrDefault();
+
+                return MapDbToDto(dbItem);
+            }
+        }
 
         #endregion
 
@@ -86,7 +95,25 @@ namespace Schedule.DAC
             {
                 return new CalendarViewDto
                 {
-                    Events = dbItem.ConvertAll(x => new CalendarViewDtoItem() { id = x.Id, title = x.Title, start = x.StartDate})
+                    Events = dbItem.ConvertAll(x => new CalendarViewDtoItem() { id = x.Id, title = x.Title, start = x.StartDate.ToUniversalTime()})
+                };
+            }
+
+            return null;
+        }
+
+
+        private CalendarDtoItem MapDbToDto(Event dbItem)
+        {
+            if (dbItem != null)
+            {
+                return new CalendarDtoItem
+                {
+                    Id = dbItem.Id,
+                    Title = dbItem.Title,
+                    Additional = dbItem.Additional,
+                    StartDate = dbItem.StartDate,
+                    EndDate = dbItem.EndDate
                 };
             }
 

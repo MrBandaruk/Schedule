@@ -13,6 +13,8 @@
             }
         });
     };
+
+
     GetCalData();
 
     $('#calendar').fullCalendar({
@@ -43,7 +45,7 @@
         maxTime: "20:00",
         contentHeight: 685,
         columnFormat: 'dddd',
-
+        timezone: 'local',
 
         defaultDate: now,
         navLinks: true, // can click day/week names to navigate views
@@ -136,13 +138,12 @@
                         btnClass: 'btn-success',
                         action: function () {
 
-                            var formData = $('eventData').serialize();
+                            //var formData = $('eventData').serialize();
                             var titleF = this.$content.find('.name').val();
                             var additionalF = this.$content.find('.info').val();
                             var startDateF = this.$content.find('.startDate').val();
                             var endDateF = this.$content.find('.endDate').val();
                             //var fDate = JSON.stringify($('#eventData').serialize());
-
 
                             $.ajax({
                                 url: 'CreateEvent',
@@ -151,21 +152,90 @@
                                 success: function (data) {
                                     var event = { id: data.item.Id, title: data.item.Title, start: toDateFromJson(data.item.EndDate) }
                                     $('#calendar').fullCalendar('renderEvent', event, true);
+                                    //$('#calendar').fullCalendar('refetchEvents');
                                 }
-                            });
-
-
-                            
-                        }
-                            
-                    },
-                    
+                            });                            
+                        }                            
+                    },                  
                     cancel: {}, 
             },
           });
+        },
 
-        }
+        eventClick: function(calEvent, jsEvent, view) {
 
+            var item = [];
+
+            $.ajax({
+                url: 'EditEvent',
+                data: {id: calEvent.id},
+                dataType: "json",
+                method: "GET",
+                async: false,
+                success: function (data) {
+                    item = data.item;
+                }
+            });
+
+            $.alert({
+                title: item.Title,
+                content: item.Additional,
+                buttons: {
+                    Edit: function () {
+                        $.confirm({
+                            title: 'Edit event.',
+                            content: '' +
+                            '<form id="eventData">' +
+                            '<div class="form-group">' +
+                            '<label>Title</label>' +
+                            '<input type="text" value="'+ item.Title + '" class="name form-control" name="Title" autocomplete="off" required />' +
+                            '<br />' +
+                            '<label>Additional information</label>' +
+                            '<textarea name="Additional" class="info form-control" autocomplete="off" required >'+ item.Additional +'</textarea>' +
+                            '<br />' +
+                            '<label>Start date</label>' +
+                            '<input type="date" value="' + '" class="startDate form-control" name="StartDate" required />' +
+                            '<br />' +
+                            '<label>End date</label>' +
+                             '<input type="date" value="' + '" class="endDate form-control" name="EndDate" required />' +
+                            '</div>' +
+                            '</form>',
+
+                            buttons: {
+                                formSubmit: {
+                                    text: 'Save',
+                                    btnClass: 'btn-success',
+                                    action: function () {
+
+                                        //var formData = $('eventData').serialize();
+                                        var titleF = this.$content.find('.name').val();
+                                        var additionalF = this.$content.find('.info').val();
+                                        var startDateF = this.$content.find('.startDate').val();
+                                        var endDateF = this.$content.find('.endDate').val();
+                                        //var fDate = JSON.stringify($('#eventData').serialize());
+
+                                        //$.ajax({
+                                        //    url: 'CreateEvent',
+                                        //    data: { title: titleF, additional: additionalF, startDate: startDateF, endDate: endDateF },
+                                        //    dataType: "JSON",
+                                        //    success: function (data) {
+                                        //        var event = { id: data.item.Id, title: data.item.Title, start: toDateFromJson(data.item.EndDate) }
+                                        //        $('#calendar').fullCalendar('renderEvent', event, true);
+                                        //    }
+                                        //});
+                                    }
+                                },
+                                cancel: {},
+                            },
+                        });
+                        
+                    },
+                    delte: {},
+                    cancel: {}
+                    }
+            });
+
+    }
 
 
     });
