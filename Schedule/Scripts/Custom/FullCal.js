@@ -92,8 +92,13 @@
 
                 onContentReady: function () {
                     // when content is fetched
-                    $('#datetimepicker1').datetimepicker();
-                    $('#datetimepicker2').datetimepicker();
+                    $('#datetimepicker1').datetimepicker({
+                        locale: 'ru',
+                        //orientation: "bottom auto"
+                    });
+                    $('#datetimepicker2').datetimepicker({
+                        locale: 'ru'
+                    });
                 },
 
                 buttons: {
