@@ -42,6 +42,10 @@ namespace Schedule.BLL.Providers
 
         #region Update
 
+        public void Update(CalendarModelItem dbItem)
+        {
+            dbProv.Update(MapDtoToDb(dbItem));
+        }
 
         #endregion
 

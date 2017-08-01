@@ -40,7 +40,7 @@ namespace Schedule.DAC
         public NewsDtoModel GetAll(string sortOrder, string searchString, int pageSize, int page)
         {
             List<NewsDtoItem> result = new List<NewsDtoItem>();
-            IQueryable<FinalNew> dbItems;
+            IQueryable<FinalNews> dbItems;
             PageInfo pageInfo;
             
 
@@ -155,7 +155,7 @@ namespace Schedule.DAC
         //data for dataTables jquery
         public DataTablesDtoModel GetAllData(int start, int length, int sortCol, string sortType, string search)
         {
-            IQueryable<FinalNew> dbItems;            
+            IQueryable<FinalNews> dbItems;            
             using (var db = new DataBaseDataContext())
             {
                 var allItems = db.FinalNews.Count();
@@ -420,11 +420,11 @@ namespace Schedule.DAC
 
         #region Helpers
 
-        private FinalNew MapDtoToDb(NewsDtoItem dbItem)
+        private FinalNews MapDtoToDb(NewsDtoItem dbItem)
         {
             if (dbItem != null)
             {
-                return new FinalNew
+                return new FinalNews
                 {
                     Id = dbItem.Id,
                     ShortTitle = dbItem.ShortTitle,
@@ -438,13 +438,13 @@ namespace Schedule.DAC
         }
 
 
-        private FinalNewsImage MapNewsImage(NewsImageDto x)
+        private FinalNewsImages MapNewsImage(NewsImageDto x)
         {
-            return new FinalNewsImage() { Id = x.Id, ImageItem = x.ImageItem, NewsId = x.NewsId };
+            return new FinalNewsImages() { Id = x.Id, ImageItem = x.ImageItem, NewsId = x.NewsId };
         }
 
 
-        private NewsDtoItem MapDbToDto(FinalNew dbItem)
+        private NewsDtoItem MapDbToDto(FinalNews dbItem)
         {
             if (dbItem != null)
             {
@@ -463,7 +463,7 @@ namespace Schedule.DAC
         }
 
 
-        private DataTablesDtoModel MapDbToDto(List<FinalNew> dbItem, int allItems)
+        private DataTablesDtoModel MapDbToDto(List<FinalNews> dbItem, int allItems)
         {
             if (dbItem != null)
             {
@@ -478,7 +478,7 @@ namespace Schedule.DAC
         }
 
 
-        private NewsImageDto MapDbToDto(FinalNewsImage dbItem)
+        private NewsImageDto MapDbToDto(FinalNewsImages dbItem)
         {
             if (dbItem != null)
             {
@@ -493,7 +493,7 @@ namespace Schedule.DAC
             return null;
         }
 
-        private NewsImageDto MapDbIdToDto(FinalNewsImage dbItem)
+        private NewsImageDto MapDbIdToDto(FinalNewsImages dbItem)
         {
             if (dbItem != null)
             {

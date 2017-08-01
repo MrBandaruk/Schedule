@@ -53,12 +53,12 @@ namespace Schedule.Controllers
             return Json(new { item }, JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpPost]
-        //public ActionResult EditEvent(?? item)
-        //{
-        //    calDbProv.Update();
-        //    return Json(new { ?? }, JsonRequestBehavior.AllowGet);
-        //}
+        [HttpPost]
+        public ActionResult EditEvent(BLL.Model.CalendarModelItem item)
+        {
+            calDbProv.Update(item);
+            return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
+        }
 
         #endregion
 

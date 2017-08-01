@@ -20,7 +20,7 @@ namespace Schedule.DAC
             {
                 var item = MapDtoToDb(eventItem);
 
-                db.Events.InsertOnSubmit(item);
+                db.Event.InsertOnSubmit(item);
                 db.SubmitChanges();
             }
         }
@@ -35,7 +35,7 @@ namespace Schedule.DAC
             
             using (var db = new DataBaseDataContext())
             {
-                var dbItems = db.Events.Select(x => x).ToList();
+                var dbItems = db.Event.Select(x => x).ToList();
 
                 return MapDbToDto(dbItems);
 
@@ -48,7 +48,7 @@ namespace Schedule.DAC
         {
             using (var db = new DataBaseDataContext())
             {
-                var dbItem = db.Events.Where(x => x.Id == id).FirstOrDefault();
+                var dbItem = db.Event.Where(x => x.Id == id).FirstOrDefault();
 
                 return MapDbToDto(dbItem);
             }
@@ -59,7 +59,23 @@ namespace Schedule.DAC
 
         #region Update
 
+        public void Update(CalendarDtoItem eventItem)
+        {
+            using (var db = new DataBaseDataContext())
+            {
+                var item = db.Event.Where(x => x.Id == eventItem.Id).FirstOrDefault();
 
+                if (item != null)
+                {
+                    item.Title = eventItem.Title;
+                    item.Additional = eventItem.Additional;
+                    item.StartDate = eventItem.StartDate;
+                    item.EndDate = eventItem.EndDate;
+
+                    db.SubmitChanges();
+                }
+            }
+        }
 
         #endregion
 
@@ -70,8 +86,8 @@ namespace Schedule.DAC
         {
             using (var db = new DataBaseDataContext())
             {
-                var item = db.Events.Where(i => i.Id == id).FirstOrDefault();
-                db.Events.DeleteOnSubmit(item);
+                var item = db.Event.Where(i => i.Id == id).FirstOrDefault();
+                db.Event.DeleteOnSubmit(item);
 
                 db.SubmitChanges();
             }
