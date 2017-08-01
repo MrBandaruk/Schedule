@@ -31,6 +31,18 @@
             right: 'month,agendaWeek,agendaDay,listWeek'
         },
 
+        buttonText: {
+            prev: "<",
+            next: ">",
+            prevYear: "<",
+            nextYear: ">",
+            today: "Сегодня",
+            month: "Месяц",
+            week: "Неделя",
+            day: "День",
+            listWeek: "Список"
+        },
+
         slotLabelFormat: "HH:mm",
         titleFormat: 'D, MMMM, YYYY',
         businessHours: {
@@ -52,66 +64,8 @@
         editable: true,
         eventLimit: true, // allow "more" link when too many events
         events: eventsData,
-        //[
-        //    {
-        //        title: 'All Day Event',
-        //        start: '2017-07-01'
-        //    },
-        //    {
-        //        title: 'Long Event',
-        //        start: '2017-07-07',
-        //        end: '2017-07-10'
-        //    },
-        //    {
-        //        id: 999,
-        //        title: 'Repeating Event',
-        //        start: '2017-07-09T16:00:00'
-        //    },
-        //    {
-        //        id: 999,
-        //        title: 'Repeating Event',
-        //        start: '2017-07-16T16:00:00'
-        //    },
-        //    {
-        //        title: 'Conference',
-        //        start: '2017-07-11',
-        //        end: '2017-07-13'
-        //    },
-        //    {
-        //        title: 'Meeting',
-        //        start: '2017-07-12T10:30:00',
-        //        end: '2017-07-12T12:30:00'
-        //    },
-        //    {
-        //        title: 'Lunch',
-        //        start: '2017-07-12T12:00:00'
-        //    },
-        //    {
-        //        title: 'Meeting',
-        //        start: '2017-07-12T14:30:00'
-        //    },
-        //    {
-        //        title: 'Happy Hour',
-        //        start: '2017-07-12T17:30:00'
-        //    },
-        //    {
-        //        title: 'Dinner',
-        //        start: '2017-07-12T20:00:00'
-        //    },
-        //    {
-        //        title: 'Birthday Party',
-        //        start: '2017-07-13T07:00:00'
-        //    },
-        //    {
-        //        title: 'Click for Google',
-        //        url: 'http://google.com/',
-        //        start: '2017-07-28'
-        //    }
-        //],
 
         dayClick: function(date, jsEvent, view) {
-
-            //alert('Clicked on: ' + date.format());
 
             $.confirm({
                 title: 'Add new event.',
@@ -125,10 +79,10 @@
                 '<textarea placeholder="Add some information about event" name="Additional" class="info form-control" autocomplete="off" required /> </textarea>' +
                 '<br />' +
                 '<label>Start date</label>' +
-                '<input type="date" value="' + formatDate(date._d) + '" class="startDate form-control" name="StartDate" required />' +
+                '<input type="datetime" value="' + formatDate(date._d) + '" class="startDate form-control" name="StartDate" required />' +
                 '<br />' +
                 '<label>End date</label>' +
-                 '<input type="date" value="' + formatDate(date._d) + '" class="endDate form-control" name="EndDate" required />' +
+                 '<input type="datetime" value="' + formatDate(date._d) + '" class="endDate form-control" name="EndDate" required />' +
                 '</div>' + 
                 '</form>',
 
@@ -138,21 +92,18 @@
                         btnClass: 'btn-success',
                         action: function () {
 
-                            //var formData = $('eventData').serialize();
-                            var titleF = this.$content.find('.name').val();
-                            var additionalF = this.$content.find('.info').val();
-                            var startDateF = this.$content.find('.startDate').val();
-                            var endDateF = this.$content.find('.endDate').val();
-                            //var fDate = JSON.stringify($('#eventData').serialize());
-
                             $.ajax({
                                 url: 'Calendar/CreateEvent',
-                                data: { title: titleF, additional: additionalF, startDate: startDateF, endDate: endDateF},
+                                data: { 
+                                    title: this.$content.find('.name').val(), 
+                                    additional: this.$content.find('.info').val(), 
+                                    startDate: this.$content.find('.startDate').val(), 
+                                    endDate: this.$content.find('.endDate').val()
+                                },
                                 dataType: "JSON",
                                 success: function (data) {
                                     var event = { id: data.item.Id, title: data.item.Title, start: toDateFromJson(data.item.EndDate) }
                                     $('#calendar').fullCalendar('renderEvent', event, true);
-                                    //$('#calendar').fullCalendar('refetchEvents');
                                 }
                             });                            
                         }                            
@@ -207,12 +158,10 @@
                                     btnClass: 'btn-success',
                                     action: function () {
 
-                                        //var formData = $('eventData').serialize();
                                         var titleF = this.$content.find('.name').val();
                                         var additionalF = this.$content.find('.info').val();
                                         var startDateF = this.$content.find('.startDate').val();
                                         var endDateF = this.$content.find('.endDate').val();
-                                        //var fDate = JSON.stringify($('#eventData').serialize());
 
                                         //$.ajax({
                                         //    url: 'CreateEvent',

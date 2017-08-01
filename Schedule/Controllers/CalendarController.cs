@@ -13,17 +13,9 @@ namespace Schedule.Controllers
 
         #region Create
 
-        public ActionResult CreateEvent(string title, string additional, DateTime startDate, DateTime endDate)
-        {
-            BLL.Model.CalendarModelItem item = new BLL.Model.CalendarModelItem {
-                Title = title,
-                Additional = additional,
-                StartDate = startDate,
-                EndDate = endDate
-            };
-
+        public ActionResult CreateEvent(BLL.Model.CalendarModelItem item)
+        { 
             calDbProv.Add(item);
-
 
             return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
         }
