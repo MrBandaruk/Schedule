@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Schedule.BLL.Model;
 using Schedule.DAC.Dto;
+using System.Globalization;
 
 namespace Schedule.BLL.Providers
 {
@@ -18,6 +19,9 @@ namespace Schedule.BLL.Providers
 
         public void Add(CalendarModelItem dbItem)
         {
+            dbItem.StartDate = DateTime.ParseExact(dbItem.StartDate.ToString("MM.dd.yyyy hh:mm:ss"), "dd.MM.yyyy hh:mm:ss", CultureInfo.InvariantCulture);
+            dbItem.EndDate = DateTime.ParseExact(dbItem.EndDate.ToString("MM.dd.yyyy hh:mm:ss"), "dd.MM.yyyy hh:mm:ss", CultureInfo.InvariantCulture);
+
             dbProv.Add(MapDtoToDb(dbItem));
         }
 
@@ -109,7 +113,7 @@ namespace Schedule.BLL.Providers
             {
                 return new CalendarViewModel
                 {
-                    Events = dbItem.Events.ConvertAll(x => new CalendarViewModelItem() { id = x.id, title = x.title, start = x.start})
+                    Events = dbItem.Events.ConvertAll(x => new CalendarViewModelItem() { id = x.id, title = x.title, start = x.start, end = x.end})
                 };
             }
 

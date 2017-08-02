@@ -19,7 +19,6 @@ namespace Schedule.DAC
             using (var db = new DataBaseDataContext())
             {
                 var item = MapDtoToDb(eventItem);
-
                 db.Event.InsertOnSubmit(item);
                 db.SubmitChanges();
             }
@@ -124,7 +123,7 @@ namespace Schedule.DAC
             {
                 return new CalendarViewDto
                 {
-                    Events = dbItem.ConvertAll(x => new CalendarViewDtoItem() { id = x.Id, title = x.Title, start = x.StartDate.ToUniversalTime()})
+                    Events = dbItem.ConvertAll(x => new CalendarViewDtoItem() { id = x.Id, title = x.Title, start = x.StartDate.ToUniversalTime(), end = x.EndDate.ToUniversalTime()})
                 };
             }
 

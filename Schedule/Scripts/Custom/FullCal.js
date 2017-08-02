@@ -17,8 +17,6 @@
     };
 
 
-    GetCalData();
-
     $('#calendar').fullCalendar({
         schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
         firstDay: 1,
@@ -59,6 +57,7 @@
         maxTime: "20:00",
         contentHeight: 685,
         columnFormat: 'dddd',
+        timeFormat: 'h:mm',
         timezone: 'local',
 
         defaultDate: now,
@@ -81,23 +80,30 @@
                 '<textarea placeholder="Добавьте описание.." name="Additional" class="info form-control" autocomplete="off" required /> </textarea>' +
                 '<br />' +
                 '<label>Начало</label>' +
-                '<div class="input-group date" id="datetimepicker1"><input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
+                '<div class="input-group date" id="datetimepicker1"><input type="text" class="form-control startDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
                 //'<input type="datetime" value="' + formatDate(date._d) + '" class="startDate form-control" name="StartDate" required />' +
                 '<br />' +
                 '<label>Конец</label>' +
-                '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
+                '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
                 //'<input type="datetime" value="' + formatDate(date._d) + '" class="endDate form-control" name="EndDate" required />' +
                 '</div>' + 
                 '</form>',
 
                 onContentReady: function () {
-                    // when content is fetched
+
                     $('#datetimepicker1').datetimepicker({
                         locale: 'ru',
-                        //orientation: "bottom auto"
+
+                        format: 'DD.MM.YYYY HH:mm',
+                        date: formatDate(date._d),
+
                     });
+
                     $('#datetimepicker2').datetimepicker({
-                        locale: 'ru'
+                        locale: 'ru',
+                        format: 'DD.MM.YYYY HH:mm',
+                        date: formatDate(date._d),
+
                     });
                 },
 
@@ -112,8 +118,8 @@
                                 data: { 
                                     title: this.$content.find('.name').val(), 
                                     additional: this.$content.find('.info').val(), 
-                                    startDate: this.$content.find('.startDate').val(), 
-                                    endDate: this.$content.find('.endDate').val()
+                                    startDate: $('.startDate').val(), 
+                                    endDate: $('.endDate').val()
                                 },
                                 dataType: "JSON",
                                 success: function (data) {
@@ -164,15 +170,33 @@
                             '<textarea name="Additional" class="info form-control" autocomplete="off" required >'+ item.Additional +'</textarea>' +
                             '<br />' +
                             '<label>Начало</label>' +
-                            '<input type="date" value="' + formatDate(calEvent.start) + '" class="startDate form-control" name="StartDate" required />' +
+                            '<div class="input-group date" id="datetimepicker1"><input type="text" class="form-control startDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
+                            //'<input type="date" value="' + formatDate(calEvent.start) + '" class="startDate form-control" name="StartDate" required />' +
                             '<br />' +
                             '<label>Конец</label>' +
-                            '<input type="date" value="' + formatDate(calEvent.start) + '" class="endDate form-control" name="EndDate" required />' +
+                            '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' + 
+                            //'<input type="date" value="' + formatDate(calEvent.start) + '" class="endDate form-control" name="EndDate" required />' +
                             '</div>' +
                             '</form>',
-                            contentLoaded: function (data, status, xhr) {
-                                $('#datetimepicker1').datetimepicker();
+
+                            onContentReady: function () {
+
+                                $('#datetimepicker1').datetimepicker({
+                                    locale: 'ru',
+
+                                    format: 'DD.MM.YYYY HH:mm',
+                                    date: formatDate(calEvent.start),
+
+                                });
+
+                                $('#datetimepicker2').datetimepicker({
+                                    locale: 'ru',
+                                    format: 'DD.MM.YYYY HH:mm',
+                                    date: formatDate(calEvent.start),
+
+                                });
                             },
+
 
                             buttons: {
                                 formSubmit: {
@@ -193,8 +217,6 @@
                                             },
                                             dataType: "JSON",
                                             success: function (data) {
-                                                //var event = { id: data.item.Id, title: data.item.Title, start: toDateFromJson(data.item.EndDate) }
-                                                //$('#calendar').fullCalendar('renderEvent', event, true);
 
                                                 location.reload(); //перезагрузка страницы
                                             }
@@ -252,12 +274,14 @@
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
-            year = d.getFullYear();
+            year = '' + d.getFullYear(),
+            hours = '' + d.getHours(),
+            minutes = '' + d.getMinutes();
 
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
 
-        return [year, month, day].join('-');
+        return [year, month, day].join('.') + ' ' + [hours, minutes].join(':');
     };
 
     function toDateFromJson(src) {

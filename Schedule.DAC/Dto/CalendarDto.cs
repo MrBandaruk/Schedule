@@ -20,7 +20,7 @@ namespace Schedule.DAC.Dto
         public int id { get; set; }
         public string title { get; set; }
         public DateTime start { get; set; }
-
+        public DateTime end { get; set; }
     }
 
     public class CalendarDtoModel

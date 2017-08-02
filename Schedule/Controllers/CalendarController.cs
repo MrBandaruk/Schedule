@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +15,8 @@ namespace Schedule.Controllers
         #region Create
 
         public ActionResult CreateEvent(BLL.Model.CalendarModelItem item)
-        { 
+        {
+            //string s = item.StartDate.ToString("dd.MM.YYYY HH:MM:SS", CultureInfo.InvariantCulture);
             calDbProv.Add(item);
 
             return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
