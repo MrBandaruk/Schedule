@@ -264,7 +264,38 @@
                     }
             });
 
-    }
+        },
+
+
+        eventDrop: function(event) {
+
+            
+
+            if (confirm("Are you sure about this change?")) {
+                
+
+                $.ajax({
+                    url: 'Calendar/DragEditEvent',
+                    method: "POST",
+                    data: {
+                        id: event.id,
+                        title: event.title,
+                        start: event.start.format(),
+                        end: event.start.format()
+                    },
+                    dataType: "JSON",
+                    success: function (data) {
+//revertFunc();
+                        //location.reload(); //перезагрузка страницы
+                    }
+                });
+            }
+
+        }
+
+
+
+
 
 
     });

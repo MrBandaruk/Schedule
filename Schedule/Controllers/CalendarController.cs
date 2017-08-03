@@ -25,6 +25,9 @@ namespace Schedule.Controllers
         #endregion
 
 
+
+
+
         #region Read
 
         [HttpGet]
@@ -46,6 +49,9 @@ namespace Schedule.Controllers
         #endregion
 
 
+
+
+
         #region Update
 
         [HttpGet]
@@ -55,6 +61,7 @@ namespace Schedule.Controllers
             return Json(new { item }, JsonRequestBehavior.AllowGet);
         }
 
+
         [HttpPost]
         public ActionResult EditEvent(BLL.Model.CalendarModelItem item)
         {
@@ -62,7 +69,18 @@ namespace Schedule.Controllers
             return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpPost]
+        public ActionResult DragEditEvent(BLL.Model.CalendarViewModelItem item)
+        {
+            calDbProv.Update(item);
+            return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
+
+
+
 
 
         #region Delete

@@ -76,6 +76,24 @@ namespace Schedule.DAC
             }
         }
 
+
+        public void Update(CalendarViewDtoItem eventItem)
+        {
+            using (var db = new DataBaseDataContext())
+            {
+                var item = db.Event.Where(x => x.Id == eventItem.id).FirstOrDefault();
+
+                if (item != null)
+                {
+                    item.Title = eventItem.title;                    
+                    item.StartDate = eventItem.start;
+                    item.EndDate = eventItem.end;
+
+                    db.SubmitChanges();
+                }
+            }
+        }
+
         #endregion
 
 

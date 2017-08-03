@@ -51,6 +51,11 @@ namespace Schedule.BLL.Providers
             dbProv.Update(MapDtoToDb(dbItem));
         }
 
+        public void Update(CalendarViewModelItem dbItem)
+        {
+            dbProv.Update(MapDtoToDb(dbItem));
+        }
+
         #endregion
 
 
@@ -80,6 +85,24 @@ namespace Schedule.BLL.Providers
                     Additional = dbItem.Additional,
                     StartDate = dbItem.StartDate,
                     EndDate = dbItem.EndDate,
+                };
+
+            }
+
+            return null;
+        }
+
+
+        private CalendarViewDtoItem MapDtoToDb(CalendarViewModelItem dbItem)
+        {
+            if (dbItem != null)
+            {
+                return new CalendarViewDtoItem
+                {
+                    id = dbItem.id,
+                    title = dbItem.title,
+                    start = dbItem.start,
+                    end = dbItem.end
                 };
 
             }
