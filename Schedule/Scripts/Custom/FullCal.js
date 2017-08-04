@@ -280,8 +280,8 @@
                     data: {
                         id: event.id,
                         title: event.title,
-                        start: event.start.format(),
-                        end: event.end.format()
+                        start: event.start.format(),                  
+                        end: event.start.format()
                     },
                     dataType: "JSON",
                     success: function (data) {

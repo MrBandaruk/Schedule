@@ -66,24 +66,25 @@ namespace Schedule
             bundles.Add(new ScriptBundle("~/Scripts/jqueryUI").Include(
                 "~/Scripts/UI/jquery-ui.js"));
 
-            bundles.Add(new StyleBundle("~/Content/jqueryWC").Include(
-                "~/Scripts/WeekCalendar/jquery.weekcalendar.css"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/jqueryWC").Include(
-                "~/Scripts/WeekCalendar/date.js",
-                "~/Scripts/WeekCalendar/jquery.weekcalendar.js"));
+            bundles.Add(new StyleBundle("~/Content/CalendarStyles").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/site.css",
+                "~/Content/jquery-confirm.min.css",
+                "~/Content/FullCalendar/fullcalendar.min.css",
+                "~/Content/FullCalendar/scheduler.min.css",
+                "~/Content/Bootstrap DatePicker/bootstrap-datetimepicker.min.css"));
 
-
-            //WC Tests
-            bundles.Add(new StyleBundle("~/Content/WC").Include(
-                "~/Content/WCTests/smoothness/jquery-ui-1.8.11.custom.css",
-                "~/Content/WCTests/jquery.weekcalendar.css"));
-
-            bundles.Add(new ScriptBundle("~/Scripts/WC").Include(
-                "~/Scripts/WCTests/jquery-1.4.4.min.js",
-                "~/Scripts/WCTests/jquery-ui-1.8.11.custom.min.js",
-                "~/Scripts/WCTests/date.js",
-                "~/Scripts/WCTests/jquery.weekcalendar.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/CalendarScripts").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery-confirm.min.js",
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js",
+                "~/Scripts/FullCalendar/moment.min.js",
+                "~/Scripts/FullCalendar/fullcalendar.min.js",
+                "~/Scripts/FullCalendar/scheduler.min.js",
+                "~/Scripts/FullCalendar/ru.js",
+                "~/Scripts/Bootstrap DatePicker/bootstrap-datetimepicker.min.js"));
 
         }
     }
