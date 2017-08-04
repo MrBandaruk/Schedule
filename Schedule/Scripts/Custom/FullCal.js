@@ -281,18 +281,28 @@
                         id: event.id,
                         title: event.title,
                         start: event.start.format(),
-                        end: event.start.format()
+                        end: event.end.format()
                     },
                     dataType: "JSON",
                     success: function (data) {
-//revertFunc();
+                    //revertFunc();
                         //location.reload(); //перезагрузка страницы
                     }
                 });
             }
 
-        }
+        },
 
+
+        eventResize: function (event, delta, revertFunc) {
+
+            //alert(event.title + " end is now " + event.end.format());
+
+            if (!confirm("is this okay?")) {
+                //revertFunc();
+            }
+
+        }
 
 
 

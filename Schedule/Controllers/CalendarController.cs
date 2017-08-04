@@ -41,11 +41,6 @@ namespace Schedule.Controllers
             return Json(new { calDbProv.GetAll().Events }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult WCIndex()
-        {
-            return View();
-        }
-
         #endregion
 
 
