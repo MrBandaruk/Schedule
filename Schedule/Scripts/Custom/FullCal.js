@@ -269,7 +269,14 @@
 
         eventDrop: function(event) {
 
-            
+            var eventEnd;
+
+            if (event.end != null) {
+                eventEnd = event.end.format();
+            } else {
+                eventEnd = event.start.format();
+            }
+
 
             if (confirm("Are you sure about this change?")) {
                 
@@ -280,8 +287,8 @@
                     data: {
                         id: event.id,
                         title: event.title,
-                        start: event.start.format(),                  
-                        end: event.start.format()
+                        start: event.start.format(),
+                        end: eventEnd
                     },
                     dataType: "JSON",
                     success: function (data) {
@@ -296,17 +303,26 @@
 
         eventResize: function (event, delta, revertFunc) {
 
-            //alert(event.title + " end is now " + event.end.format());
 
-            if (!confirm("is this okay?")) {
-                //revertFunc();
+            if (confirm("Are you sure about this change?")) {
+                $.ajax({
+                    url: 'Calendar/DragEditEvent',
+                    method: "POST",
+                    data: {
+                        id: event.id,
+                        title: event.title,
+                        start: event.start.format(),
+                        end: event.end.format()
+                    },
+                    dataType: "JSON",
+                    success: function (data) {
+                        //revertFunc();
+                        //location.reload(); //перезагрузка страницы
+                    }
+                });
             }
 
         }
-
-
-
-
 
     });
 
