@@ -57,8 +57,9 @@
         maxTime: "20:00",
         contentHeight: 685,
         columnFormat: 'dddd',
-        timeFormat: 'h:mm',
+        //timeFormat: 'h:mm',
         timezone: 'local',
+        eventColor: '#465775',
 
         defaultDate: now,
         navLinks: true, // can click day/week names to navigate views
@@ -255,8 +256,8 @@
                                 cancel: {
                                     text: 'Отмена'
                                 }
-                                }
-                        });
+                          }
+                     });
                     },
                     close: {
                         text: 'Закрыть'
@@ -277,10 +278,7 @@
                 eventEnd = event.start.format();
             }
 
-
-            if (confirm("Are you sure about this change?")) {
-                
-
+            //if (confirm("Are you sure about this change?")) {                
                 $.ajax({
                     url: 'Calendar/DragEditEvent',
                     method: "POST",
@@ -296,15 +294,13 @@
                         //location.reload(); //перезагрузка страницы
                     }
                 });
-            }
+            //}
 
         },
 
 
         eventResize: function (event, delta, revertFunc) {
-
-
-            if (confirm("Are you sure about this change?")) {
+            //if (confirm("Are you sure about this change?")) {
                 $.ajax({
                     url: 'Calendar/DragEditEvent',
                     method: "POST",
@@ -320,9 +316,11 @@
                         //location.reload(); //перезагрузка страницы
                     }
                 });
-            }
+            //}
 
-        }
+        },
+
+        timeFormat: 'H:mm'
 
     });
 

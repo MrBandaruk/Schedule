@@ -169,6 +169,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Calendar.css" />
     <Content Include="Content\dataTables\buttons.bootstrap.min.css" />
     <Content Include="Content\dataTables\dataTables.bootstrap.min.css" />
     <Content Include="Content\dataTables\editor.bootstrap.min.css" />
