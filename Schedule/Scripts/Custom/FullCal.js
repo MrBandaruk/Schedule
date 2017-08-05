@@ -24,7 +24,7 @@
         monthNamesShort: ['Янв', 'Фев', 'Мрт', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
         dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
         dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        
+
         header: {
             left: 'prev,next today',
             center: 'title',
@@ -46,11 +46,11 @@
         slotLabelFormat: "HH:mm",
         titleFormat: 'D, MMMM, YYYY',
         businessHours: {
-            
-            dow: [ 1, 2, 3, 4, 5, 6 ], 
 
-            start: '06:00', 
-            end: '20:00', 
+            dow: [1, 2, 3, 4, 5, 6],
+
+            start: '06:00',
+            end: '20:00',
         },
 
         minTime: "06:00",
@@ -67,7 +67,7 @@
         eventLimit: true, // allow "more" link when too many events
         events: GetCalData(),
 
-        dayClick: function(date, jsEvent, view) {
+        dayClick: function (date, jsEvent, view) {
 
             $.confirm({
                 title: 'Добавить новое событие',
@@ -77,7 +77,7 @@
                 '<label>Название</label>' +
                 '<input type="text" placeholder="Название события.." class="name form-control" name="Title" autocomplete="off" required />' +
                 '<br />' +
-                '<label>Описание</label>' +               
+                '<label>Описание</label>' +
                 '<textarea placeholder="Добавьте описание.." name="Additional" class="info form-control" autocomplete="off" required /> </textarea>' +
                 '<br />' +
                 '<label>Начало</label>' +
@@ -87,7 +87,7 @@
                 '<label>Конец</label>' +
                 '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
                 //'<input type="datetime" value="' + formatDate(date._d) + '" class="endDate form-control" name="EndDate" required />' +
-                '</div>' + 
+                '</div>' +
                 '</form>',
 
                 onContentReady: function () {
@@ -116,10 +116,10 @@
 
                             $.ajax({
                                 url: 'Calendar/CreateEvent',
-                                data: { 
-                                    title: this.$content.find('.name').val(), 
-                                    additional: this.$content.find('.info').val(), 
-                                    startDate: $('.startDate').val(), 
+                                data: {
+                                    title: this.$content.find('.name').val(),
+                                    additional: this.$content.find('.info').val(),
+                                    startDate: $('.startDate').val(),
                                     endDate: $('.endDate').val()
                                 },
                                 dataType: "JSON",
@@ -128,23 +128,23 @@
                                     //$('#calendar').fullCalendar('renderEvent', event, true);
                                     location.reload(); //перезагрузка страницы
                                 }
-                            });                            
-                        }                            
-                    },                  
-                    cancel: {
-                        text: 'Отмена' 
+                            });
+                        }
                     },
-            },
-          });
+                    cancel: {
+                        text: 'Отмена'
+                    },
+                },
+            });
         },
 
-        eventClick: function(calEvent, jsEvent, view) {
+        eventClick: function (calEvent, jsEvent, view) {
 
             var item = [];
 
             $.ajax({
                 url: 'Calendar/EditEvent',
-                data: {id: calEvent.id},
+                data: { id: calEvent.id },
                 dataType: "json",
                 method: "GET",
                 async: false,
@@ -158,24 +158,24 @@
                 content: item.Additional,
                 buttons: {
                     Edit: function () {
-                        
+
                         $.confirm({
                             title: 'Редактировать',
                             content: '' +
                             '<form id="eventData">' +
                             '<div class="form-group">' +
                             '<label>Название</label>' +
-                            '<input type="text" value="'+ item.Title + '" class="name form-control" name="Title" autocomplete="off" required />' +
+                            '<input type="text" value="' + item.Title + '" class="name form-control" name="Title" autocomplete="off" required />' +
                             '<br />' +
                             '<label>Описание</label>' +
-                            '<textarea name="Additional" class="info form-control" autocomplete="off" required >'+ item.Additional +'</textarea>' +
+                            '<textarea name="Additional" class="info form-control" autocomplete="off" required >' + item.Additional + '</textarea>' +
                             '<br />' +
                             '<label>Начало</label>' +
                             '<div class="input-group date" id="datetimepicker1"><input type="text" class="form-control startDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
                             //'<input type="date" value="' + formatDate(calEvent.start) + '" class="startDate form-control" name="StartDate" required />' +
                             '<br />' +
                             '<label>Конец</label>' +
-                            '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' + 
+                            '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
                             //'<input type="date" value="' + formatDate(calEvent.start) + '" class="endDate form-control" name="EndDate" required />' +
                             '</div>' +
                             '</form>',
@@ -204,7 +204,7 @@
                                     text: 'Сохранить',
                                     btnClass: 'btn-success',
                                     action: function () {
-                                        
+
 
                                         $.ajax({
                                             url: 'Calendar/EditEvent',
@@ -227,7 +227,7 @@
                                 cancel: {},
                             },
                         });
-                        
+
                     },
                     delete: function () {
                         $.confirm({
@@ -241,7 +241,7 @@
                                     text: 'Удалить',
                                     btnClass: 'btn-danger',
                                     keys: ['enter'],
-                                    action: function () {                                       
+                                    action: function () {
                                         $.ajax({
                                             url: 'Calendar/DeleteEvent',
                                             data: { id: item.Id },
@@ -256,19 +256,19 @@
                                 cancel: {
                                     text: 'Отмена'
                                 }
-                          }
-                     });
+                            }
+                        });
                     },
                     close: {
                         text: 'Закрыть'
                     }
-                    }
+                }
             });
 
         },
 
 
-        eventDrop: function(event) {
+        eventDrop: function (event) {
 
             var eventEnd;
 
@@ -279,21 +279,21 @@
             }
 
             //if (confirm("Are you sure about this change?")) {                
-                $.ajax({
-                    url: 'Calendar/DragEditEvent',
-                    method: "POST",
-                    data: {
-                        id: event.id,
-                        title: event.title,
-                        start: event.start.format(),
-                        end: eventEnd
-                    },
-                    dataType: "JSON",
-                    success: function (data) {
+            $.ajax({
+                url: 'Calendar/DragEditEvent',
+                method: "POST",
+                data: {
+                    id: event.id,
+                    title: event.title,
+                    start: event.start.format(),
+                    end: eventEnd
+                },
+                dataType: "JSON",
+                success: function (data) {
                     //revertFunc();
-                        //location.reload(); //перезагрузка страницы
-                    }
-                });
+                    //location.reload(); //перезагрузка страницы
+                }
+            });
             //}
 
         },
@@ -301,21 +301,21 @@
 
         eventResize: function (event, delta, revertFunc) {
             //if (confirm("Are you sure about this change?")) {
-                $.ajax({
-                    url: 'Calendar/DragEditEvent',
-                    method: "POST",
-                    data: {
-                        id: event.id,
-                        title: event.title,
-                        start: event.start.format(),
-                        end: event.end.format()
-                    },
-                    dataType: "JSON",
-                    success: function (data) {
-                        //revertFunc();
-                        //location.reload(); //перезагрузка страницы
-                    }
-                });
+            $.ajax({
+                url: 'Calendar/DragEditEvent',
+                method: "POST",
+                data: {
+                    id: event.id,
+                    title: event.title,
+                    start: event.start.format(),
+                    end: event.end.format()
+                },
+                dataType: "JSON",
+                success: function (data) {
+                    //revertFunc();
+                    //location.reload(); //перезагрузка страницы
+                }
+            });
             //}
 
         },
@@ -323,7 +323,9 @@
         timeFormat: 'H:mm'
 
     });
-
+    
+    var header = $(".fc-button-group").addClass("btn-group").removeClass("fc-button-group");
+    header.children().addClass("btn").removeClass("fc-button fc-state-default fc-today-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled");
 
     function formatDate(date) {
         var d = new Date(date),
