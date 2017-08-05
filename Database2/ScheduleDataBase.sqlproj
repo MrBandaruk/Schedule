@@ -71,5 +71,6 @@
     <Build Include="dbo\Tables\FinalNewsImages.sql" />
     <Build Include="dbo\Tables\FinalNews.sql" />
     <Build Include="dbo\Tables\Event.sql" />
+    <Build Include="dbo\Tables\FinalEvent.sql" />
   </ItemGroup>
 </Project>

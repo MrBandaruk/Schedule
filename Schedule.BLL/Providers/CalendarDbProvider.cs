@@ -19,8 +19,31 @@ namespace Schedule.BLL.Providers
 
         public void Add(CalendarModelItem dbItem)
         {
-            dbItem.StartDate = DateTime.ParseExact(dbItem.StartDate.ToString("MM.dd.yyyy hh:mm:ss"), "dd.MM.yyyy hh:mm:ss", CultureInfo.InvariantCulture);
-            dbItem.EndDate = DateTime.ParseExact(dbItem.EndDate.ToString("MM.dd.yyyy hh:mm:ss"), "dd.MM.yyyy hh:mm:ss", CultureInfo.InvariantCulture);
+            dbItem.StartDate = DateTime.ParseExact(dbItem.StartDate.ToString("MM.dd.yyyy HH:mm:ss"), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            dbItem.EndDate = DateTime.ParseExact(dbItem.EndDate.ToString("MM.dd.yyyy HH:mm:ss"), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+
+            switch (dbItem.Color)
+            {
+                case "Стандартный":
+                    dbItem.Color = "#465775";
+                    break;
+
+                case "Зеленый":
+                    dbItem.Color = "green";
+                    break;
+
+                case "Оранжевый":
+                    dbItem.Color = "orange";
+                    break;
+
+                case "Красный":
+                    dbItem.Color = "red";
+                    break;
+
+                default:
+                    dbItem.Color = "#465775";
+                    break;
+            }
 
             dbProv.Add(MapDtoToDb(dbItem));
         }
@@ -48,6 +71,29 @@ namespace Schedule.BLL.Providers
 
         public void Update(CalendarModelItem dbItem)
         {
+            switch (dbItem.Color)
+            {
+                case "Стандартный":
+                    dbItem.Color = "#465775";
+                    break;
+
+                case "Зеленый":
+                    dbItem.Color = "green";
+                    break;
+
+                case "Желтый":
+                    dbItem.Color = "yellow";
+                    break;
+
+                case "Красный":
+                    dbItem.Color = "red";
+                    break;
+
+                default:
+                    dbItem.Color = "#465775";
+                    break;
+            }
+
             dbProv.Update(MapDtoToDb(dbItem));
         }
 
@@ -85,6 +131,7 @@ namespace Schedule.BLL.Providers
                     Additional = dbItem.Additional,
                     StartDate = dbItem.StartDate,
                     EndDate = dbItem.EndDate,
+                    Color = dbItem.Color
                 };
 
             }
@@ -102,7 +149,8 @@ namespace Schedule.BLL.Providers
                     id = dbItem.id,
                     title = dbItem.title,
                     start = dbItem.start,
-                    end = dbItem.end
+                    end = dbItem.end,
+                    color = dbItem.color
                 };
 
             }
@@ -122,6 +170,7 @@ namespace Schedule.BLL.Providers
                     Additional = dbItem.Additional,
                     StartDate = dbItem.StartDate,
                     EndDate = dbItem.EndDate,
+                    Color = dbItem.Color
                 };
 
             }
@@ -136,7 +185,7 @@ namespace Schedule.BLL.Providers
             {
                 return new CalendarViewModel
                 {
-                    Events = dbItem.Events.ConvertAll(x => new CalendarViewModelItem() { id = x.id, title = x.title, start = x.start, end = x.end})
+                    Events = dbItem.Events.ConvertAll(x => new CalendarViewModelItem() { id = x.id, title = x.title, start = x.start, end = x.end, color = x.color})
                 };
             }
 

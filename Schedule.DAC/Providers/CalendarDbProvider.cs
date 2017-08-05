@@ -19,7 +19,7 @@ namespace Schedule.DAC
             using (var db = new DataBaseDataContext())
             {
                 var item = MapDtoToDb(eventItem);
-                db.Event.InsertOnSubmit(item);
+                db.FinalEvent.InsertOnSubmit(item);
                 db.SubmitChanges();
             }
         }
@@ -34,7 +34,7 @@ namespace Schedule.DAC
             
             using (var db = new DataBaseDataContext())
             {
-                var dbItems = db.Event.Select(x => x).ToList();
+                var dbItems = db.FinalEvent.Select(x => x).ToList();
 
                 return MapDbToDto(dbItems);
 
@@ -47,7 +47,7 @@ namespace Schedule.DAC
         {
             using (var db = new DataBaseDataContext())
             {
-                var dbItem = db.Event.Where(x => x.Id == id).FirstOrDefault();
+                var dbItem = db.FinalEvent.Where(x => x.Id == id).FirstOrDefault();
 
                 return MapDbToDto(dbItem);
             }
@@ -62,7 +62,7 @@ namespace Schedule.DAC
         {
             using (var db = new DataBaseDataContext())
             {
-                var item = db.Event.Where(x => x.Id == eventItem.Id).FirstOrDefault();
+                var item = db.FinalEvent.Where(x => x.Id == eventItem.Id).FirstOrDefault();
 
                 if (item != null)
                 {
@@ -70,6 +70,7 @@ namespace Schedule.DAC
                     item.Additional = eventItem.Additional;
                     item.StartDate = eventItem.StartDate;
                     item.EndDate = eventItem.EndDate;
+                    item.Color = eventItem.Color;
 
                     db.SubmitChanges();
                 }
@@ -81,13 +82,14 @@ namespace Schedule.DAC
         {
             using (var db = new DataBaseDataContext())
             {
-                var item = db.Event.Where(x => x.Id == eventItem.id).FirstOrDefault();
+                var item = db.FinalEvent.Where(x => x.Id == eventItem.id).FirstOrDefault();
 
                 if (item != null)
                 {
                     item.Title = eventItem.title;                    
                     item.StartDate = eventItem.start;
                     item.EndDate = eventItem.end;
+                    item.Color = eventItem.color;
 
                     db.SubmitChanges();
                 }
@@ -103,8 +105,8 @@ namespace Schedule.DAC
         {
             using (var db = new DataBaseDataContext())
             {
-                var item = db.Event.Where(i => i.Id == id).FirstOrDefault();
-                db.Event.DeleteOnSubmit(item);
+                var item = db.FinalEvent.Where(i => i.Id == id).FirstOrDefault();
+                db.FinalEvent.DeleteOnSubmit(item);
 
                 db.SubmitChanges();
             }
@@ -117,17 +119,18 @@ namespace Schedule.DAC
 
         #region Helpers
 
-        private Event MapDtoToDb(CalendarDtoItem dbItem)
+        private FinalEvent MapDtoToDb(CalendarDtoItem dbItem)
         {
             if (dbItem != null)
             {
-                return new Event
+                return new FinalEvent
                 {
                     Id = dbItem.Id,
                     Title = dbItem.Title,
                     Additional = dbItem.Additional,
                     StartDate = dbItem.StartDate,
-                    EndDate = dbItem.EndDate
+                    EndDate = dbItem.EndDate,
+                    Color = dbItem.Color
                 };
             }
 
@@ -135,13 +138,13 @@ namespace Schedule.DAC
         }
 
 
-        private CalendarViewDto MapDbToDto(List<Event> dbItem)
+        private CalendarViewDto MapDbToDto(List<FinalEvent> dbItem)
         {
             if (dbItem != null)
             {
                 return new CalendarViewDto
                 {
-                    Events = dbItem.ConvertAll(x => new CalendarViewDtoItem() { id = x.Id, title = x.Title, start = x.StartDate.ToUniversalTime(), end = x.EndDate.ToUniversalTime()})
+                    Events = dbItem.ConvertAll(x => new CalendarViewDtoItem() { id = x.Id, title = x.Title, start = x.StartDate.ToUniversalTime(), end = x.EndDate.ToUniversalTime(), color = x.Color})
                 };
             }
 
@@ -149,7 +152,7 @@ namespace Schedule.DAC
         }
 
 
-        private CalendarDtoItem MapDbToDto(Event dbItem)
+        private CalendarDtoItem MapDbToDto(FinalEvent dbItem)
         {
             if (dbItem != null)
             {
@@ -159,7 +162,8 @@ namespace Schedule.DAC
                     Title = dbItem.Title,
                     Additional = dbItem.Additional,
                     StartDate = dbItem.StartDate,
-                    EndDate = dbItem.EndDate
+                    EndDate = dbItem.EndDate,
+                    Color = dbItem.Color
                 };
             }
 

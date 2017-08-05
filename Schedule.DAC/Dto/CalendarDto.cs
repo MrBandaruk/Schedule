@@ -13,6 +13,7 @@ namespace Schedule.DAC.Dto
         public string Additional { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public string Color { get; set; }
     }
 
     public class CalendarViewDtoItem
@@ -21,6 +22,7 @@ namespace Schedule.DAC.Dto
         public string title { get; set; }
         public DateTime start { get; set; }
         public DateTime end { get; set; }
+        public string color { get; set; }
     }
 
     public class CalendarDtoModel

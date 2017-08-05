@@ -59,7 +59,7 @@
         columnFormat: 'dddd',
         //timeFormat: 'h:mm',
         timezone: 'local',
-        eventColor: '#465775',
+        //eventColor: '#465775',
 
         defaultDate: now,
         navLinks: true, // can click day/week names to navigate views
@@ -80,13 +80,19 @@
                 '<label>Описание</label>' +
                 '<textarea placeholder="Добавьте описание.." name="Additional" class="info form-control" autocomplete="off" required /> </textarea>' +
                 '<br />' +
+                '<label>Цвет:</label>' +
+                '<select class="form-control" id="color">' +
+                '<option>Стандартный</option>' +
+                '<option>Зеленый</option>' +
+                '<option>Оранжевый</option>' +
+                '<option>Красный</option>' +
+                '</select>' +
+                '<br />' +
                 '<label>Начало</label>' +
                 '<div class="input-group date" id="datetimepicker1"><input type="text" class="form-control startDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
-                //'<input type="datetime" value="' + formatDate(date._d) + '" class="startDate form-control" name="StartDate" required />' +
                 '<br />' +
                 '<label>Конец</label>' +
                 '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
-                //'<input type="datetime" value="' + formatDate(date._d) + '" class="endDate form-control" name="EndDate" required />' +
                 '</div>' +
                 '</form>',
 
@@ -95,16 +101,16 @@
                     $('#datetimepicker1').datetimepicker({
                         locale: 'ru',
 
-                        format: 'DD.MM.YYYY HH:mm',
+                        
                         date: formatDate(date._d),
-
+                        format: 'MM.DD.YYYY HH:mm',
                     });
 
                     $('#datetimepicker2').datetimepicker({
                         locale: 'ru',
-                        format: 'DD.MM.YYYY HH:mm',
+                        
                         date: formatDate(date._d),
-
+                        format: 'MM.DD.YYYY HH:mm',
                     });
                 },
 
@@ -117,10 +123,11 @@
                             $.ajax({
                                 url: 'Calendar/CreateEvent',
                                 data: {
-                                    title: this.$content.find('.name').val(),
-                                    additional: this.$content.find('.info').val(),
+                                    title: $('.name').val(),
+                                    additional: $('.info').val(),
                                     startDate: $('.startDate').val(),
-                                    endDate: $('.endDate').val()
+                                    endDate: $('.endDate').val(),
+                                    color: $('#color').val()
                                 },
                                 dataType: "JSON",
                                 success: function (data) {
@@ -167,6 +174,7 @@
                     '<p>' + item.Additional + '</p>' +
                     '<p><b>Начало:</b><br/>' + formatDate(calEvent.start.format()) + '</p>' +
                     '<p><b>Конец:</b><br/>' + formatDate(eventEnd) + '</p>',
+                type: item.Color,
                 buttons: {
                     Edit: function () {
 
@@ -181,13 +189,19 @@
                             '<label>Описание</label>' +
                             '<textarea name="Additional" class="info form-control" autocomplete="off" required >' + item.Additional + '</textarea>' +
                             '<br />' +
+                            '<label>Цвет:</label>' +
+                            '<select class="form-control" id="color">' +
+                            '<option>Стандартный</option>' +
+                            '<option>Зеленый</option>' +
+                            '<option>Оранжевый</option>' +
+                            '<option>Красный</option>' +
+                            '</select>' +
+                            '<br />' +
                             '<label>Начало</label>' +
                             '<div class="input-group date" id="datetimepicker1"><input type="text" class="form-control startDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
-                            //'<input type="date" value="' + formatDate(calEvent.start) + '" class="startDate form-control" name="StartDate" required />' +
                             '<br />' +
                             '<label>Конец</label>' +
                             '<div class="input-group date" id="datetimepicker2"><input type="text" class="form-control endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>' +
-                            //'<input type="date" value="' + formatDate(calEvent.start) + '" class="endDate form-control" name="EndDate" required />' +
                             '</div>' +
                             '</form>',
 
@@ -195,17 +209,16 @@
 
                                 $('#datetimepicker1').datetimepicker({
                                     locale: 'ru',
-
-                                    format: 'DD.MM.YYYY HH:mm',
-                                    date: formatDate(calEvent.start),
-
+                                    
+                                    date: calEvent.start.format(),
+                                    format: 'MM.DD.YYYY HH:mm',
                                 });
 
                                 $('#datetimepicker2').datetimepicker({
                                     locale: 'ru',
-                                    format: 'DD.MM.YYYY HH:mm',
-                                    date: formatDate(calEvent.start),
-
+                                   
+                                    date: calEvent.start.format(),
+                                    format: 'MM.DD.YYYY HH:mm',
                                 });
                             },
 
@@ -222,10 +235,11 @@
                                             method: "POST",
                                             data: {
                                                 id: calEvent.id,
-                                                title: this.$content.find('.name').val(),
-                                                additional: this.$content.find('.info').val(),
-                                                startDate: this.$content.find('.startDate').val(),
-                                                endDate: this.$content.find('.endDate').val()
+                                                title: $('.name').val(),
+                                                additional: $('.info').val(),
+                                                startDate: $('.startDate').val(),
+                                                endDate: $('.endDate').val(),
+                                                color: $('#color').val()
                                             },
                                             dataType: "JSON",
                                             success: function (data) {
@@ -297,7 +311,8 @@
                     id: event.id,
                     title: event.title,
                     start: event.start.format(),
-                    end: eventEnd
+                    end: eventEnd,
+                    color: event.color
                 },
                 dataType: "JSON",
                 success: function (data) {
@@ -319,7 +334,8 @@
                     id: event.id,
                     title: event.title,
                     start: event.start.format(),
-                    end: event.end.format()
+                    end: event.end.format(),
+                    color: event.color
                 },
                 dataType: "JSON",
                 success: function (data) {
