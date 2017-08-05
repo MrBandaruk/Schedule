@@ -142,6 +142,14 @@
 
             var item = [];
 
+            var eventEnd;
+
+            if (calEvent.end != null) {
+                eventEnd = calEvent.end.format();
+            } else {
+                eventEnd = calEvent.start.format();
+            }
+
             $.ajax({
                 url: 'Calendar/EditEvent',
                 data: { id: calEvent.id },
@@ -155,7 +163,10 @@
 
             $.alert({
                 title: item.Title,
-                content: item.Additional,
+                content: '' +
+                    '<p>' + item.Additional + '</p>' +
+                    '<p><b>Начало:</b><br/>' + formatDate(calEvent.start.format()) + '</p>' +
+                    '<p><b>Конец:</b><br/>' + formatDate(eventEnd) + '</p>',
                 buttons: {
                     Edit: function () {
 
@@ -324,6 +335,13 @@
 
     });
     
+    function addZero(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
     var header = $(".fc-button-group").addClass("btn-group").removeClass("fc-button-group");
     header.children().addClass("btn").removeClass("fc-button fc-state-default fc-today-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled");
 
@@ -332,13 +350,13 @@
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = '' + d.getFullYear(),
-            hours = '' + d.getHours(),
-            minutes = '' + d.getMinutes();
+            hours = '' + addZero(d.getHours()),
+            minutes = '' + addZero(d.getMinutes());
 
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
 
-        return [year, month, day].join('.') + ' ' + [hours, minutes].join(':');
+        return [day, month, year].join('.') + ' ' + [hours, minutes].join(':');
     };
 
     function toDateFromJson(src) {
