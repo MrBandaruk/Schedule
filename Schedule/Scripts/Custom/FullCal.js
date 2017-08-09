@@ -104,6 +104,10 @@
                         
                         date: formatDate(date._d),
                         format: 'MM.DD.YYYY HH:mm',
+                        widgetPositioning: {
+                            horizontal: 'auto',
+                            vertical: 'top'
+                        }
                     });
 
                     $('#datetimepicker2').datetimepicker({
@@ -111,6 +115,10 @@
                         
                         date: formatDate(date._d),
                         format: 'MM.DD.YYYY HH:mm',
+                        widgetPositioning: {
+                            horizontal: 'auto',
+                            vertical: 'top'
+                        }
                     });
                 },
 
@@ -212,6 +220,10 @@
                                     
                                     date: calEvent.start.format(),
                                     format: 'MM.DD.YYYY HH:mm',
+                                    widgetPositioning: {
+                                        horizontal: 'auto',
+                                        vertical: 'top'
+                                    }
                                 });
 
                                 $('#datetimepicker2').datetimepicker({
@@ -219,6 +231,10 @@
                                    
                                     date: calEvent.start.format(),
                                     format: 'MM.DD.YYYY HH:mm',
+                                    widgetPositioning: {
+                                        horizontal: 'auto',
+                                        vertical: 'top'
+                                    }
                                 });
                             },
 
