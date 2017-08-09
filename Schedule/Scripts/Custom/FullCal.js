@@ -101,9 +101,9 @@
                     $('#datetimepicker1').datetimepicker({
                         locale: 'ru',
 
+                        format: 'DD.MM.YYYY HH:mm',
+                        date: date._d,
                         
-                        date: formatDate(date._d),
-                        format: 'MM.DD.YYYY HH:mm',
                         widgetPositioning: {
                             horizontal: 'auto',
                             vertical: 'top'
@@ -112,14 +112,17 @@
 
                     $('#datetimepicker2').datetimepicker({
                         locale: 'ru',
+                        format: 'DD.MM.YYYY HH:mm',
+                        date: date._d,
                         
-                        date: formatDate(date._d),
-                        format: 'MM.DD.YYYY HH:mm',
                         widgetPositioning: {
                             horizontal: 'auto',
                             vertical: 'top'
                         }
                     });
+
+                    //$('#datetimepicker1').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
+                    //$('#datetimepicker2').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
                 },
 
                 buttons: {
@@ -219,7 +222,7 @@
                                     locale: 'ru',
                                     
                                     date: calEvent.start.format(),
-                                    format: 'MM.DD.YYYY HH:mm',
+                                    format: 'DD.MM.YYYY HH:mm',
                                     widgetPositioning: {
                                         horizontal: 'auto',
                                         vertical: 'top'
@@ -230,7 +233,7 @@
                                     locale: 'ru',
                                    
                                     date: calEvent.start.format(),
-                                    format: 'MM.DD.YYYY HH:mm',
+                                    format: 'DD.MM.YYYY HH:mm',
                                     widgetPositioning: {
                                         horizontal: 'auto',
                                         vertical: 'top'
@@ -366,13 +369,7 @@
         timeFormat: 'H:mm'
 
     });
-    
-    function addZero(i) {
-        if (i < 10) {
-            i = "0" + i;
-        }
-        return i;
-    }
+
 
     var header = $(".fc-button-group").addClass("btn-group").removeClass("fc-button-group");
     header.children().addClass("btn").removeClass("fc-button fc-state-default fc-today-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled");
@@ -382,13 +379,16 @@
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = '' + d.getFullYear(),
-            hours = '' + addZero(d.getHours()),
-            minutes = '' + addZero(d.getMinutes());
+            hours = '' + d.getHours(),
+            minutes = '' + d.getMinutes();
 
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
+        if (hours.length < 10) hours = '0' + hours;
+        if (minutes.length < 10) minutes = '0' + minutes;
 
-        return [day, month, year].join('.') + ' ' + [hours, minutes].join(':');
+        var foo = [[day, month, year].join('.'), [hours, minutes].join(':')].join(' ');
+        return foo;
     };
 
     function toDateFromJson(src) {
