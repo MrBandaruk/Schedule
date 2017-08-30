@@ -121,11 +121,8 @@
                         }
                     });
 
-                    $('#datetimepicker1').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
-                    $('#datetimepicker2').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
-
-                    //var d = $('.startDate').val();
-                    //var ed = $('.endDate').val(); 
+                    $('#datetimepicker1').data("DateTimePicker").date(moment(date._d).add(3, 'hours').format('DD.MM.YYYY HH:mm'));
+                    $('#datetimepicker2').data("DateTimePicker").date(moment(date._d).add(4, 'hours').format('DD.MM.YYYY HH:mm'));
 
                 },
 
