@@ -19,8 +19,8 @@ namespace Schedule.BLL.Providers
 
         public void Add(CalendarModelItem dbItem)
         {
-            dbItem.StartDate = DateTime.ParseExact(dbItem.StartDate.ToString("MM.dd.yyyy HH:mm:ss"), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-            dbItem.EndDate = DateTime.ParseExact(dbItem.EndDate.ToString("MM.dd.yyyy HH:mm:ss"), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            //dbItem.StartDate = DateTime.ParseExact(dbItem.StartDate.ToString("MM.dd.yyyy HH:mm:ss"), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            //dbItem.EndDate = DateTime.ParseExact(dbItem.EndDate.ToString("MM.dd.yyyy HH:mm:ss"), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
             switch (dbItem.Color)
             {

@@ -102,7 +102,7 @@
                         locale: 'ru',
 
                         format: 'DD.MM.YYYY HH:mm',
-                        date: date._d,
+                        //date: date._d,
                         
                         widgetPositioning: {
                             horizontal: 'auto',
@@ -113,7 +113,7 @@
                     $('#datetimepicker2').datetimepicker({
                         locale: 'ru',
                         format: 'DD.MM.YYYY HH:mm',
-                        date: date._d,
+                        //date: date._d,
                         
                         widgetPositioning: {
                             horizontal: 'auto',
@@ -121,8 +121,12 @@
                         }
                     });
 
-                    //$('#datetimepicker1').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
-                    //$('#datetimepicker2').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
+                    $('#datetimepicker1').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
+                    $('#datetimepicker2').data("DateTimePicker").date(moment(date._d).format('DD.MM.YYYY HH:mm'));
+
+                    //var d = $('.startDate').val();
+                    //var ed = $('.endDate').val(); 
+
                 },
 
                 buttons: {
@@ -136,8 +140,10 @@
                                 data: {
                                     title: $('.name').val(),
                                     additional: $('.info').val(),
-                                    startDate: $('.startDate').val(),
-                                    endDate: $('.endDate').val(),
+                                    startDate: formatDate($("#datetimepicker1").data('DateTimePicker').date()),
+                            //$('.startDate').val()),
+                                    endDate: formatDate($("#datetimepicker2").data('DateTimePicker').date()),
+                            //$('.endDate').val()),
                                     color: $('#color').val()
                                 },
                                 dataType: "JSON",
@@ -256,8 +262,8 @@
                                                 id: calEvent.id,
                                                 title: $('.name').val(),
                                                 additional: $('.info').val(),
-                                                startDate: $('.startDate').val(),
-                                                endDate: $('.endDate').val(),
+                                                startDate: formatDate($("#datetimepicker1").data('DateTimePicker').date()),
+                                                endDate: formatDate($("#datetimepicker2").data('DateTimePicker').date()),
                                                 color: $('#color').val()
                                             },
                                             dataType: "JSON",
@@ -374,6 +380,9 @@
     var header = $(".fc-button-group").addClass("btn-group").removeClass("fc-button-group");
     header.children().addClass("btn").removeClass("fc-button fc-state-default fc-today-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled");
 
+
+
+    //Меняет местами месяц и дату, тк DateTime в моделе имеет формат MM.DD.YYYY, а я вывожу формат DD.MM.YYYY.
     function formatDate(date) {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
@@ -387,7 +396,7 @@
         if (hours.length < 10) hours = '0' + hours;
         if (minutes.length < 10) minutes = '0' + minutes;
 
-        var foo = [[day, month, year].join('.'), [hours, minutes].join(':')].join(' ');
+        var foo = [[month, day, year].join('.'), [hours, minutes].join(':')].join(' ');
         return foo;
     };
 
