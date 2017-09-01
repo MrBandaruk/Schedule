@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Schedule.BLL.Model;
-using Schedule.DAC.Dto;
+using Schedule.DAL.Dto;
 using System.Globalization;
 
 namespace Schedule.BLL.Providers
 {
     public class CalendarDbProvider
     {
-        public DAC.CalendarDbProvider dbProv = new DAC.CalendarDbProvider();
+        public DAL.CalendarDbProvider dbProv = new DAL.CalendarDbProvider();
 
         #region CRUD
 

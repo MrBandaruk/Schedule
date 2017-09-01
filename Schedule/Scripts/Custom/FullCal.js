@@ -390,8 +390,8 @@
 
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
-        if (hours.length < 10) hours = '0' + hours;
-        if (minutes.length < 10) minutes = '0' + minutes;
+        if (hours < 10) hours = '0' + hours;
+        if (minutes < 10) minutes = '0' + minutes;
 
         var foo = [[month, day, year].join('.'), [hours, minutes].join(':')].join(' ');
         return foo;

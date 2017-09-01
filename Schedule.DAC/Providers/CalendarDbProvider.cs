@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Schedule.DAC.Dto;
-using Schedule.DAC;
+using Schedule.DAL.Dto;
+using Schedule.DAL;
 
-namespace Schedule.DAC
+namespace Schedule.DAL
 {
     public class CalendarDbProvider
     {

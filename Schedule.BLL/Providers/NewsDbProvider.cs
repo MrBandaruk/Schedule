@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Schedule.BLL.Model;
-using Schedule.DAC.Dto;
+using Schedule.DAL.Dto;
 
 namespace Schedule.BLL.Providers
 {
     public class NewsDbProvider
     {
-        public DAC.NewsDbProvider dbProv = new DAC.NewsDbProvider();
+        public DAL.NewsDbProvider dbProv = new DAL.NewsDbProvider();
 
         #region CRUD
 

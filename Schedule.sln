@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule", "Schedule\Schedule.csproj", "{9FF767C9-F4B4-4C3F-878C-1305DE003E37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule.DAC", "Schedule.DAC\Schedule.DAC.csproj", "{685D77CD-E06D-4901-9A76-5640EC27D510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule.DAL", "Schedule.DAC\Schedule.DAL.csproj", "{685D77CD-E06D-4901-9A76-5640EC27D510}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ScheduleDataBase", "Database2\ScheduleDataBase.sqlproj", "{7FBCCD26-9EDD-434F-A018-9BA4A6C58D5C}"
 EndProject

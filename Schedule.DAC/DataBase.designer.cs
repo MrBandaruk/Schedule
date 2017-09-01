@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Schedule.DAC
+namespace Schedule.DAL
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -63,7 +63,7 @@ namespace Schedule.DAC
     #endregion
 		
 		public DataBaseDataContext() : 
-				base(global::Schedule.DAC.Properties.Settings.Default.ScheduleConnectionString1, mappingSource)
+				base(global::Schedule.DAL.Properties.Settings.Default.ScheduleConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

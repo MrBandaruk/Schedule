@@ -1,0 +1,12 @@
+E:\C#\GIT\Schedule.DAC\bin\Debug\Schedule.DAC.dll.config
+E:\C#\GIT\Schedule.DAC\bin\Debug\Schedule.DAC.dll
+E:\C#\GIT\Schedule.DAC\bin\Debug\Schedule.DAC.pdb
+E:\C#\GIT\Schedule.DAC\bin\Debug\Database2.dll
+E:\C#\GIT\Schedule.DAC\bin\Debug\EntityFramework.dll
+E:\C#\GIT\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.dll
+E:\C#\GIT\Schedule.DAC\bin\Debug\Database2.pdb
+E:\C#\GIT\Schedule.DAC\bin\Debug\EntityFramework.xml
+E:\C#\GIT\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.xml
+E:\C#\GIT\Schedule.DAC\obj\Debug\Schedule.DAL.csprojResolveAssemblyReference.cache
+E:\C#\GIT\Schedule.DAC\obj\Debug\Schedule.DAC.dll
+E:\C#\GIT\Schedule.DAC\obj\Debug\Schedule.DAC.pdb

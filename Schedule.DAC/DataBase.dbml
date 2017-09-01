@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Schedule" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NIKKIBAN\SQLEXPRESS;Initial Catalog=Schedule;Integrated Security=True" SettingsObjectName="Schedule.DAC.Properties.Settings" SettingsPropertyName="ScheduleConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NIKKIBAN\SQLEXPRESS;Initial Catalog=Schedule;Integrated Security=True" SettingsObjectName="Schedule.DAL.Properties.Settings" SettingsPropertyName="ScheduleConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Event" Member="Event">
     <Type Name="Event">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

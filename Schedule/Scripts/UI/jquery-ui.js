@@ -3351,7 +3351,7 @@ $.widget( "ui.droppable", {
 	_activate: function( event ) {
 		var draggable = $.ui.ddmanager.current;
 
-		this._addActiveClass();
+		this._adDALtiveClass();
 		if ( draggable ) {
 			this._trigger( "activate", event, this.ui( draggable ) );
 		}
@@ -3470,7 +3470,7 @@ $.widget( "ui.droppable", {
 		this._removeClass( "ui-droppable-hover" );
 	},
 
-	_addActiveClass: function() {
+	_adDALtiveClass: function() {
 		this._addClass( "ui-droppable-active" );
 	},
 
@@ -3691,7 +3691,7 @@ if ( $.uiBackCompat !== false ) {
 			hoverClass: false,
 			activeClass: false
 		},
-		_addActiveClass: function() {
+		_adDALtiveClass: function() {
 			this._super();
 			if ( this.options.activeClass ) {
 				this.element.addClass( this.options.activeClass );
@@ -7021,7 +7021,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			heightStyle = options.heightStyle,
 			parent = this.element.parent();
 
-		this.active = this._findActive( options.active );
+		this.active = this._finDALtive( options.active );
 		this._addClass( this.active, "ui-accordion-header-active", "ui-state-active" )
 			._removeClass( this.active, "ui-accordion-header-collapsed" );
 		this._addClass( this.active.next(), "ui-accordion-content-active" );
@@ -7112,7 +7112,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	},
 
 	_activate: function( index ) {
-		var active = this._findActive( index )[ 0 ];
+		var active = this._finDALtive( index )[ 0 ];
 
 		// Trying to activate the already active panel
 		if ( active === this.active[ 0 ] ) {
@@ -7129,7 +7129,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		} );
 	},
 
-	_findActive: function( selector ) {
+	_finDALtive: function( selector ) {
 		return typeof selector === "number" ? this.headers.eq( selector ) : $();
 	},
 
@@ -14807,7 +14807,7 @@ $.widget( "ui.tabs", {
 
 		// Check for length avoids error when initializing empty list
 		if ( this.options.active !== false && this.anchors.length ) {
-			this.active = this._findActive( options.active );
+			this.active = this._finDALtive( options.active );
 		} else {
 			this.active = $();
 		}
@@ -15407,7 +15407,7 @@ $.widget( "ui.tabs", {
 
 	_activate: function( index ) {
 		var anchor,
-			active = this._findActive( index );
+			active = this._finDALtive( index );
 
 		// Trying to activate the already active panel
 		if ( active[ 0 ] === this.active[ 0 ] ) {
@@ -15427,7 +15427,7 @@ $.widget( "ui.tabs", {
 		} );
 	},
 
-	_findActive: function( index ) {
+	_finDALtive: function( index ) {
 		return index === false ? $() : this.tabs.eq( index );
 	},
 

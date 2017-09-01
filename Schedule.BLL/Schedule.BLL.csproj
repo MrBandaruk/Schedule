@@ -47,9 +47,9 @@
     <Compile Include="Providers\NewsDbProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Schedule.DAC\Schedule.DAC.csproj">
+    <ProjectReference Include="..\Schedule.DAC\Schedule.DAL.csproj">
       <Project>{685d77cd-e06d-4901-9a76-5640ec27d510}</Project>
-      <Name>Schedule.DAC</Name>
+      <Name>Schedule.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

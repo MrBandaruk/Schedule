@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schedule.DAC.Dto
+namespace Schedule.DAL.Dto
 {
     public class NewsDtoItem
     {
