@@ -62,14 +62,14 @@
         <elementListCompartment Id="b8f8c5ed-bfae-45b8-a61d-50b8617cbb3e" absoluteBounds="6.765, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 4.81814697265625); (3.5 : 4.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.81814697265625); (3.5 : 4.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataBaseDataContext/FinalNews/FinalNews_FinalNewsImages" />
       <nodes>
         <classShapeMoniker Id="cb19dea7-b2bc-4c74-a464-c57bc3d8913e" />
         <classShapeMoniker Id="f8d63aef-db6a-4296-a2d7-3e9772bd5b75" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.56814697265625); (3.5 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.56814697265625); (3.5 : 1.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataBaseDataContext/NewsV/NewsV_NewsImage" />
       <nodes>
         <classShapeMoniker Id="b41a4ca9-5b31-4209-9cf6-be8fc85c306c" />
