@@ -499,7 +499,6 @@ E:\C#\GIT\Schedule\bin\System.Web.WebPages.Deployment.dll
 E:\C#\GIT\Schedule\bin\System.Web.WebPages.dll
 E:\C#\GIT\Schedule\bin\System.Web.WebPages.Razor.dll
 E:\C#\GIT\Schedule\bin\WebGrease.dll
-E:\C#\GIT\Schedule\bin\Schedule.DAC.dll
 E:\C#\GIT\Schedule\bin\Schedule.BLL.pdb
 E:\C#\GIT\Schedule\bin\EntityFramework.xml
 E:\C#\GIT\Schedule\bin\EntityFramework.SqlServer.xml
@@ -519,7 +518,6 @@ E:\C#\GIT\Schedule\bin\Microsoft.AI.DependencyCollector.xml
 E:\C#\GIT\Schedule\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\C#\GIT\Schedule\bin\Microsoft.AI.WindowsServer.xml
 E:\C#\GIT\Schedule\bin\Microsoft.AI.Web.xml
-E:\C#\GIT\Schedule\bin\Schedule.DAC.pdb
 E:\C#\GIT\Schedule\obj\Debug\Schedule.csprojResolveAssemblyReference.cache
 E:\C#\GIT\Schedule\obj\Debug\Schedule.dll
 E:\C#\GIT\Schedule\obj\Debug\Schedule.pdb
@@ -538,3 +536,5 @@ E:\C#\GIT\Schedule\bin\Microsoft.Owin.xml
 E:\C#\GIT\Schedule\bin\Microsoft.Owin.Security.xml
 E:\C#\GIT\Schedule\bin\Microsoft.Owin.Security.Cookies.xml
 E:\C#\GIT\Schedule\bin\Microsoft.Owin.Security.OAuth.xml
+E:\C#\GIT\Schedule\bin\Schedule.DAL.dll
+E:\C#\GIT\Schedule\bin\Schedule.DAL.pdb
