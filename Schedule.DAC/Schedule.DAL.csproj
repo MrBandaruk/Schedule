@@ -99,6 +99,8 @@
     <Compile Include="Entities\ClientProfile.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Interfaces\IClientManager.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Providers\CalendarDbProvider.cs" />
     <Compile Include="Providers\NewsDbProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +109,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\ClientManager.cs" />
+    <Compile Include="Repositories\IdentityUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -138,10 +142,7 @@
       <Name>ScheduleDataBase</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
