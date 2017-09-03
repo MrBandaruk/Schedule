@@ -473,9 +473,6 @@ E:\C#\GIT\Schedule\bin\roslyn\vbc.exe.config
 E:\C#\GIT\Schedule\bin\roslyn\vbc.rsp
 E:\C#\GIT\Schedule\bin\roslyn\VBCSCompiler.exe
 E:\C#\GIT\Schedule\bin\roslyn\VBCSCompiler.exe.config
-E:\C#\GIT\Schedule\bin\Schedule.dll.config
-E:\C#\GIT\Schedule\bin\Schedule.dll
-E:\C#\GIT\Schedule\bin\Schedule.pdb
 E:\C#\GIT\Schedule\bin\Antlr3.Runtime.dll
 E:\C#\GIT\Schedule\bin\EntityFramework.dll
 E:\C#\GIT\Schedule\bin\EntityFramework.SqlServer.dll
@@ -519,8 +516,6 @@ E:\C#\GIT\Schedule\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\C#\GIT\Schedule\bin\Microsoft.AI.WindowsServer.xml
 E:\C#\GIT\Schedule\bin\Microsoft.AI.Web.xml
 E:\C#\GIT\Schedule\obj\Debug\Schedule.csprojResolveAssemblyReference.cache
-E:\C#\GIT\Schedule\obj\Debug\Schedule.dll
-E:\C#\GIT\Schedule\obj\Debug\Schedule.pdb
 E:\C#\GIT\Schedule\bin\Microsoft.AspNet.Identity.Core.dll
 E:\C#\GIT\Schedule\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\C#\GIT\Schedule\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -538,3 +533,8 @@ E:\C#\GIT\Schedule\bin\Microsoft.Owin.Security.Cookies.xml
 E:\C#\GIT\Schedule\bin\Microsoft.Owin.Security.OAuth.xml
 E:\C#\GIT\Schedule\bin\Schedule.DAL.dll
 E:\C#\GIT\Schedule\bin\Schedule.DAL.pdb
+E:\C#\GIT\Schedule\bin\Schedule.dll.config
+E:\C#\GIT\Schedule\bin\Schedule.dll
+E:\C#\GIT\Schedule\bin\Schedule.pdb
+E:\C#\GIT\Schedule\obj\Debug\Schedule.dll
+E:\C#\GIT\Schedule\obj\Debug\Schedule.pdb
