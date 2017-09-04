@@ -30,17 +30,17 @@
                     <li>@Html.ActionLink("News", "Index", "News", null, new { style = "color: white" })</li>
                     <li>@Html.ActionLink("Calendar", "Index", "Calendar", null, new { style = "color: white" })</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul style = "color: white" class="nav navbar-nav navbar-right">
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Войти", "Login", "Account")</li>
-                        <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
+                        <li>@Html.ActionLink("Войти", "Login", "Account", null, new { style = "color: white" })</li>
+                        <li>@Html.ActionLink("Регистрация", "Register", "Account", null, new { style = "color: white" })</li>
                     }
                     else
                     {
                         <li>
                             <a>Привет @User.Identity.Name</a>
-                        </li>
+                        </li >
                         <li>@Html.ActionLink("Выход", "Logout", "Account")</li>
                     }
 
@@ -57,6 +57,8 @@
             <p>&copy; @DateTime.Now.Year - Schedule</p>
         </footer>
     </div>
+
+    @RenderSection("scripts", required: false)
 
 
 </body>
