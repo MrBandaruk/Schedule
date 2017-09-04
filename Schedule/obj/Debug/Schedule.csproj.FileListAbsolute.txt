@@ -538,3 +538,5 @@ E:\C#\GIT\Schedule\bin\Schedule.dll
 E:\C#\GIT\Schedule\bin\Schedule.pdb
 E:\C#\GIT\Schedule\obj\Debug\Schedule.dll
 E:\C#\GIT\Schedule\obj\Debug\Schedule.pdb
+E:\C#\GIT\Schedule\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\C#\GIT\Schedule\bin\Microsoft.Owin.Host.SystemWeb.xml
