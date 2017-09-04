@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Dto\CalendarDto.cs" />
     <Compile Include="Dto\NewsDto.cs" />
+    <Compile Include="Dto\UserDTO.cs" />
     <Compile Include="EF\ApplicationContext.cs" />
     <Compile Include="Entities\ApplicationRole.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
