@@ -29,6 +29,21 @@
                     <li>@Html.ActionLink("Feedback", "Feedback", "Home", null, new { style = "color: white" })</li>
                     <li>@Html.ActionLink("News", "Index", "News", null, new { style = "color: white" })</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Войти", "Login", "Account", null, new { style = "color: white" })</li>
+                        <li>@Html.ActionLink("Регистрация", "Register", "Account", null, new { style = "color: white" })</li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a>Привет @User.Identity.Name</a>
+                        </li>
+                        <li>@Html.ActionLink("Выход", "Logout", "Account", null, new { style = "color: white" })</li>
+                    }
+
+                </ul>
             </div>
         </div>
     </div>

@@ -306,6 +306,9 @@
     <Content Include="Views\Calendar\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_CalendarLayout.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\SuccessRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
