@@ -32,17 +32,17 @@
                 </ul>
                 <ul style = "color: white" class="nav navbar-nav navbar-right">
                     @if (!User.Identity.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Войти", "Login", "Account", null, new { style = "color: white" })</li>
-                        <li>@Html.ActionLink("Регистрация", "Register", "Account", null, new { style = "color: white" })</li>
-                    }
-                    else
-                    {
-                        <li>
-                            <a>Привет @User.Identity.Name</a>
-                        </li >
-                        <li>@Html.ActionLink("Выход", "Logout", "Account")</li>
-                    }
+					{
+						<li>@Html.ActionLink("Log In", "Login", "Account", null, new { style = "color: white" })</li>
+						<li>@Html.ActionLink("Sign Up", "Register", "Account", null, new { style = "color: white" })</li>
+					}
+					else
+					{
+						<li>
+							<a>Привет @User.Identity.Name</a>
+						</li>
+						<li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
+					}
 
                 </ul>
             </div>
