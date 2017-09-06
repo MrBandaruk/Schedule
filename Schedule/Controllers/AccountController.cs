@@ -51,7 +51,7 @@ namespace Schedule.Controllers
                 ClaimsIdentity claim = await UserService.Authenticate(userDto);
                 if (claim == null)
                 {
-                    ModelState.AddModelError("", "Неверный логин или пароль.");
+                    ModelState.AddModelError("", "Invalid login or password.");
                 }
                 else
                 {
