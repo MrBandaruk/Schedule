@@ -1,27 +1,28 @@
 # Schedule
 
-Schedule is an ASP.NET MVC 5 Web-Application.
+>  ##### Schedule is an ASP.NET MVC 5 Web-Application.
 
--Feedback:
-mailTo function
+- **News**: 
+  - CRUD
+  - Paging
+  - Sorting
+  - Searching
 
--News: 
-CRUD
-Paging
-Sorting
-Searching
+- **News Panel**:
+  - CRUD
+  - jQuery DataTables
+  - jQuery slick
+  - Paging
+  - Sorting
+  - Searching
 
--News Panel:
-CRUD
-jQuery DataTables
-jQuery slick
-Paging
-Sorting
-Searching
+- **Article**:
+  - jQuery slick
 
--Article:
-jQuery slick
+- **Calendar**:
+  - CRUD
+  - jQuery fullCalendar + jQuery Scheduler
+  - jQuery dataTables + moment.js
 
--Calendar
-
-It wont work on your computer, coz you dont have DataBase. 
+- **Authentication**:
+  - ASP.NET Identity
