@@ -88,8 +88,9 @@ namespace Schedule.Controllers
                 {
                     Email = model.Email,
                     Password = model.Password,
-                    Address = model.Address,
+                    Age = model.Age,
                     Name = model.Name,
+                    Surname = model.Surname,
                     Role = "user"
                 };
                 OperationDetails operationDetails = await UserService.Create(userDto);
@@ -104,11 +105,13 @@ namespace Schedule.Controllers
         {
             await UserService.SetInitialData(new UserDTO
             {
-                Email = "somemail@mail.ru",
-                UserName = "somemail@mail.ru",
-                Password = "ad46D_ewr3",
-                Name = "Семен Семенович Горбунков",
-                Address = "ул. Спортивная, д.30, кв.75",
+                Email = "nbandaruk@gmail.com",
+                UserName = "admin",
+                Password = "321",
+                Name = "Nikita",
+                Surname = "Bandaruk",
+                Age = 17,
+
                 Role = "admin",
             }, new List<string> { "user", "admin" });
         }
