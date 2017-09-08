@@ -13,6 +13,6 @@ namespace Schedule.BLL.Interfaces
     {
         Task<OperationDetails> Create(UserDTO userDto);
         Task<ClaimsIdentity> Authenticate(UserDTO userDto);
-        Task SetInitialData(UserDTO adminDto, List<string> roles);
+        Task SetInitialData(UserDTO adminDto, List<string> roles); //создает таблицы в базе, если их нет.
     }
 }

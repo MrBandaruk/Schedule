@@ -18,8 +18,10 @@ namespace Schedule.Models
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
         [Required]
-        public string Address { get; set; }
+        public string Age { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        public string Surname { get; set; }
     }
 }
