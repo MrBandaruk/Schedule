@@ -446,7 +446,6 @@ E:\C#\Projects\ScheduleGIT\Schedule\bin\Schedule.DAC.pdb
 E:\C#\Projects\ScheduleGIT\Schedule\obj\Debug\Schedule.csprojResolveAssemblyReference.cache
 E:\C#\Projects\ScheduleGIT\Schedule\obj\Debug\Schedule.dll
 E:\C#\Projects\ScheduleGIT\Schedule\obj\Debug\Schedule.pdb
-E:\C#\GIT\Schedule\bin\ApplicationInsights.config
 E:\C#\GIT\Schedule\bin\roslyn\csc.exe
 E:\C#\GIT\Schedule\bin\roslyn\csc.exe.config
 E:\C#\GIT\Schedule\bin\roslyn\csc.rsp
@@ -637,3 +636,4 @@ D:\Schedule\Schedule\obj\Debug\Schedule.csprojResolveAssemblyReference.cache
 D:\Schedule\Schedule\obj\Debug\Schedule.csproj.CoreCompileInputs.cache
 D:\Schedule\Schedule\obj\Debug\Schedule.dll
 D:\Schedule\Schedule\obj\Debug\Schedule.pdb
+E:\C#\GIT\Schedule\bin\Views\Shared\ApplicationInsights.config

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Schedule.BLL.Models
+namespace Schedule.BLL.Model
 {
     public class RegisterModel
     {

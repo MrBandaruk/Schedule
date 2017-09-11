@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using Microsoft.Owin.Security;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
-using Schedule.BLL.Models;
+using Schedule.BLL.Model;
 using System.Security.Claims;
 using Schedule.BLL.Interfaces;
 using Schedule.BLL.Infrastructure;
