@@ -1,4 +1,4 @@
-﻿using Schedule.BLL.DTO;
+﻿using Schedule.DAL.Dto;
 using Schedule.BLL.Infrastructure;
 using System;
 using System.Collections.Generic;

@@ -199,8 +199,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\PaggingHelpers.cs" />
-    <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -315,6 +313,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\UI\images\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
@@ -332,6 +331,10 @@
     <ProjectReference Include="..\Schedule.BLL\Schedule.BLL.csproj">
       <Project>{e97b5e07-8338-42eb-9038-d64787810067}</Project>
       <Name>Schedule.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schedule.DAC\Schedule.DAL.csproj">
+      <Project>{685D77CD-E06D-4901-9A76-5640EC27D510}</Project>
+      <Name>Schedule.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

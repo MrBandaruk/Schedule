@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Owin.Security;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
-using Schedule.Models;
-using Schedule.BLL.DTO;
+using Schedule.BLL.Models;
 using System.Security.Claims;
 using Schedule.BLL.Interfaces;
 using Schedule.BLL.Infrastructure;
-
+using Schedule.DAL.Dto;
 
 namespace Schedule.Controllers
 {

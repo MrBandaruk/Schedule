@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Schedule.Models
+namespace Schedule.BLL.Models
 {
     public class LoginModel
     {

@@ -1,5 +1,5 @@
 ﻿using Schedule.BLL.Interfaces;
-using Schedule.BLL.DTO;
+using Schedule.DAL.Dto;
 using Schedule.DAL.Entities;
 using System;
 using System.Collections.Generic;
