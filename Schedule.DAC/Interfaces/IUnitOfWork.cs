@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Schedule.DAL.Identity;
-using System.Threading.Tasks;
 
 namespace Schedule.DAL.Interfaces
 {
