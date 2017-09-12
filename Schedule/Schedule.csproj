@@ -332,7 +332,7 @@
       <Project>{e97b5e07-8338-42eb-9038-d64787810067}</Project>
       <Name>Schedule.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Schedule.DAC\Schedule.DAL.csproj">
+    <ProjectReference Include="..\Schedule.DAL\Schedule.DAL.csproj">
       <Project>{685D77CD-E06D-4901-9A76-5640EC27D510}</Project>
       <Name>Schedule.DAL</Name>
     </ProjectReference>

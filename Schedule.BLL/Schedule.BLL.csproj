@@ -100,7 +100,7 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Schedule.DAC\Schedule.DAL.csproj">
+    <ProjectReference Include="..\Schedule.DAL\Schedule.DAL.csproj">
       <Project>{685d77cd-e06d-4901-9a76-5640ec27d510}</Project>
       <Name>Schedule.DAL</Name>
     </ProjectReference>
