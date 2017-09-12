@@ -63,15 +63,8 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\News.sql" />
-    <Build Include="dbo\Tables\MainNews.sql" />
-    <Build Include="dbo\Tables\NewsOld.sql" />
-    <Build Include="dbo\Tables\NewsV.sql" />
-    <Build Include="dbo\Tables\NewsImage.sql" />
-    <Build Include="dbo\Tables\Image.sql" />
     <Build Include="dbo\Tables\FinalNewsImages.sql" />
     <Build Include="dbo\Tables\FinalNews.sql" />
-    <Build Include="dbo\Tables\Event.sql" />
     <Build Include="dbo\Tables\FinalEvent.sql" />
     <Build Include="dbo\Tables\ClientProfiles.sql" />
     <Build Include="dbo\Tables\AspNetUsers.sql" />

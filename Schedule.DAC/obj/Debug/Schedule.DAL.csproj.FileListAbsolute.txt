@@ -4,7 +4,6 @@ E:\C#\GIT\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.dll
 E:\C#\GIT\Schedule.DAC\bin\Debug\Database2.pdb
 E:\C#\GIT\Schedule.DAC\bin\Debug\EntityFramework.xml
 E:\C#\GIT\Schedule.DAC\bin\Debug\EntityFramework.SqlServer.xml
-E:\C#\GIT\Schedule.DAC\obj\Debug\Schedule.DAL.csprojResolveAssemblyReference.cache
 E:\C#\GIT\Schedule.DAC\bin\Debug\Schedule.DAL.dll.config
 E:\C#\GIT\Schedule.DAC\bin\Debug\Schedule.DAL.dll
 E:\C#\GIT\Schedule.DAC\bin\Debug\Schedule.DAL.pdb

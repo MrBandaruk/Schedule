@@ -11,6 +11,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ScheduleDataBase", "Databas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule.BLL", "Schedule.BLL\Schedule.BLL.csproj", "{E97B5E07-8338-42EB-9038-D64787810067}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Schedule.DB", "Schedule.DB\Schedule.DB.sqlproj", "{9F037EC6-8A78-454C-8B3D-B4F3828059BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,12 @@ Global
 		{E97B5E07-8338-42EB-9038-D64787810067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E97B5E07-8338-42EB-9038-D64787810067}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E97B5E07-8338-42EB-9038-D64787810067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F037EC6-8A78-454C-8B3D-B4F3828059BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F037EC6-8A78-454C-8B3D-B4F3828059BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F037EC6-8A78-454C-8B3D-B4F3828059BD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9F037EC6-8A78-454C-8B3D-B4F3828059BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F037EC6-8A78-454C-8B3D-B4F3828059BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F037EC6-8A78-454C-8B3D-B4F3828059BD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
