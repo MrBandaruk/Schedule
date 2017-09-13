@@ -82,3 +82,4 @@ E:\C#\GIT\Schedule.DAL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 E:\C#\GIT\Schedule.DAL\bin\Debug\Newtonsoft.Json.xml
 E:\C#\GIT\Schedule.DAL\obj\Debug\Schedule.DAL.dll
 E:\C#\GIT\Schedule.DAL\obj\Debug\Schedule.DAL.pdb
+E:\C#\GIT\Schedule.DAL\obj\Debug\Schedule.DAL.csprojResolveAssemblyReference.cache
