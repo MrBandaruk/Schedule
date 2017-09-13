@@ -7,11 +7,18 @@ function FeedbackSendMessage() {
 } */
 
 $(document).ready(function () {
+
+
     $("#btnSend").click(function () {
-       // var name = $("#tbName").val();
-       // var body = $('#tbMessage').val();
-        var letter = 'mailto:nbandaruk@gmail.com' + '?subject=' + $("#tbName").val() + '&body=' + $('#tbMessage').val();
-        $("#frmFeedback").attr('action', letter);
+    	var mail = $("#tbName").val();
+    	var message = $("#tbMessage").val();
+    	if (((mail.length != 0) && (mail.indexOf('@') == 1)) && (message.length != 0)) {
+    		var letter = 'mailto:nbandaruk@gmail.com' + '?subject=' + mail + '&body=' + message;
+    		$("#frmFeedback").attr('action', letter);
+    	} else {
+    		//$("#frmFeedback").append("<p color=\"red\">Invalid email or message</p>");
+    		alert("Invalid email or message!");
+    	};
     });
 });
 
