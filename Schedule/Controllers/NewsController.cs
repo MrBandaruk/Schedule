@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using log4net;
 
 namespace Schedule.Controllers
 {
@@ -12,11 +13,14 @@ namespace Schedule.Controllers
     {
         public BLL.Providers.NewsDbProvider newsDbProv = new BLL.Providers.NewsDbProvider();
 
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         #region Create
 
         [HttpGet]
         public ActionResult Create()
         {
+            logger.Error("Test error log");
             return View();
         }
 

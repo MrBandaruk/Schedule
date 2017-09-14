@@ -11,6 +11,7 @@ using Schedule.BLL.Interfaces;
 
 
 [assembly: OwinStartup(typeof(Schedule.App_Start.Startup))]
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Web.config", Watch = true)]
 
 
 namespace Schedule.App_Start

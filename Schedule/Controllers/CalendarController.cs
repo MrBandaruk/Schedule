@@ -16,8 +16,10 @@ namespace Schedule.Controllers
 
         public ActionResult CreateEvent(BLL.Model.CalendarModelItem item)
         {
-            //string s = item.StartDate.ToString("dd.MM.YYYY HH:MM:SS", CultureInfo.InvariantCulture);
-            calDbProv.Add(item);
+            
+            
+
+             calDbProv.Add(item);
 
             return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
         }

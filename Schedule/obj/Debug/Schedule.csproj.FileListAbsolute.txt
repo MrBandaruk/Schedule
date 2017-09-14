@@ -637,3 +637,5 @@ D:\Schedule\Schedule\obj\Debug\Schedule.csproj.CoreCompileInputs.cache
 D:\Schedule\Schedule\obj\Debug\Schedule.dll
 D:\Schedule\Schedule\obj\Debug\Schedule.pdb
 E:\C#\GIT\Schedule\bin\Views\Shared\ApplicationInsights.config
+E:\C#\GIT\Schedule\bin\log4net.dll
+E:\C#\GIT\Schedule\bin\log4net.xml

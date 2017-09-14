@@ -1,0 +1,1 @@
+ERROR 2017-09-14 23:27:15,137 16155ms NewsController         Create             - Test error log
