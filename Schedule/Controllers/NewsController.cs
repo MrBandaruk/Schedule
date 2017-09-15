@@ -13,14 +13,14 @@ namespace Schedule.Controllers
     {
         public BLL.Providers.NewsDbProvider newsDbProv = new BLL.Providers.NewsDbProvider();
 
-        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         #region Create
 
         [HttpGet]
         public ActionResult Create()
         {
-            logger.Error("Test error log");
+            //log.Error("Test error log");
             return View();
         }
 

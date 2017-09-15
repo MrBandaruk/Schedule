@@ -5,11 +5,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 
 namespace Schedule.DAL
 {
     public class NewsDbProvider
     {
+        readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         #region CRUD
 
         #region Create
@@ -18,6 +21,8 @@ namespace Schedule.DAL
         {
             using (var db = new DataBaseDataContext())
             {
+                //log.Error("Test error log from NewsDbProvider");
+
                 var item = MapDtoToDb(newsItem);
 
                 if (newsItem.NewsImages != null)
