@@ -24,9 +24,5 @@ namespace Schedule.Controllers
             return View();
         }
 
-        //public ActionResult Exception()
-        //{
-        //    return View();
-        //}
     }
 }

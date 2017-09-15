@@ -12,6 +12,8 @@ namespace Schedule
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -26,12 +28,16 @@ namespace Schedule
             
             var exception = Server.GetLastError();
             var httpException = exception as HttpException;
+
+            //log exception
+            log.Error(exception);
+
             Response.Clear();
             Server.ClearError();
             var routeData = new RouteData();
             routeData.Values["controller"] = "Error";
             routeData.Values["action"] = "General";
-            //routeData.Values["exception"] = exception;
+            routeData.Values["exception"] = exception;
             Response.StatusCode = 500;
 
             if (httpException != null) {
@@ -39,10 +45,10 @@ namespace Schedule
 
                 switch (Response.StatusCode) {
             case 403:
-                routeData.Values["action"] = "Http403";
+                        routeData.Values["action"] = "Http403";
                 break;
             case 404:
-                routeData.Values["action"] = "Http404";
+                        routeData.Values["action"] = "Http404";
                 break;
             }
 

@@ -16,10 +16,8 @@ namespace Schedule.Controllers
 
         public ActionResult CreateEvent(BLL.Model.CalendarModelItem item)
         {
-            
-            
 
-             calDbProv.Add(item);
+            calDbProv.Add(item);
 
             return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
         }
