@@ -14,13 +14,15 @@ namespace Schedule.Controllers
             return View();
         }
 
-        public ActionResult Http404()
+        public ActionResult NotFound()
         {
+            Response.StatusCode = 404;
             return View();
         }
 
-        public ActionResult Http403()
+        public ActionResult ServerError()
         {
+            Response.StatusCode = 500;
             return View();
         }
 

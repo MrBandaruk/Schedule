@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Schedule</title>
+    @Styles.Render("~/Content/CalendarStyles")
+    @Scripts.Render("~/Scripts/CalendarScripts")
+    
+
+
+</head>
+
+
+
+
+
+<body>
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Schedule", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "color: white" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { style = "color: white" })</li>
+                    <li>@Html.ActionLink("News", "Index", "News", null, new { style = "color: white" })</li>
+                    <li>@Html.ActionLink("Calendar", "Index", "Calendar", null, new { style = "color: white" })</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Log In", "Login", "Account", null, new { style = "color: white" })</li>
+                        <li>@Html.ActionLink("Sign Up", "Register", "Account", null, new { style = "color: white" })</li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a style = "color: white">Hello @User.Identity.Name</a>
+                        </li>
+                        <li>@Html.ActionLink("Log Out", "Logout", "Account", new { style = "color: white" })</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid calendar-container body-content">
+        @RenderBody()
+        @*<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Schedule</p>
+        </footer>*@
+    </div>
+
+</body>
+</html>

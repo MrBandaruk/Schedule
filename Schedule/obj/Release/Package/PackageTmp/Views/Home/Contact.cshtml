@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    <address>
+        One Solutions Way<br />
+        Minsk, PC 98052-6399<br />
+        <abbr title="Phone">P:</abbr>
+        77-888-999
+    </address>
+
+    <address>
+        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    </address>
+
+<h3>You can find us here.</h3>
+<div id="map"></div>
+
+<script>
+    function initMap() {
+        var SaMSolutions = { lat: 53.9116711, lng: 27.633793699999956 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17,
+            center: SaMSolutions
+        });
+        var marker = new google.maps.Marker({
+            position: SaMSolutions,
+            map: map
+        });
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe49Q9DMLfHs9pSIrPJVlFCs2hXVss1N0&callback=initMap">
+</script>

@@ -25,8 +25,7 @@ namespace Schedule
 
         protected void Application_Error()
         {
-            //Exception exception = Server.GetLastError();
-            //Server.ClearError();
+
             //Response.Redirect("/Error/Http404"); //работает простой редирект
             var exception = Server.GetLastError();
             
@@ -46,21 +45,23 @@ namespace Schedule
 
                 switch (Response.StatusCode)
                 {
-                    case 403:
-                        routeData.Values.Add("action", "Http403");
+                    case 500:
+                        routeData.Values.Add("action", "ServerError");
                         break;
                     case 404:
-                        routeData.Values.Add("action", "Http404");
+                        routeData.Values.Add("action", "NotFound");
                         break;
                     default:
-                        routeData.Values.Add("action", "Error");
+                        routeData.Values.Add("action", "General");
+                        routeData.Values.Add("exception", exception);
                         break;
                 }
 
             }
             else
             {
-                routeData.Values.Add("action", "Index");
+                routeData.Values.Add("action", "General");
+                routeData.Values.Add("exception", exception);
             }
 
             Server.ClearError();

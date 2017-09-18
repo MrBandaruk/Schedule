@@ -249,6 +249,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\Schedule.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\Custom\Panel.js" />
     <Content Include="Scripts\dataTables\buttons.bootstrap.min.js" />
@@ -315,8 +316,8 @@
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Account\_ViewStart.cshtml" />
     <Content Include="Views\Error\General.cshtml" />
-    <Content Include="Views\Error\Http404.cshtml" />
-    <Content Include="Views\Error\Http403.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\ServerError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

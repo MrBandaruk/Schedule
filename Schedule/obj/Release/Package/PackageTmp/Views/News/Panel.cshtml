@@ -1,0 +1,38 @@
+﻿@model List<Schedule.BLL.Model.NewsViewModelItem>
+@using Schedule.Helpers;
+
+@{
+    ViewBag.Title = "News Panel";
+}
+
+@Styles.Render("~/Content/panelCss")
+@Scripts.Render("~/Scripts/panelScripts")
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+
+<hr />
+<a class="btn btn-default" href="@Url.Action("Create", "News")"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-font"></span></a>
+<button class="btn btn-default " id="btn-delete"><span class="glyphicon glyphicon-trash"></span></button>
+<hr />
+
+
+
+
+<table class="table table-bordered table-hover display" id="myTable">
+    <thead style="font-weight: bold; font-size: 18px">
+        <tr>
+            <td style="width: 20px"></td>
+            <td style="width: 10px"></td>
+            <td style="width: 200px">Title</td>
+            <td>Article</td>
+            <td style="width: 10px"></td>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/Custom/Panel.js"></script>
