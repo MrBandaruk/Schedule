@@ -9,9 +9,9 @@ namespace Schedule.Controllers
     public class ErrorController : Controller
     {
         // GET: Error
-        public ActionResult General(Exception exception)
+        public ActionResult General()
         {
-            return View("Exception", exception);
+            return View();
         }
 
         public ActionResult Http404()

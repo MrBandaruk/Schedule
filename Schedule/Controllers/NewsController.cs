@@ -26,14 +26,13 @@ namespace Schedule.Controllers
 
 
         [HttpPost]
+        [HandleError()]
         public ActionResult Create(BLL.Model.NewsViewModelItem item)
         {
             
             for (var i = 0; i < Request.Files.Count; i++)
             {
                 var image = Request.Files[i];
-
-                
 
                 if (image.ContentLength != 0)
                 {

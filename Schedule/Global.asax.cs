@@ -25,40 +25,50 @@ namespace Schedule
 
         protected void Application_Error()
         {
-            
+            //Exception exception = Server.GetLastError();
+            //Server.ClearError();
+            //Response.Redirect("/Error/Http404"); //работает простой редирект
             var exception = Server.GetLastError();
-            var httpException = exception as HttpException;
-
+            
             //log exception
             log.Error(exception);
 
             Response.Clear();
-            Server.ClearError();
+            var httpException = exception as HttpException;
+
             var routeData = new RouteData();
-            routeData.Values["controller"] = "Error";
-            routeData.Values["action"] = "General";
-            routeData.Values["exception"] = exception;
-            Response.StatusCode = 500;
+            routeData.Values.Add("controller", "Error");
 
-            if (httpException != null) {
-            Response.StatusCode = httpException.GetHttpCode();
 
-                switch (Response.StatusCode) {
-            case 403:
-                        routeData.Values["action"] = "Http403";
-                break;
-            case 404:
-                        routeData.Values["action"] = "Http404";
-                break;
+            if (httpException != null)
+            {
+                Response.StatusCode = httpException.GetHttpCode();
+
+                switch (Response.StatusCode)
+                {
+                    case 403:
+                        routeData.Values.Add("action", "Http403");
+                        break;
+                    case 404:
+                        routeData.Values.Add("action", "Http404");
+                        break;
+                    default:
+                        routeData.Values.Add("action", "Error");
+                        break;
+                }
+
+            }
+            else
+            {
+                routeData.Values.Add("action", "Index");
             }
 
-            }
+            Server.ClearError();
             Response.TrySkipIisCustomErrors = true;
             IController errorsController = new ErrorController();
-            HttpContextWrapper wrapper = new HttpContextWrapper(Context);
-            var rc = new RequestContext(wrapper, routeData);
-            errorsController.Execute(rc);
-            
+            errorsController.Execute(new RequestContext(
+                new HttpContextWrapper(Context), routeData));
+
         }
     }
 }
