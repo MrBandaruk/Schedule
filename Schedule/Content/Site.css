@@ -226,6 +226,11 @@ textarea {
     display: inline-block;
 }
 
+thead:first-child > tr:first-child > td.details-control{
+    background-color: white;
+    cursor: pointer;
+}
+
 td.details-control {
     background: url('../Content/Images/if_plus.png') no-repeat center center;
     cursor: pointer;
