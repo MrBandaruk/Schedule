@@ -26,3 +26,6 @@
 
 - **Authentication**:
   - ASP.NET Identity
+  
+- **Other**:
+  - Log4Net
