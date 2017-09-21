@@ -250,3 +250,12 @@ ERROR 2017-09-21 11:49:38,530 38696ms MvcApplication         Application_Error  
 ERROR 2017-09-21 11:50:00,724  4119ms MvcApplication         Application_Error  - The controller for path '/l' was not found or does not implement IController.
 ERROR 2017-09-21 11:50:19,050  4666ms MvcApplication         Application_Error  - The controller for path '/kk' was not found or does not implement IController.
 ERROR 2017-09-21 11:55:39,920  5302ms MvcApplication         Application_Error  - The controller for path '/k' was not found or does not implement IController.
+ERROR 2017-09-22 01:01:49,195 288597ms MvcApplication         Application_Error  - Cannot insert the value NULL into column 'Title', table 'Schedule.dbo.FinalEvent'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+ERROR 2017-09-22 01:03:09,078 368480ms MvcApplication         Application_Error  - Cannot insert the value NULL into column 'Title', table 'Schedule.dbo.FinalEvent'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+ERROR 2017-09-22 01:04:49,056 13877ms MvcApplication         Application_Error  - The controller for path '/k' was not found or does not implement IController.
+ERROR 2017-09-22 01:05:10,900 35721ms MvcApplication         Application_Error  - Cannot insert the value NULL into column 'Title', table 'Schedule.dbo.FinalEvent'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+ERROR 2017-09-22 01:05:52,930 77751ms MvcApplication         Application_Error  - Cannot insert the value NULL into column 'Title', table 'Schedule.dbo.FinalEvent'; column does not allow nulls. INSERT fails.
+The statement has been terminated.

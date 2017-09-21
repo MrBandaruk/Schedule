@@ -26,50 +26,6 @@ namespace Schedule
         protected void Application_Error(Object sender, EventArgs e)
         {
 
-            ////Response.Redirect("/Error/Http404"); //работает простой редирект
-            //var exception = Server.GetLastError();
-
-            ////log exception
-            //log.Error(exception);
-
-            //Response.Clear();
-            //var httpException = exception as HttpException;
-
-            //var routeData = new RouteData();
-            //routeData.Values.Add("controller", "Error");
-
-
-            //if (httpException != null)
-            //{
-            //    Response.StatusCode = httpException.GetHttpCode();
-
-            //    switch (Response.StatusCode)
-            //    {
-            //        case 500:
-            //            routeData.Values.Add("action", "ServerError");
-            //            break;
-            //        case 404:
-            //            routeData.Values.Add("action", "NotFound");
-            //            break;
-            //        default:
-            //            routeData.Values.Add("action", "General");
-            //            routeData.Values.Add("exception", exception);
-            //            break;
-            //    }
-
-            //}
-            //else
-            //{
-            //    routeData.Values.Add("action", "General");
-            //    routeData.Values.Add("exception", exception);
-            //}
-
-            //Server.ClearError();
-            //Response.TrySkipIisCustomErrors = true;
-            //IController errorsController = new ErrorController();
-            //errorsController.Execute(new RequestContext(
-            //    new HttpContextWrapper(Context), routeData));
-
             var httpContext = ((MvcApplication)sender).Context;
             var currentController = string.Empty;
             var currentAction = string.Empty;
