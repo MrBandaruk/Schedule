@@ -9,18 +9,18 @@ namespace Schedule.Controllers
     public class ErrorController : Controller
     {
         // GET: Error
-        public ActionResult General()
+        public ViewResult General()
         {
             return View();
         }
 
-        public ActionResult NotFound()
+        public ViewResult NotFound()
         {
             Response.StatusCode = 404;
             return View();
         }
 
-        public ActionResult ServerError()
+        public ViewResult ServerError()
         {
             Response.StatusCode = 500;
             return View();
