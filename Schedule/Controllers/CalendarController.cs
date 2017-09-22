@@ -15,16 +15,15 @@ namespace Schedule.Controllers
 
         #region Create
 
-        public ActionResult CreateEvent(BLL.Model.CalendarModelItem Event_create)
+        public ActionResult CreateEvent(BLL.Model.CalendarModelItem item)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                calDbProv.Add(Event_create);
-                
+                return View(); //TODO: return Error message in little red window.
             }
-            return View();
 
-            //return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
+            calDbProv.Add(item);
+            return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -65,6 +64,10 @@ namespace Schedule.Controllers
         [HttpPost]
         public ActionResult EditEvent(BLL.Model.CalendarModelItem item)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(); //TODO: return Error message in little red window.
+            }
             calDbProv.Update(item);
             return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
         }
@@ -73,6 +76,11 @@ namespace Schedule.Controllers
         [HttpPost]
         public ActionResult DragEditEvent(BLL.Model.CalendarViewModelItem item)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(); //TODO: return Error message in little red window.
+            }
+
             calDbProv.Update(item);
             return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
         }
@@ -87,7 +95,7 @@ namespace Schedule.Controllers
 
         public ActionResult DeleteEvent(int id)
         {
-            calDbProv.Delete(id);
+            calDbProv.Delete(id); //TODO: return Error message in a little green window.
 
             return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
         }

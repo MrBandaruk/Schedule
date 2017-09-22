@@ -29,7 +29,11 @@ namespace Schedule.Controllers
         [HandleError()]
         public ActionResult Create(BLL.Model.NewsViewModelItem item)
         {
-            
+            if (!ModelState.IsValid)
+            {
+                return View(); //TODO: return Error message in a little red window.
+            }
+
             for (var i = 0; i < Request.Files.Count; i++)
             {
                 var image = Request.Files[i];
@@ -138,7 +142,12 @@ namespace Schedule.Controllers
         [HttpPost]
         public ActionResult Edit(BLL.Model.NewsViewModelItem item)
         {
-                for (var i = 0; i < Request.Files.Count; i++)
+            if (!ModelState.IsValid)
+            {
+                return View(); //TODO: return Error message in a little red window.
+            }
+
+            for (var i = 0; i < Request.Files.Count; i++)
                 {
                     var image = Request.Files[i];
 

@@ -16,7 +16,7 @@ namespace Schedule.BLL.Model
         [Display(Name = "Title")]
         public string Title { get; set; }
 
-        [Display(Name = "Additional")]
+        [Display(Name = "Additional")] //TODO: придумать, что делать с пустым Additional
         public string Additional { get; set; }
 
         [Display(Name = "Stard Date")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,23 @@ namespace Schedule.BLL.Model
 {
     public class NewsViewModelItem
     {
+        [Key]
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Short Title")]
         public string ShortTitle { get; set; }
+
+        [Required]
+        [Display(Name = "Full Title")]
         public string FullTitle { get; set; }
+
+        [Required]
+        [Display(Name = "Short Article")]
         public string ShortArticle { get; set; }
+
+        [Required]
+        [Display(Name = "Full Article")]
         public string FullArticle { get; set; }
 
         public virtual ICollection<NewsImageModelItem> NewsImages { get; set; }
