@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -14,12 +15,16 @@ namespace Schedule.Controllers
 
         #region Create
 
-        public ActionResult CreateEvent(BLL.Model.CalendarModelItem item)
+        public ActionResult CreateEvent(BLL.Model.CalendarModelItem Event_create)
         {
+            if (ModelState.IsValid)
+            {
+                calDbProv.Add(Event_create);
+                
+            }
+            return View();
 
-            calDbProv.Add(item);
-
-            return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
+            //return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

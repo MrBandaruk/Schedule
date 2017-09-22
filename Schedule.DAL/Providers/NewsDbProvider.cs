@@ -54,9 +54,6 @@ namespace Schedule.DAL
                 var totalItems = db.FinalNews.Count();
                 if (!string.IsNullOrEmpty(searchString))
                 {
-                    //dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                    //n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                    //n.FullArticle.Contains(searchString)).Include(n => n.FinalNewsImages);
 
                     switch (sortOrder)
                     {
