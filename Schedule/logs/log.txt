@@ -325,3 +325,12 @@ ERROR 2017-09-23 01:23:00,563 12327ms MvcApplication         Application_Error  
 ~/Views/Calendar/CreateEvent.vbhtml
 ~/Views/Shared/CreateEvent.cshtml
 ~/Views/Shared/CreateEvent.vbhtml
+ERROR 2017-09-23 01:32:01,544 261883ms MvcApplication         Application_Error  - The view 'CreateEvent' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Calendar/CreateEvent.aspx
+~/Views/Calendar/CreateEvent.ascx
+~/Views/Shared/CreateEvent.aspx
+~/Views/Shared/CreateEvent.ascx
+~/Views/Calendar/CreateEvent.cshtml
+~/Views/Calendar/CreateEvent.vbhtml
+~/Views/Shared/CreateEvent.cshtml
+~/Views/Shared/CreateEvent.vbhtml

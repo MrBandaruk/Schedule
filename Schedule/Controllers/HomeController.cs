@@ -10,13 +10,6 @@ namespace Schedule.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Description page";
-            
-            return View();
-        }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Contact page.";
