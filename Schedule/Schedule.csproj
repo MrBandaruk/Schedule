@@ -226,6 +226,7 @@
     <Content Include="Content\Images\if_minus.png" />
     <Content Include="Content\Images\if_plus.png" />
     <Content Include="Content\jquery-confirm.min.css" />
+    <Content Include="Content\Pages\Index.css" />
     <Content Include="Content\UI\jquery-ui.min.css" />
     <Content Include="Content\UI\jquery-ui.structure.min.css" />
     <Content Include="Content\UI\jquery-ui.theme.min.css" />
