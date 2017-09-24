@@ -334,3 +334,5 @@ ERROR 2017-09-23 01:32:01,544 261883ms MvcApplication         Application_Error 
 ~/Views/Calendar/CreateEvent.vbhtml
 ~/Views/Shared/CreateEvent.cshtml
 ~/Views/Shared/CreateEvent.vbhtml
+ERROR 2017-09-24 23:42:22,888 1826773ms MvcApplication         Application_Error  - E:\C#\GIT\Schedule\Views\Shared\_IndexLayout.cshtml(44): error CS1026: ) expected
+ERROR 2017-09-24 23:42:33,801 1837687ms MvcApplication         Application_Error  - E:\C#\GIT\Schedule\Views\Shared\_IndexLayout.cshtml(44): error CS1026: ) expected

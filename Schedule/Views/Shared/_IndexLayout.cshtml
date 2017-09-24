@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Schedule", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "color: white" })
+                @Html.ActionLink("Schedule", "Index", "Home", new { area = "" }, new { @class = "navbar-brand logo-link", style = "color: white" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -39,10 +39,9 @@
 					}
 					else
 					{
-						<li>
-							<a style = "color: white">Hello @User.Identity.Name</a>
-						</li>
-						<li>@Html.ActionLink("Log Out", "Logout", "Account", new { style = "color: white" })</li>
+						
+
+						<li class="identity-name">Hello, @User.Identity.Name | @Html.ActionLink("Log Out", "Logout", "Account", new { style = "color: white", @class = "logout-link" }) </li>
 					}
 
                 </ul>
