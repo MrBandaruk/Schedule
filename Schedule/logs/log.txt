@@ -336,3 +336,14 @@ ERROR 2017-09-23 01:32:01,544 261883ms MvcApplication         Application_Error 
 ~/Views/Shared/CreateEvent.vbhtml
 ERROR 2017-09-24 23:42:22,888 1826773ms MvcApplication         Application_Error  - E:\C#\GIT\Schedule\Views\Shared\_IndexLayout.cshtml(44): error CS1026: ) expected
 ERROR 2017-09-24 23:42:33,801 1837687ms MvcApplication         Application_Error  - E:\C#\GIT\Schedule\Views\Shared\_IndexLayout.cshtml(44): error CS1026: ) expected
+ERROR 2017-09-25 00:50:42,706 136003ms MvcApplication         Application_Error  - String or binary data would be truncated.
+The statement has been terminated.
+ERROR 2017-09-25 00:54:49,953 383249ms MvcApplication         Application_Error  - The view 'CreateEvent' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Calendar/CreateEvent.aspx
+~/Views/Calendar/CreateEvent.ascx
+~/Views/Shared/CreateEvent.aspx
+~/Views/Shared/CreateEvent.ascx
+~/Views/Calendar/CreateEvent.cshtml
+~/Views/Calendar/CreateEvent.vbhtml
+~/Views/Shared/CreateEvent.cshtml
+~/Views/Shared/CreateEvent.vbhtml

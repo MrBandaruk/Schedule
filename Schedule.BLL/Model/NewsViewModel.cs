@@ -28,7 +28,8 @@ namespace Schedule.BLL.Model
         [Display(Name = "Full Article")]
         public string FullArticle { get; set; }
 
-        public virtual ICollection<NewsImageModelItem> NewsImages { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        public virtual List<NewsImageModelItem> NewsImages { get; set; }
 
     }
 
