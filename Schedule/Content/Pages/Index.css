@@ -52,15 +52,20 @@
 }
 
 .identity-name{
-    width: 450px !important;
-    display: inline-block;
+    width: auto !important;
 }
 
 .identity-name:hover{
     background-color: #465775 !important;
 }
 
-.logout-link {
-    
-    
+.logout-link{
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0px !important;
+    line-height: 50px !important;
+}
+
+.identity-logout:hover{
+    background-color: #465775 !important;
 }

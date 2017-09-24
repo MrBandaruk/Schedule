@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Schedule</title>
-	<link rel="stylesheet" href="~/Content/Pages/Index.css" />
+	@*<link rel="stylesheet" href="~/Content/Pages/Index.css" />*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -39,9 +39,8 @@
 					}
 					else
 					{
-						
-
-						<li class="identity-name">Hello, @User.Identity.Name | @Html.ActionLink("Log Out", "Logout", "Account", new { style = "color: white", @class = "logout-link" }) </li>
+						<li class="identity-name">Hello, @User.Identity.Name</li>
+						<li class="identity-logout"> @Html.ActionLink("Log Out", "Logout", "Account", new { style = "color: white", @class = "logout-link" }) </li>
 					}
 
                 </ul>
