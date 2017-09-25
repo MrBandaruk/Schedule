@@ -257,8 +257,21 @@
     </div>
 </div>
 
+<h1 class="hidden-xs name-news">Latest News</h1>
 
 @foreach (var item in Model)
+{
+    <div class="row">
+        <a href="@Url.Action("Article", "News", new { id = item.Id })">
+            <img src="data:image;base64,@System.Convert.ToBase64String(item.NewsImages.FirstOrDefault().ImageItem)" class="img-responsive img-news" alt="@item.ShortTitle" />
+        </a>
+        <div class="col-md-6  text-news">
+            <a href="@Url.Action(item.ShortTitle, "News", new { id = item.Id })"></a>
+            <p>@item.ShortArticle</p>
+            <p><a class="btn btn-default" href="#">Learn more</a></p>
+        </div>
+    </div>
+}
 
 
 @*<div class="row">

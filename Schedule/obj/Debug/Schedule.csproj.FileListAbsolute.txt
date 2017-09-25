@@ -539,7 +539,6 @@ E:\C#\GIT\Schedule\obj\Debug\Schedule.dll
 E:\C#\GIT\Schedule\obj\Debug\Schedule.pdb
 E:\C#\GIT\Schedule\bin\Microsoft.Owin.Host.SystemWeb.dll
 E:\C#\GIT\Schedule\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\Schedule\Schedule\bin\ApplicationInsights.config
 D:\Schedule\Schedule\bin\roslyn\csc.exe
 D:\Schedule\Schedule\bin\roslyn\csc.exe.config
 D:\Schedule\Schedule\bin\roslyn\csc.rsp
@@ -639,3 +638,6 @@ D:\Schedule\Schedule\obj\Debug\Schedule.pdb
 E:\C#\GIT\Schedule\bin\Views\Shared\ApplicationInsights.config
 E:\C#\GIT\Schedule\bin\log4net.dll
 E:\C#\GIT\Schedule\bin\log4net.xml
+D:\Schedule\Schedule\bin\Views\Shared\ApplicationInsights.config
+D:\Schedule\Schedule\bin\log4net.dll
+D:\Schedule\Schedule\bin\log4net.xml

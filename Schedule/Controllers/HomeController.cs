@@ -9,7 +9,7 @@ namespace Schedule.Controllers
 
         public ActionResult Index()
         {
-            var model = newsDbProv.GetThreeLast();            
+            var model = newsDbProv.GetThreeLast();
             return View(model);
         }
 
