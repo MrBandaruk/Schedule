@@ -363,6 +363,24 @@ namespace Schedule.DAL
             return result;
         }
 
+
+        public List<NewsDtoItem> GetThreeLast()
+        {
+            List<NewsDtoItem> res = new List<NewsDtoItem>();
+
+            using(var db = new DataBaseDataContext())
+            {
+                var items = db.FinalNews.Skip(Math.Max(0, db.FinalNews.Count() - 3)).Select(x => x).Include(n => n.FinalNewsImages).OrderByDescending(x => x.Id);
+
+                foreach (var item in items)
+                {
+                    res.Add(MapDbToDto(item));
+                }
+            }
+
+            return res;
+        }
+
         #endregion
 
 
@@ -422,6 +440,7 @@ namespace Schedule.DAL
 
         #region Helpers
 
+
         private FinalNews MapDtoToDb(NewsDtoItem dbItem)
         {
             if (dbItem != null)
@@ -457,7 +476,11 @@ namespace Schedule.DAL
                     FullTitle = dbItem.FullTitle,
                     ShortArticle = dbItem.ShortArticle,
                     FullArticle = dbItem.FullArticle,
-                    NewsImages = dbItem.FinalNewsImages.Select(x => new NewsImageDto() { Id = x.Id, ImageItem = x.ImageItem.ToArray(), NewsId = dbItem.Id }).ToList()
+                    NewsImages = dbItem.FinalNewsImages.Select(x => 
+                    new NewsImageDto() {
+                        Id = x.Id,
+                        ImageItem = x.ImageItem.ToArray(),
+                        NewsId = dbItem.Id }).ToList()
                 };
             }
 

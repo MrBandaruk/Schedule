@@ -107,6 +107,19 @@ namespace Schedule.BLL.Providers
             return MapModelItem(dbProv.GetImageById(id));
         }
 
+        public List<NewsViewModelItem> GetThreeLast()
+        {
+            var res = new List<NewsViewModelItem>();
+            var items = dbProv.GetThreeLast();
+
+            foreach(var item in items)
+            {
+                res.Add(MapModelItem(item));
+            }
+
+            return res;
+        }
+
         #endregion
 
 

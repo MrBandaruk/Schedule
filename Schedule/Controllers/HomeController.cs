@@ -4,10 +4,13 @@ namespace Schedule.Controllers
 {
     public class HomeController : Controller
     {
+        public BLL.Providers.NewsDbProvider newsDbProv = new BLL.Providers.NewsDbProvider();
+
 
         public ActionResult Index()
         {
-            return View();
+            var model = newsDbProv.GetThreeLast();            
+            return View(model);
         }
 
         public ActionResult Contact()
