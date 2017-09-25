@@ -292,6 +292,7 @@ tr.shown td.details-control {
 
 .navbar-nav li:hover{
     background-color: #383F4B;
+    border-bottom: 4px solid grey;
 }
 
 .ActionLink{
@@ -329,4 +330,32 @@ tr.shown td.details-control {
 
 .identity-logout:hover{
     background-color: #465775 !important;
+}
+
+.identity-log{
+    text-align: center;
+}
+
+.identity-log:hover{
+    background-color: #383F4B !important;
+}
+
+.identity-icon{
+    color: white;
+    text-align: center;
+}
+
+
+
+.identity-icon a {
+    color: white !important;
+    width: 100% !important;
+    height: 100% !important;
+    line-height: 50px !important;
+}
+
+
+.identity-icon a span {
+    height: 20px !important;
+    font-size: 20px;
 }

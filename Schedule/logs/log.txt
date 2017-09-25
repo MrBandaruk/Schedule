@@ -352,3 +352,10 @@ The statement has been terminated.
 ERROR 2017-09-25 20:41:39,331 1362941ms MvcApplication         Application_Error  - A public action method 'IndexTest' was not found on controller 'Schedule.Controllers.NewsController'.
 ERROR 2017-09-25 20:42:38,411 1422021ms MvcApplication         Application_Error  - Значение не может быть неопределенным.
 Имя параметра: entity
+ERROR 2017-09-25 20:56:22,780  4120ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.HomeController'.
+ERROR 2017-09-25 20:56:25,484  6825ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.ErrorController'.
+ERROR 2017-09-25 20:56:25,974  7314ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.ErrorController'.
+ERROR 2017-09-25 20:56:26,221  7561ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.ErrorController'.
+ERROR 2017-09-25 20:56:26,426  7766ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.ErrorController'.
+ERROR 2017-09-25 20:58:08,857 110197ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.HomeController'.
+ERROR 2017-09-25 20:58:11,836 113177ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.HomeController'.

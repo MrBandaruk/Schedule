@@ -32,13 +32,14 @@
 				<ul style="color: white" class="nav navbar-nav navbar-right">
 					@if (!User.Identity.IsAuthenticated)
 					{
-						<li>@Html.ActionLink("Log In", "Login", "Account", null, new { style = "color: white" })</li>
-						<li>@Html.ActionLink("Sign Up", "Register", "Account", null, new { style = "color: white" })</li>
+						@*<li class="identity-logout identity-log">@Html.ActionLink("Log In", "Login", "Account", null, new { style = "color: white", @class = "logout-link" })</li>
+						<li class="identity-logout identity-log">@Html.ActionLink("Sign Up", "Register", "Account", null, new { style = "color: white", @class = "logout-link" })</li>*@
+						<li class="identity-icon"><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-user"></span></a></li>
 					}
 					else
 					{
 						<li class="identity-name">Hello, @User.Identity.Name</li>
-						<li class="identity-logout"> @Html.ActionLink("Log Out", "Logout", "Account", new { style = "color: white", @class = "logout-link" }) </li>
+						<li class="identity-logout"> @Html.ActionLink("Log Out", "Logout", "Account", null, new { style = "color: white", @class = "logout-link" }) </li>
 					}
 
 				</ul>
