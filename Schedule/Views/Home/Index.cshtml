@@ -7,11 +7,11 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
 
- <div class="main-carousel">
+ @*<div class="main-carousel">
     <div><img class="main-image" src="~/Content/Images/373-zima-sneg-doroga-oboi-priroda-1366x768.jpg" alt="Chania"></div>
     <div><img class="main-image" src="~/Content/Images/7-beloe-pero-makro-oboi-1366x768.jpg" alt="Chicago"></div>
     <div><img class="main-image" src="~/Content/Images/8-trava-makro-oboi-1366x768.jpg" alt="New York"></div>
-</div>
+</div>*@
 
 
 
@@ -258,20 +258,21 @@
 </div>
 
 <h1 class="hidden-xs name-news">Latest News</h1>
+<div class="row news-column-3">
+	@foreach (var item in Model)
+	{
 
-@foreach (var item in Model)
-{
-    <div class="row">
-        <a href="@Url.Action("Article", "News", new { id = item.Id })">
-            <img src="data:image;base64,@System.Convert.ToBase64String(item.NewsImages.FirstOrDefault().ImageItem)" class="img-responsive img-news" alt="@item.ShortTitle" />
-        </a>
-        <div class="col-md-6  text-news">
-            <a href="@Url.Action(item.ShortTitle, "News", new { id = item.Id })"></a>
-            <p>@item.ShortArticle</p>
-            <p><a class="btn btn-default" href="#">Learn more</a></p>
-        </div>
-    </div>
-}
+			<div class="col-md-4 col-sm-4 col-xs-12">
+				<a href="@Url.Action("Article", "News", new { id = item.Id })">
+					<img src="data:image;base64,@System.Convert.ToBase64String(item.NewsImages.FirstOrDefault().ImageItem)" class="img-responsive img-news-main" alt="@item.ShortTitle" />
+				</a>
+				<h3><a class="name-news" href="@Url.Action(item.ShortTitle, "News", new { id = item.Id })"></a></h3>
+				<p class="text-news">@item.ShortArticle</p>
+				<p><a class="btn btn-default" href="@Url.Action("Article", "News", new { id = item.Id })">Learn more</a></p>
+			</div>
+
+			}
+		</div>
 
 
 @*<div class="row">

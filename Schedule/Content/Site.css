@@ -114,9 +114,9 @@ textarea {
 
 
 .img-news-main {
-    max-height: 450px;
-    max-width: 450px;
-    margin: 40px auto;   
+    transition: all 0.3s ease;
+    height: 250px;
+    width: 550px;
 }
 
 
@@ -131,6 +131,14 @@ textarea {
 }
 
 .img-news:hover {
+    opacity: 0.5;
+}
+
+.img-news-main:active {
+    transform: scale(0.7);
+}
+
+.img-news-main:hover {
     opacity: 0.5;
 }
 

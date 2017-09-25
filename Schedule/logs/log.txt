@@ -347,3 +347,8 @@ ERROR 2017-09-25 00:54:49,953 383249ms MvcApplication         Application_Error 
 ~/Views/Calendar/CreateEvent.vbhtml
 ~/Views/Shared/CreateEvent.cshtml
 ~/Views/Shared/CreateEvent.vbhtml
+ERROR 2017-09-25 20:20:08,675 72285ms MvcApplication         Application_Error  - String or binary data would be truncated.
+The statement has been terminated.
+ERROR 2017-09-25 20:41:39,331 1362941ms MvcApplication         Application_Error  - A public action method 'IndexTest' was not found on controller 'Schedule.Controllers.NewsController'.
+ERROR 2017-09-25 20:42:38,411 1422021ms MvcApplication         Application_Error  - Значение не может быть неопределенным.
+Имя параметра: entity
