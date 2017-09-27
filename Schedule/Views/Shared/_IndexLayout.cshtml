@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Schedule</title>
+    <title>@ViewBag.Title</title>
 	@*<link rel="stylesheet" href="~/Content/Pages/Index.css" />*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -13,6 +13,8 @@
 
 </head>
 <body>
+	@Html.ActionLink("English", "Change", "Language", new { lang = "en"}, null)
+	@Html.ActionLink("Russian", "Change", "Language", new { lang = "ru"}, null)
     <div class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -25,11 +27,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { style = "color: white", @class = "ActionLink" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { style = "color: white", @class = "ActionLink" })</li>
-                    <li>@Html.ActionLink("Feedback", "Feedback", "Home", null, new { style = "color: white", @class = "ActionLink" })</li>
-                    <li>@Html.ActionLink("News", "Index", "News", null, new { style = "color: white", @class = "ActionLink" })</li>
-                    <li>@Html.ActionLink("Calendar", "Index", "Calendar", null, new { style = "color: white", @class = "ActionLink" })</li>
+                    <li>@Html.ActionLink(Schedule.Resources.HomeTexts.Home, "Index", "Home", null, new { style = "color: white", @class = "ActionLink" })</li>
+                    <li>@Html.ActionLink(Schedule.Resources.HomeTexts.Contact, "Contact", "Home", null, new { style = "color: white", @class = "ActionLink" })</li>
+                    <li>@Html.ActionLink(Schedule.Resources.HomeTexts.Feedback, "Feedback", "Home", null, new { style = "color: white", @class = "ActionLink" })</li>
+                    <li>@Html.ActionLink(Schedule.Resources.HomeTexts.News, "Index", "News", null, new { style = "color: white", @class = "ActionLink" })</li>
+                    <li>@Html.ActionLink(Schedule.Resources.HomeTexts.Calendar, "Index", "Calendar", null, new { style = "color: white", @class = "ActionLink" })</li>
                 </ul>
                 <ul style = "color: white" class="nav navbar-nav navbar-right">
                     @if (!User.Identity.IsAuthenticated)

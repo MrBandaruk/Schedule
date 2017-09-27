@@ -360,3 +360,68 @@ ERROR 2017-09-25 20:56:26,426  7766ms MvcApplication         Application_Error  
 ERROR 2017-09-25 20:58:08,857 110197ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.HomeController'.
 ERROR 2017-09-25 20:58:11,836 113177ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.HomeController'.
 ERROR 2017-09-27 09:07:44,678 74453ms MvcApplication         Application_Error  - Ссылка на объект не указывает на экземпляр объекта.
+ERROR 2017-09-27 10:25:04,456 50680ms MvcApplication         Application_Error  - Ссылка на объект не указывает на экземпляр объекта.
+ERROR 2017-09-27 10:25:14,471 60695ms MvcApplication         Application_Error  - Ссылка на объект не указывает на экземпляр объекта.
+ERROR 2017-09-27 12:07:57,603  5082ms MvcApplication         Application_Error  - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Language/Index.aspx
+~/Views/Language/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Language/Index.cshtml
+~/Views/Language/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+ERROR 2017-09-27 12:08:02,833 10312ms MvcApplication         Application_Error  - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Language/Index.aspx
+~/Views/Language/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Language/Index.cshtml
+~/Views/Language/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+ERROR 2017-09-27 12:08:04,780 12260ms MvcApplication         Application_Error  - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Language/Index.aspx
+~/Views/Language/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Language/Index.cshtml
+~/Views/Language/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+ERROR 2017-09-27 12:10:39,871 167350ms MvcApplication         Application_Error  - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Language/Index.aspx
+~/Views/Language/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Language/Index.cshtml
+~/Views/Language/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+ERROR 2017-09-27 12:17:08,129  5244ms MvcApplication         Application_Error  - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Language/Index.aspx
+~/Views/Language/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Language/Index.cshtml
+~/Views/Language/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+ERROR 2017-09-27 12:17:18,740 15854ms MvcApplication         Application_Error  - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Language/Index.aspx
+~/Views/Language/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Language/Index.cshtml
+~/Views/Language/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+ERROR 2017-09-27 12:18:53,585  6429ms MvcApplication         Application_Error  - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Language/Index.aspx
+~/Views/Language/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Language/Index.cshtml
+~/Views/Language/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml

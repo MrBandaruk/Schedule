@@ -641,3 +641,8 @@ E:\C#\GIT\Schedule\bin\log4net.xml
 D:\Schedule\Schedule\bin\Views\Shared\ApplicationInsights.config
 D:\Schedule\Schedule\bin\log4net.dll
 D:\Schedule\Schedule\bin\log4net.xml
+E:\C#\GIT\Schedule\bin\ru\Schedule.resources.dll
+E:\C#\GIT\Schedule\obj\Debug\Schedule.Resources.HomeTexts.resources
+E:\C#\GIT\Schedule\obj\Debug\Schedule.Resources.HomeTexts.ru.resources
+E:\C#\GIT\Schedule\obj\Debug\Schedule.csproj.GenerateResource.Cache
+E:\C#\GIT\Schedule\obj\Debug\ru\Schedule.resources.dll
