@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Schedule.BLL.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Schedule.BLL.Model
         [Display(Name = "Full Article")]
         public string FullArticle { get; set; }
 
-        [Required(AllowEmptyStrings = true)]
+        [ImageRequired]
         public virtual List<NewsImageModelItem> NewsImages { get; set; }
 
     }

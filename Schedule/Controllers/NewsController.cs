@@ -29,11 +29,6 @@ namespace Schedule.Controllers
         [HandleError()]
         public ActionResult Create(BLL.Model.NewsViewModelItem item)
         {
-            //TODO: fix bug with Adding and checking News
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(); //TODO: return Error message in a little red window.
-            //}
 
             for (var i = 0; i < Request.Files.Count; i++)
             {
@@ -51,8 +46,12 @@ namespace Schedule.Controllers
                 {
                     item.NewsImages = null;
                 }
+            }
 
-
+            ModelState["NewsImages"].Errors.Clear();
+            if (!ModelState.IsValid)
+            {
+                return View(); //TODO: return Error message in a little red window.
             }
 
             newsDbProv.Add(item);

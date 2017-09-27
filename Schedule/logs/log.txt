@@ -359,3 +359,4 @@ ERROR 2017-09-25 20:56:26,221  7561ms MvcApplication         Application_Error  
 ERROR 2017-09-25 20:56:26,426  7766ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.ErrorController'.
 ERROR 2017-09-25 20:58:08,857 110197ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.HomeController'.
 ERROR 2017-09-25 20:58:11,836 113177ms MvcApplication         Application_Error  - A public action method 'Logout' was not found on controller 'Schedule.Controllers.HomeController'.
+ERROR 2017-09-27 09:07:44,678 74453ms MvcApplication         Application_Error  - Ссылка на объект не указывает на экземпляр объекта.
