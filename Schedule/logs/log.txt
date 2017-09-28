@@ -425,3 +425,7 @@ ERROR 2017-09-27 12:18:53,585  6429ms MvcApplication         Application_Error  
 ~/Views/Language/Index.vbhtml
 ~/Views/Shared/Index.cshtml
 ~/Views/Shared/Index.vbhtml
+ERROR 2017-09-28 22:29:59,818 366730ms MvcApplication         Application_Error  - String or binary data would be truncated.
+The statement has been terminated.
+ERROR 2017-09-28 23:42:17,930  7826ms MvcApplication         Application_Error  - A public action method 'Создать' was not found on controller 'Schedule.Controllers.NewsController'.
+ERROR 2017-09-28 23:42:25,954 15851ms MvcApplication         Application_Error  - A public action method 'Создать' was not found on controller 'Schedule.Controllers.NewsController'.

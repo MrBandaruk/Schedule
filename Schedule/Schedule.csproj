@@ -322,7 +322,6 @@
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\SuccessRegister.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Account\_ViewStart.cshtml" />
     <Content Include="Views\Error\General.cshtml" />
@@ -333,7 +332,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\UI\images\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />

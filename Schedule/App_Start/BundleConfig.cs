@@ -77,16 +77,19 @@ namespace Schedule
                 "~/Content/FullCalendar/scheduler.min.css",
                 "~/Content/Bootstrap DatePicker/bootstrap-datetimepicker.min.css"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/CalendarScripts").Include(
-                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-confirm.min.js",
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js",
-                "~/Scripts/FullCalendar/moment.min.js",
-                "~/Scripts/FullCalendar/fullcalendar.min.js",
-                "~/Scripts/FullCalendar/scheduler.min.js",
-                "~/Scripts/FullCalendar/ru.js",
-                "~/Scripts/Bootstrap DatePicker/bootstrap-datetimepicker.min.js"));
+
+            //different scripts for calendar in english and calendar in russian
+                bundles.Add(new ScriptBundle("~/Scripts/CalendarScripts").Include(
+                    "~/Scripts/jquery-{version}.js",
+                    "~/Scripts/jquery-confirm.min.js",
+                    "~/Scripts/bootstrap.js",
+                    "~/Scripts/respond.js",
+                    "~/Scripts/FullCalendar/moment.min.js",
+                    "~/Scripts/FullCalendar/fullcalendar.min.js",
+                    "~/Scripts/FullCalendar/scheduler.min.js",
+                    "~/Scripts/FullCalendar/ru.js",
+                    "~/Scripts/Bootstrap DatePicker/bootstrap-datetimepicker.min.js"));
+
 
         }
     }

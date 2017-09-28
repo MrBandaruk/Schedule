@@ -91,7 +91,7 @@ namespace Schedule.Controllers
                 };
                 OperationDetails operationDetails = await UserService.Create(userDto);
                 if (operationDetails.Succedeed)
-                    return View("SuccessRegister");
+                    return View("Login"); //add green little window with successful registration
                 else
                     ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
             }

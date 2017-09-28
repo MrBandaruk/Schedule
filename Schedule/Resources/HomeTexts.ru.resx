@@ -123,8 +123,20 @@
   <data name="Contact" xml:space="preserve">
     <value>Контакты</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Отзыв</value>
+    <value>Связь</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
@@ -137,5 +149,8 @@
   </data>
   <data name="News" xml:space="preserve">
     <value>Новости</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
   </data>
 </root>

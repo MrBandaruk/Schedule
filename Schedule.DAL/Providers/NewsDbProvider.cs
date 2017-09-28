@@ -21,8 +21,6 @@ namespace Schedule.DAL
         {
             using (var db = new DataBaseDataContext())
             {
-                //log.Error("Test error log from NewsDbProvider");
-
                 var item = MapDtoToDb(newsItem);
 
                 if (newsItem.NewsImages != null)
