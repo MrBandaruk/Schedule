@@ -97,6 +97,24 @@ namespace Schedule.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Log In.
+        /// </summary>
+        public static string Log_In {
+            get {
+                return ResourceManager.GetString("Log In", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Log Out.
+        /// </summary>
+        public static string Log_Out {
+            get {
+                return ResourceManager.GetString("Log Out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на News.
         /// </summary>
         public static string News {

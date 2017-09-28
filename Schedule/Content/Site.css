@@ -330,6 +330,7 @@ tr.shown td.details-control {
 
 .identity-logout:hover{
     background-color: #465775 !important;
+    border: none !important;
 }
 
 .identity-log{

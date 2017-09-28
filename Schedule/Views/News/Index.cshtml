@@ -5,9 +5,14 @@
     ViewBag.Title = "News";
 }
 
+@if (User.IsInRole("admin"))
+{
+	<hr />
+	<a class="btn btn-default" href="@Url.Action("Panel","News")">News Panel</a>
+	
+}
 <hr />
-<a class="btn btn-default" href="@Url.Action("Panel","News")">News Panel</a>
-<hr />
+
 
 @using (Html.BeginForm())
 {

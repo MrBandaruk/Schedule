@@ -73,7 +73,12 @@ namespace Schedule.Controllers
 
         public ActionResult Panel()
         {
-            return View();
+            if (User.IsInRole("admin"))
+            {
+                return View();
+            }
+
+            return RedirectToAction("NotFound", "Error");
         }
 
 
