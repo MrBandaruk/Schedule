@@ -6,6 +6,15 @@
 
 <h2>Edit</h2>
 
+@if (TempData["Success"] != null)
+{
+	<div class="alert alert-success fade in">
+		<a href="#" class="close" data-dismiss="alert">&times;</a>
+		<strong>Success!</strong> 
+		<p>@TempData["Success"]</p>
+	</div>
+}
+
 @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <br />

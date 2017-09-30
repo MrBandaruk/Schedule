@@ -20,8 +20,12 @@ namespace Schedule.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //log.Error("Test error log");
-            return View();
+            if (User.IsInRole("admin"))
+            {
+                return View();
+            }
+
+            return RedirectToAction("NotFound", "Error");
         }
 
 
@@ -55,6 +59,8 @@ namespace Schedule.Controllers
             }
 
             newsDbProv.Add(item);
+
+            TempData["Success"] = "Added successfully!";
 
             return RedirectToAction("Edit", item.Id);
         }
@@ -136,6 +142,11 @@ namespace Schedule.Controllers
         [HttpGet]
         public ActionResult Edit(int? id)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("NotFound", "Error");
+            }
+
             if (id == null)
             {
                 return View(newsDbProv.GetLast());
@@ -186,6 +197,11 @@ namespace Schedule.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("NotFound", "Error");
+            }
+
             newsDbProv.Delete(id);
 
             return RedirectToAction("Panel");
