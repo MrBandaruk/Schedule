@@ -30,39 +30,41 @@ namespace Schedule.Controllers
 
 
         [HttpPost]
-        [HandleError()]
         public ActionResult Create(BLL.Model.NewsViewModelItem item)
         {
-
-            for (var i = 0; i < Request.Files.Count; i++)
+            if (ModelState.IsValid || Request.Files.Count > 1 )
             {
-                var image = Request.Files[i];
+                ModelState["NewsImages"].Errors.Clear();
 
-                if (image.ContentLength != 0)
+                for (var i = 0; i < Request.Files.Count; i++)
                 {
+                    var image = Request.Files[i];
                     byte[] imageData = null;
                     using (var binaryReader = new BinaryReader(image.InputStream))
                     {
                         imageData = binaryReader.ReadBytes(image.ContentLength);
                         item.NewsImages.Add(new BLL.Model.NewsImageModelItem { NewsId = item.Id, ImageItem = imageData });
                     }
-                } else
-                {
-                    item.NewsImages = null;
                 }
             }
-
-            ModelState["NewsImages"].Errors.Clear();
-            if (!ModelState.IsValid)
+            else
             {
+                TempData["Error"] = "Error!";
                 return View(); //TODO: return Error message in a little red window.
             }
 
-            newsDbProv.Add(item);
+            try
+            {
+                newsDbProv.Add(item);
+                TempData["Success"] = "Added successfully!";
+                return RedirectToAction("Edit", item.Id);
+            }
+            catch
+            {
+                TempData["Error"] = "Error!";
+                return View();
+            }
 
-            TempData["Success"] = "Added successfully!";
-
-            return RedirectToAction("Edit", item.Id);
         }
 
         #endregion

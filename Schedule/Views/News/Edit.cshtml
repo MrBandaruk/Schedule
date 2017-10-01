@@ -1,8 +1,9 @@
 ﻿@model Schedule.BLL.Model.NewsViewModelItem
 @{
-    ViewBag.Title = Schedule.Resources.HomeTexts.Edit;
+	ViewBag.Title = Schedule.Resources.HomeTexts.Edit;
 }
 
+<script type="text/javascript" src="~/Scripts/Custom/Alert.js"></script>
 
 <h2>Edit</h2>
 
@@ -14,6 +15,9 @@
 		<p>@TempData["Success"]</p>
 	</div>
 }
+
+
+
 
 @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

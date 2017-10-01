@@ -29,7 +29,7 @@ namespace Schedule.BLL.Model
         [Display(Name = "Full Article")]
         public string FullArticle { get; set; }
 
-        [ImageRequired]
+        [ImageRequired]        
         public virtual List<NewsImageModelItem> NewsImages { get; set; }
 
     }

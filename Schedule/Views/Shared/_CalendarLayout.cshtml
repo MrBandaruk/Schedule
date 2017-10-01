@@ -30,7 +30,7 @@
 					<li>@Html.ActionLink(Schedule.Resources.HomeTexts.News, "Index", "News", null, new { style = "color: white", @class = "ActionLink" })</li>
 					<li>@Html.ActionLink(Schedule.Resources.HomeTexts.Calendar, "Index", "Calendar", null, new { style = "color: white", @class = "ActionLink" })</li>
 				</ul>
-				<ul style="color: white" class="nav navbar-nav navbar-right">
+				<ul style="color: white" class="nav navbar-nav navbar-right hidden-sm">
 					@if (!User.Identity.IsAuthenticated)
 					{
 						@*<li class="identity-logout identity-log">@Html.ActionLink("Log In", "Login", "Account", null, new { style = "color: white", @class = "logout-link" })</li>

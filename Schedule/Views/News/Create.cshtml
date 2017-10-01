@@ -3,6 +3,15 @@
     ViewBag.Title = Schedule.Resources.HomeTexts.Create;
 }
 
+@if (TempData["Error"] != null)
+{
+	<br />
+	<div class="alert alert-danger fade in">
+		<a href="#" class="close" data-dismiss="alert">&times;</a>
+		<strong>Error!</strong>
+		<p>@TempData["Error"]</p>
+	</div>
+}
 
 @using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

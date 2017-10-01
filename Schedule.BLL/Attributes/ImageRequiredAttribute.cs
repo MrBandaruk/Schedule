@@ -14,12 +14,12 @@ namespace Schedule.BLL.Attributes
         {
             var collection = (List<NewsImageModelItem>)value;
 
-            if (collection != null)
+            if (collection.Count == 0 || collection.FirstOrDefault() != null)
             {
                 return true;
             }
 
-            return true;
+            return false;
         }
     }
 }
