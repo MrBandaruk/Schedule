@@ -40,118 +40,119 @@ namespace Schedule.DAL
 
         #region Read
 
-        //data for news Index
+        #region OldGetAll
+        ////data for news Index
+        //public NewsDtoModel GetAll(string sortOrder, string searchString, int pageSize, int page)
+        //{
+        //    List<NewsDtoItem> result = new List<NewsDtoItem>();
+        //    IQueryable<FinalNews> dbItems;
+        //    PageInfo pageInfo;
+
+
+        //    using (var db = new DataBaseDataContext())
+        //    {
+        //        var totalItems = db.FinalNews.Count();
+        //        if (!string.IsNullOrEmpty(searchString))
+        //        {
+
+        //            switch (sortOrder)
+        //            {
+        //                case "A-Z":
+        //                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+        //                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+        //                            n.FullArticle.Contains(searchString)).OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                case "Z-A":
+        //                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+        //                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+        //                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                case "Old":
+        //                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+        //                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+        //                            n.FullArticle.Contains(searchString)).OrderBy(x => x.Id).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                case "New":
+        //                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+        //                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+        //                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                default:
+        //                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+        //                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+        //                            n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+        //            }
+
+        //            pageInfo = new PageInfo
+        //            {
+        //                PageNumber = page,
+        //                PageSize = pageSize,
+        //                TotalItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+        //                            n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
+        //                            n.FullArticle.Contains(searchString)).Count()
+        //            };
+
+        //        }
+        //        else
+        //        {
+
+        //            switch (sortOrder)
+        //            {
+        //                case "A-Z":
+        //                    dbItems = db.FinalNews.OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                case "Z-A":
+        //                    dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                case "Old":
+        //                    dbItems = db.FinalNews.OrderBy(x => x.Id).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                case "New":
+        //                    dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+
+        //                default:
+        //                    dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
+        //                            .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+        //                    break;
+        //            }
+
+        //            pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = totalItems };
+
+        //        }
+
+        //        foreach (var dbItem in dbItems.ToList())
+        //        {
+        //            result.Add(MapDbToDto(dbItem));
+        //        }
+
+
+
+        //        return (MapDtoItemsToModel(result, pageInfo));
+
+        //    }
+
+        //}
+        #endregion
+
         public NewsDtoModel GetAll(string sortOrder, string searchString, int pageSize, int page)
-        {
-            List<NewsDtoItem> result = new List<NewsDtoItem>();
-            IQueryable<FinalNews> dbItems;
-            PageInfo pageInfo;
-
-
-            using (var db = new DataBaseDataContext())
-            {
-                var totalItems = db.FinalNews.Count();
-                if (!string.IsNullOrEmpty(searchString))
-                {
-
-                    switch (sortOrder)
-                    {
-                        case "A-Z":
-                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                                    n.FullArticle.Contains(searchString)).OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        case "Z-A":
-                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                                    n.FullArticle.Contains(searchString)).OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        case "Old":
-                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                                    n.FullArticle.Contains(searchString)).OrderBy(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        case "New":
-                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                                    n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        default:
-                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                                    n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-                    }
-
-                    pageInfo = new PageInfo
-                    {
-                        PageNumber = page,
-                        PageSize = pageSize,
-                        TotalItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
-                                    n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
-                                    n.FullArticle.Contains(searchString)).Count()
-                    };
-
-                }
-                else
-                {
-
-                    switch (sortOrder)
-                    {
-                        case "A-Z":
-                            dbItems = db.FinalNews.OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        case "Z-A":
-                            dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        case "Old":
-                            dbItems = db.FinalNews.OrderBy(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        case "New":
-                            dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-
-                        default:
-                            dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-                            break;
-                    }
-
-                    pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = totalItems };
-
-                }
-
-                foreach (var dbItem in dbItems.ToList())
-                {
-                    result.Add(MapDbToDto(dbItem));
-                }
-
-
-
-                return (MapDtoItemsToModel(result, pageInfo));
-
-            }
-
-        }
-
-
-        public NewsDtoModel GetAllTest(string sortOrder, string searchString, int pageSize, int page)
         {
             List<NewsDtoItem> items = new List<NewsDtoItem>();           
             PageInfo pageInfo = new PageInfo();
@@ -173,6 +174,7 @@ namespace Schedule.DAL
 
             return (MapDtoItemsToModel(items, pageInfo));
         }
+
 
         public List<NewsDtoItem> GetAll()
         {
@@ -383,25 +385,8 @@ namespace Schedule.DAL
             return result;
         }
 
-        public List<NewsImageDto> GetImagesIdByNewsId(int id)
-        {
-            List<NewsImageDto> result = new List<NewsImageDto>();
-            using (var db = new DataBaseDataContext())
-            {
 
-                var allItems = db.FinalNewsImages.Where(x => x.NewsId == id).ToList();
-
-                foreach (var img in allItems)
-                {
-                    result.Add(MapDbIdToDto(img));
-                }
-
-            }
-
-            return result;
-        }
-
-
+        //get 3 last news for index
         public List<NewsDtoItem> GetThreeLast()
         {
             List<NewsDtoItem> res = new List<NewsDtoItem>();

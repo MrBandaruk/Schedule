@@ -48,7 +48,7 @@ namespace Schedule.DAL.Providers.GetAllNews
                     return ByNew();
 
                 default:
-                    return ByAZ();
+                    return ByNew();
             }
         }
 
@@ -67,8 +67,8 @@ namespace Schedule.DAL.Providers.GetAllNews
         {
             using (var db = new DataBaseDataContext())
             {
-                var dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                        .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                var dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
+                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);               
 
                 return helper.MakeDtoList(dbItems);
             }
@@ -89,8 +89,8 @@ namespace Schedule.DAL.Providers.GetAllNews
         {
             using (var db = new DataBaseDataContext())
             {
-                var dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                var dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
+                                        .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
 
                 return helper.MakeDtoList(dbItems);
             }

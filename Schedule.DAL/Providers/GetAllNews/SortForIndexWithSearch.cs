@@ -53,7 +53,7 @@ namespace Schedule.DAL.Providers.GetAllNews
                     return ByNew();
 
                 default:
-                    return ByAZ();
+                    return ByNew();
             }
         }
 

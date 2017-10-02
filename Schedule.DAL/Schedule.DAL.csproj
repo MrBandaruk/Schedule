@@ -111,6 +111,7 @@
     <Compile Include="Providers\GetAllNews\NewsDbProviderHelpers.cs" />
     <Compile Include="Providers\GetAllNews\SortForIndex.cs" />
     <Compile Include="Providers\GetAllNews\SortForIndexWithSearch.cs" />
+    <Compile Include="Providers\GetAllNews\SortForPanel.cs" />
     <Compile Include="Providers\NewsDbProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
