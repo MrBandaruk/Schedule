@@ -10,6 +10,8 @@ namespace Schedule.DAL.Providers.GetAllNews
 {
     public class SortForIndexWithSearch : ISortData
     {
+        NewsDbProvider dbProvider = new NewsDbProvider();
+        NewsDbProviderHelpers helper = new NewsDbProviderHelpers();
         private int pageSize;
         private int page;
         private string searchString;
@@ -34,7 +36,7 @@ namespace Schedule.DAL.Providers.GetAllNews
         }
 
 
-        public IQueryable<FinalNews> Sort()
+        public List<NewsDtoItem> Sort()
         {
             switch (sortOrder)
             {
@@ -56,53 +58,67 @@ namespace Schedule.DAL.Providers.GetAllNews
         }
 
 
-        public IQueryable<FinalNews> ByAZ()
+
+        public List<NewsDtoItem> ByAZ()
         {
             using (var db = new DataBaseDataContext())
             {
-                return db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+                var dbItems =  db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                               n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
                               n.FullArticle.Contains(searchString)).OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
                               .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
             }
 
         }
 
-        public IQueryable<FinalNews> ByZA()
+
+
+
+        public List<NewsDtoItem> ByZA()
         {
             using (var db = new DataBaseDataContext())
             {
 
-                return db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+                var dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                                     n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
                                     n.FullArticle.Contains(searchString)).OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
                                     .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
             }
 
         }
 
-        public IQueryable<FinalNews> ByOld()
+        public List<NewsDtoItem> ByOld()
         {
             using (var db = new DataBaseDataContext())
             {
 
-                return db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+                var dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                                     n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
                                     n.FullArticle.Contains(searchString)).OrderBy(x => x.Id).Skip((page - 1) * pageSize)
                                     .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
             }
 
         }
 
-        public IQueryable<FinalNews> ByNew()
+        public List<NewsDtoItem> ByNew()
         {
             using (var db = new DataBaseDataContext())
             {
 
-                return db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
+
+
+                var dbItems =  db.FinalNews.Where(n => n.ShortTitle.Contains(searchString) ||
                                     n.FullTitle.Contains(searchString) || n.ShortArticle.Contains(searchString) ||
                                     n.FullArticle.Contains(searchString)).OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
                                     .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
             }
 
         }

@@ -153,8 +153,7 @@ namespace Schedule.DAL
 
         public NewsDtoModel GetAllTest(string sortOrder, string searchString, int pageSize, int page)
         {
-            List<NewsDtoItem> result = new List<NewsDtoItem>();
-            IQueryable<FinalNews> items;
+            List<NewsDtoItem> items = new List<NewsDtoItem>();           
             PageInfo pageInfo = new PageInfo();
 
             if (!string.IsNullOrEmpty(searchString))
@@ -170,14 +169,9 @@ namespace Schedule.DAL
                 pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = sort.TotalItems };
             }
 
-            foreach (var item in items)
-            {
-                result.Add(MapDbToDto(item));
-            }
-
             new DataBaseDataContext().Dispose();
 
-            return (MapDtoItemsToModel(result, pageInfo));
+            return (MapDtoItemsToModel(items, pageInfo));
         }
 
         public List<NewsDtoItem> GetAll()
@@ -485,7 +479,7 @@ namespace Schedule.DAL
         #region Helpers
 
 
-        private FinalNews MapDtoToDb(NewsDtoItem dbItem)
+        public FinalNews MapDtoToDb(NewsDtoItem dbItem)
         {
             if (dbItem != null)
             {
@@ -509,7 +503,7 @@ namespace Schedule.DAL
         }
 
 
-        private NewsDtoItem MapDbToDto(FinalNews dbItem)
+        public NewsDtoItem MapDbToDto(FinalNews dbItem)
         {
             if (dbItem != null)
             {

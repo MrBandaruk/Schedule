@@ -9,9 +9,9 @@ namespace Schedule.DAL.Providers.GetAllNews
 {
     public interface ISortData
     {
-        IQueryable<FinalNews> ByAZ();
-        IQueryable<FinalNews> ByZA();
-        IQueryable<FinalNews> ByOld();
-        IQueryable<FinalNews> ByNew();
+        List<NewsDtoItem> ByAZ();
+        List<NewsDtoItem> ByZA();
+        List<NewsDtoItem> ByOld();
+        List<NewsDtoItem> ByNew();
     }
 }

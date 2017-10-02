@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Schedule.DAL.Dto;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Schedule.DAL.Providers.GetAllNews
 {
     public class SortForIndex : ISortData
     {
+        NewsDbProviderHelpers helper = new NewsDbProviderHelpers();
         private string sortOrder;
         private int pageSize;
         private int page;
@@ -29,7 +31,7 @@ namespace Schedule.DAL.Providers.GetAllNews
             page = pgNumber;
         }
 
-        public IQueryable<FinalNews> Sort()
+        public List<NewsDtoItem> Sort()
         {
             switch (sortOrder)
             {
@@ -50,39 +52,47 @@ namespace Schedule.DAL.Providers.GetAllNews
             }
         }
 
-        public IQueryable<FinalNews> ByAZ()
+        public List<NewsDtoItem> ByAZ()
         {
            using (var db = new DataBaseDataContext())
             {
-                return db.FinalNews.OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
+                var dbItems = db.FinalNews.OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
                                     .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
             }
         }
 
-        public IQueryable<FinalNews> ByNew()
-        {
-            var db = new DataBaseDataContext();
-            
-                return db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
-            
-        }
-
-        public IQueryable<FinalNews> ByOld()
+        public List<NewsDtoItem> ByNew()
         {
             using (var db = new DataBaseDataContext())
             {
-                return db.FinalNews.OrderBy(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                var dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
+                                        .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
             }
         }
 
-        public IQueryable<FinalNews> ByZA()
+        public List<NewsDtoItem> ByOld()
         {
             using (var db = new DataBaseDataContext())
             {
-                return db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
+                var dbItems = db.FinalNews.OrderBy(x => x.Id).Skip((page - 1) * pageSize)
                                     .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
+            }
+        }
+
+        public List<NewsDtoItem> ByZA()
+        {
+            using (var db = new DataBaseDataContext())
+            {
+                var dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
+                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+
+                return helper.MakeDtoList(dbItems);
             }
         }
 

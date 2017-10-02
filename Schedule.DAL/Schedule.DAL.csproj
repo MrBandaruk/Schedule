@@ -108,6 +108,7 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Providers\CalendarDbProvider.cs" />
     <Compile Include="Providers\GetAllNews\ISortData.cs" />
+    <Compile Include="Providers\GetAllNews\NewsDbProviderHelpers.cs" />
     <Compile Include="Providers\GetAllNews\SortForIndex.cs" />
     <Compile Include="Providers\GetAllNews\SortForIndexWithSearch.cs" />
     <Compile Include="Providers\NewsDbProvider.cs" />
