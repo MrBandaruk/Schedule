@@ -150,8 +150,147 @@ namespace Schedule.DAL
         //    }
 
         //}
+
+        ////data for dataTables jquery
+        //public DataTablesDtoModel GetAllData(int start, int length, int sortCol, string sortType, string search)
+        //{
+        //    IQueryable<FinalNews> dbItems;            
+        //    using (var db = new DataBaseDataContext())
+        //    {
+        //        var allItems = db.FinalNews.Count();
+
+        //        if (!string.IsNullOrEmpty(search))
+        //        {
+        //            switch (sortType)
+        //            {
+        //                case "asc":
+        //                    switch (sortCol)
+        //                    {
+        //                        case 0:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 1:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderBy(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 2:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderBy(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        default:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                    }
+        //                    break;
+
+
+        //                case "desc":
+        //                    switch (sortCol)
+        //                    {
+        //                        case 0:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 1:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderByDescending(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 2:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderByDescending(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        default:
+        //                            dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
+        //                                    n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
+        //                                    n.FullArticle.Contains(search)).OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                    }
+        //                    break;
+
+        //                default:
+        //                    dbItems = null;
+        //                    break;
+        //            }
+
+        //            allItems = dbItems.Count();
+
+
+        //        }
+        //        else
+        //        {
+        //            switch (sortType)
+        //            {
+        //                case "asc":
+        //                    switch (sortCol)
+        //                    {
+        //                        case 0:
+        //                            dbItems = db.FinalNews.OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 1:
+        //                            dbItems = db.FinalNews.OrderBy(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 2:
+        //                            dbItems = db.FinalNews.OrderBy(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        default:
+        //                            dbItems = db.FinalNews.OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+        //                    }
+        //                    break;
+
+        //                case "desc":
+        //                    switch (sortCol)
+        //                    {
+        //                        case 0:
+        //                            dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 1:
+        //                            dbItems = db.FinalNews.OrderByDescending(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        case 2:
+        //                            dbItems = db.FinalNews.OrderByDescending(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+
+        //                        default:
+        //                            dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
+        //                            break;
+        //                    }
+        //                    break;
+
+
+        //                default:
+        //                    dbItems = null;
+        //                    break;
+        //            }
+        //        }               
+        //        return MapDbToDto(dbItems.ToList(), allItems);
+        //    }
+        //}
         #endregion
 
+        //get all news for News/Idex
         public NewsDtoModel GetAll(string sortOrder, string searchString, int pageSize, int page)
         {
             List<NewsDtoItem> items = new List<NewsDtoItem>();           
@@ -170,9 +309,25 @@ namespace Schedule.DAL
                 pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = sort.TotalItems };
             }
 
-            new DataBaseDataContext().Dispose();
 
             return (MapDtoItemsToModel(items, pageInfo));
+        }
+
+        //get all news for News/Panel
+        public DataTablesDtoModel GetAllData(int start, int length, int sortCol, string sortType, string search)
+        {
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                SortForPanelWithSearch sort = new SortForPanelWithSearch(start, length, sortCol, sortType, search);
+                return sort.Sort();
+            }
+            else
+            {
+                SortForPanel sort = new SortForPanel(start, length, sortCol, sortType);
+                return sort.Sort();
+            }
+
         }
 
 
@@ -192,146 +347,6 @@ namespace Schedule.DAL
 
             return result;
         }
-
-        
-        //data for dataTables jquery
-        public DataTablesDtoModel GetAllData(int start, int length, int sortCol, string sortType, string search)
-        {
-            IQueryable<FinalNews> dbItems;            
-            using (var db = new DataBaseDataContext())
-            {
-                var allItems = db.FinalNews.Count();
-
-                if (!string.IsNullOrEmpty(search))
-                {
-                    switch (sortType)
-                    {
-                        case "asc":
-                            switch (sortCol)
-                            {
-                                case 0:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 1:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderBy(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 2:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderBy(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                default:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                            }
-                            break;
-
-
-                        case "desc":
-                            switch (sortCol)
-                            {
-                                case 0:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 1:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderByDescending(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 2:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderByDescending(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                default:
-                                    dbItems = db.FinalNews.Where(n => n.ShortTitle.Contains(search) ||
-                                            n.FullTitle.Contains(search) || n.ShortArticle.Contains(search) ||
-                                            n.FullArticle.Contains(search)).OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                            }
-                            break;
-
-                        default:
-                            dbItems = null;
-                            break;
-                    }
-
-                    allItems = dbItems.Count();
-
-                    
-                }
-                else
-                {
-                    switch (sortType)
-                    {
-                        case "asc":
-                            switch (sortCol)
-                            {
-                                case 0:
-                                    dbItems = db.FinalNews.OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 1:
-                                    dbItems = db.FinalNews.OrderBy(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 2:
-                                    dbItems = db.FinalNews.OrderBy(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                default:
-                                    dbItems = db.FinalNews.OrderBy(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-                            }
-                            break;
-
-                        case "desc":
-                            switch (sortCol)
-                            {
-                                case 0:
-                                    dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 1:
-                                    dbItems = db.FinalNews.OrderByDescending(x => x.FullTitle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                case 2:
-                                    dbItems = db.FinalNews.OrderByDescending(x => x.FullArticle).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-
-                                default:
-                                    dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip(start).Take(DTAll(allItems, length, start));
-                                    break;
-                            }
-                            break;
-
-
-                        default:
-                            dbItems = null;
-                            break;
-                    }
-                }               
-                return MapDbToDto(dbItems.ToList(), allItems);
-            }
-        }
-
 
         public NewsDtoItem GetById(int id)
         {
@@ -517,7 +532,12 @@ namespace Schedule.DAL
             {
                 return new DataTablesDtoModel
                 {
-                    News = dbItem.ConvertAll(x => new NewsDtoItem() { Id = x.Id, ShortTitle = x.ShortTitle, FullTitle = x.FullTitle, ShortArticle = x.ShortArticle, FullArticle = x.FullArticle }),
+                    News = dbItem.ConvertAll(x => new NewsDtoItem() {
+                        Id = x.Id,
+                        ShortTitle = x.ShortTitle,
+                        FullTitle = x.FullTitle,
+                        ShortArticle = x.ShortArticle,
+                        FullArticle = x.FullArticle }),
                     iTotalRecords = allItems
                 };
             }
@@ -567,16 +587,6 @@ namespace Schedule.DAL
             }
 
             return null;
-        }
-
-        private int All(int totalItems, int pageSize, int page)
-        {
-            int total = totalItems - ((page - 1) * pageSize);
-            if (total >= pageSize)
-            {
-                return pageSize;
-            }
-            return total;
         }
 
         private int DTAll(int totalItems, int lenth, int start)

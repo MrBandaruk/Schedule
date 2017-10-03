@@ -12,9 +12,7 @@ namespace Schedule.DAL.Providers.GetAllNews
     {
         NewsDbProviderHelpers helper = new NewsDbProviderHelpers();
         private string sortOrder;
-        private int pageSize;
-        private int page;
-        private int totalItems = new DataBaseDataContext().FinalNews.Count();
+        private int page, pageSize, totalItems = new DataBaseDataContext().FinalNews.Count();
 
         public int TotalItems
         {
@@ -57,7 +55,7 @@ namespace Schedule.DAL.Providers.GetAllNews
            using (var db = new DataBaseDataContext())
             {
                 var dbItems = db.FinalNews.OrderBy(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                                    .Take(helper.GetAll(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
 
                 return helper.MakeDtoList(dbItems);
             }
@@ -68,7 +66,7 @@ namespace Schedule.DAL.Providers.GetAllNews
             using (var db = new DataBaseDataContext())
             {
                 var dbItems = db.FinalNews.OrderByDescending(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);               
+                                    .Take(helper.GetAll(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);               
 
                 return helper.MakeDtoList(dbItems);
             }
@@ -79,7 +77,7 @@ namespace Schedule.DAL.Providers.GetAllNews
             using (var db = new DataBaseDataContext())
             {
                 var dbItems = db.FinalNews.OrderBy(x => x.Id).Skip((page - 1) * pageSize)
-                                    .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                                    .Take(helper.GetAll(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
 
                 return helper.MakeDtoList(dbItems);
             }
@@ -90,20 +88,11 @@ namespace Schedule.DAL.Providers.GetAllNews
             using (var db = new DataBaseDataContext())
             {
                 var dbItems = db.FinalNews.OrderByDescending(x => x.ShortTitle).Skip((page - 1) * pageSize)
-                                        .Take(All(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
+                                        .Take(helper.GetAll(totalItems, pageSize, page)).Include(n => n.FinalNewsImages);
 
                 return helper.MakeDtoList(dbItems);
             }
         }
 
-        private int All(int totalItems, int pageSize, int page)
-        {
-            int total = totalItems - ((page - 1) * pageSize);
-            if (total >= pageSize)
-            {
-                return pageSize;
-            }
-            return total;
-        }
     }
 }
