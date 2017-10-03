@@ -236,6 +236,8 @@
     <Content Include="Content\Images\8-trava-makro-oboi-1366x768.jpg" />
     <Content Include="Content\Images\if_minus.png" />
     <Content Include="Content\Images\if_plus.png" />
+    <Content Include="Content\Images\if_Russia-Flag_32315.png" />
+    <Content Include="Content\Images\if_United-Kingdom-flag_32363.png" />
     <Content Include="Content\jquery-confirm.min.css" />
     <Content Include="Content\Pages\Index.css" />
     <Content Include="Content\UI\jquery-ui.min.css" />

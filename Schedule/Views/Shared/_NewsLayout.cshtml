@@ -11,8 +11,8 @@
         @Scripts.Render("~/bundles/jqueryconf")
 </head>
 <body>
-	@Html.ActionLink("English", "Change", "Language", new { lang = "en" }, null)
-	@Html.ActionLink("Russian", "Change", "Language", new { lang = "ru" }, null)
+	<a href="@Url.Action("Change", "Language", new { lang = "en" })"><img src="~/Content/Images/if_United-Kingdom-flag_32363.png" class="icon-flag" />English</a>
+	<a href="@Url.Action("Change", "Language", new { lang = "ru" })"><img src="~/Content/Images/if_Russia-Flag_32315.png" class="icon-flag" />Russian</a>
     <div class="navbar navbar-default">
         <div class="container">
 			<div class="navbar-header">
