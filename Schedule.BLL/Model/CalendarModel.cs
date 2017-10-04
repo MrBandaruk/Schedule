@@ -14,9 +14,12 @@ namespace Schedule.BLL.Model
 
         [Required]
         [Display(Name = "Title")]
+        [StringLength(50)]
         public string Title { get; set; }
 
+        [Required]
         [Display(Name = "Additional")] //TODO: придумать, что делать с пустым Additional
+        [StringLength(300)]
         public string Additional { get; set; }
 
         [Display(Name = "Stard Date")]

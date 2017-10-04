@@ -146,8 +146,11 @@
                                 dataType: "JSON",
                                 success: function (data) {
                                     //var event = { id: data.item.Id, title: data.item.Title, start: toDateFromJson(data.item.EndDate) }
-                                    //$('#calendar').fullCalendar('renderEvent', event, true);
-                                    location.reload(); //перезагрузка страницы
+                                	//$('#calendar').fullCalendar('renderEvent', event, true);
+                                	location.reload(); //перезагрузка страницы
+                                },
+                                error: function (data) {
+                                	alertify.error('All fields are required!');
                                 }
                             });
                         }

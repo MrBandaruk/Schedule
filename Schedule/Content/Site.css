@@ -303,7 +303,7 @@ tr.shown td.details-control {
     text-align: center;
     line-height: 80px !important;    
     display: block;
-    font-family: 'Arial', Arial, monospace;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
 }
 

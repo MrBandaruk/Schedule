@@ -19,11 +19,12 @@ namespace Schedule.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(); //TODO: return Error message in little red window.
+                //bad request
+                return new HttpStatusCodeResult(400, "All fields are required!"); //TODO: return Error message in little red window.
             }
 
             calDbProv.Add(item);
-            return Json( new { status = "success", item }, JsonRequestBehavior.AllowGet);
+            return Json( new { success = true, item }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

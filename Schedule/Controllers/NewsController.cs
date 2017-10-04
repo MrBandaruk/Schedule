@@ -49,7 +49,7 @@ namespace Schedule.Controllers
             }
             else
             {
-                TempData["Error"] = "Error!";
+                TempData["Error"] = "The article wasn't published!";
                 return View(); //TODO: return Error message in a little red window.
             }
 
@@ -61,7 +61,7 @@ namespace Schedule.Controllers
             }
             catch
             {
-                TempData["Error"] = "Error!";
+                TempData["Error"] = "The article wasn't published!";
                 return View();
             }
 

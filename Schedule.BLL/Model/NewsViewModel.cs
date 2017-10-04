@@ -15,14 +15,17 @@ namespace Schedule.BLL.Model
 
         [Required]
         [Display(Name = "Short Title")]
+        [StringLength(60)]
         public string ShortTitle { get; set; }
 
         [Required]
         [Display(Name = "Full Title")]
+        [StringLength(256)]
         public string FullTitle { get; set; }
 
         [Required]
         [Display(Name = "Short Article")]
+        [StringLength(410)]
         public string ShortArticle { get; set; }
 
         [Required]
