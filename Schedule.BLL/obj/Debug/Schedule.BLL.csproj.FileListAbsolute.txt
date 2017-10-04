@@ -98,3 +98,16 @@ E:\C#\GIT\Schedule.BLL\bin\Debug\log4net.dll
 E:\C#\GIT\Schedule.BLL\bin\Debug\log4net.xml
 D:\Schedule\Schedule.BLL\bin\Debug\log4net.dll
 D:\Schedule\Schedule.BLL\bin\Debug\log4net.xml
+E:\C#\GIT\Schedule.BLL\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.Helpers.dll
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.Mvc.dll
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.Razor.dll
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.WebPages.dll
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.WebPages.Razor.dll
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.Helpers.xml
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.Mvc.xml
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.Razor.xml
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.WebPages.xml
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\C#\GIT\Schedule.BLL\bin\Debug\System.Web.WebPages.Razor.xml

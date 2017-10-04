@@ -4,7 +4,7 @@
     ViewBag.Title = Schedule.Resources.HomeTexts.Log_In;
 }
 
-<h2>Login</h2>
+<h2>@Schedule.Resources.HomeTexts.Log_In</h2>
 <hr />
 
 @using (Html.BeginForm()) 
@@ -32,13 +32,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Log In" class="btn btn-default" />
+                <input type="submit" value="@Schedule.Resources.HomeTexts.Log_In" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<p>Don't have an account? <a href="@Url.Action("Register", "Account")">Register!</a></p>
+<p>Don't have an account? <a href="@Url.Action("Register", "Account")">@Schedule.Resources.HomeTexts.Registration!</a></p>
 
 
 @section Scripts {

@@ -138,6 +138,9 @@
   <data name="Feedback" xml:space="preserve">
     <value>Связь</value>
   </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Привет</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
   </data>

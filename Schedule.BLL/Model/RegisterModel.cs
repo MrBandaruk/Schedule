@@ -22,6 +22,7 @@ namespace Schedule.BLL.Model
         public string ConfirmPassword { get; set; }
 
         [Required]
+        [Range(1, 100, ErrorMessage = "The value must be between 1 and 100")]
         public int Age { get; set; }
 
         [Required]

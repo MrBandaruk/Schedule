@@ -1,10 +1,8 @@
-﻿using Schedule.BLL.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Schedule.BLL.Attributes;
+
 
 namespace Schedule.BLL.Model
 {

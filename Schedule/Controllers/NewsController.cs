@@ -9,6 +9,7 @@ using log4net;
 
 namespace Schedule.Controllers
 {
+    //[Authorize] - только для зарегестрированных пользователей
     public class NewsController : Controller
     {
         public BLL.Providers.NewsDbProvider newsDbProv = new BLL.Providers.NewsDbProvider();
@@ -18,18 +19,16 @@ namespace Schedule.Controllers
         #region Create
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
-            if (User.IsInRole("admin"))
-            {
-                return View();
-            }
 
-            return RedirectToAction("NotFound", "Error");
+            return View();
         }
 
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public ActionResult Create(BLL.Model.NewsViewModelItem item)
         {
             if (ModelState.IsValid || Request.Files.Count > 1 )
@@ -78,18 +77,13 @@ namespace Schedule.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "admin")]
         public ActionResult Panel()
         {
-            if (User.IsInRole("admin"))
-            {
-                return View();
-            }
-
-            return RedirectToAction("NotFound", "Error");
+            return View();
         }
 
-
+        [Authorize(Roles = "admin")]
         public ActionResult dataTablesData(BLL.Model.jQueryDataTableParamModel param)
         {
             var model = newsDbProv.GetAllData(param.iDisplayStart, param.iDisplayLength, param.iSortCol_0, param.sSortDir_0, param.sSearch);
@@ -142,12 +136,13 @@ namespace Schedule.Controllers
         #region Update
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
-            if (!User.IsInRole("admin"))
-            {
-                return RedirectToAction("NotFound", "Error");
-            }
+            //if (!User.IsInRole("admin"))
+            //{
+            //    return RedirectToAction("NotFound", "Error");
+            //}
 
             if (id == null)
             {
@@ -158,6 +153,7 @@ namespace Schedule.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(BLL.Model.NewsViewModelItem item)
         {
             if (!ModelState.IsValid)
@@ -197,12 +193,13 @@ namespace Schedule.Controllers
 
         #region Delete
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
-            if (!User.IsInRole("admin"))
-            {
-                return RedirectToAction("NotFound", "Error");
-            }
+            //if (!User.IsInRole("admin"))
+            //{
+            //    return RedirectToAction("NotFound", "Error");
+            //}
 
             newsDbProv.Delete(id);
 
@@ -210,6 +207,7 @@ namespace Schedule.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult DeleteMany(List<int> id)
         {
             foreach (var i in id)
