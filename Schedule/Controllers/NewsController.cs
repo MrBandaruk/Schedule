@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using log4net;
+using Schedule.Attributes;
 
 namespace Schedule.Controllers
 {
@@ -19,16 +20,17 @@ namespace Schedule.Controllers
         #region Create
 
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult Create()
         {
-
             return View();
         }
 
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult Create(BLL.Model.NewsViewModelItem item)
         {
             if (ModelState.IsValid || Request.Files.Count > 1 )
@@ -77,13 +79,15 @@ namespace Schedule.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult Panel()
         {
             return View();
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult dataTablesData(BLL.Model.jQueryDataTableParamModel param)
         {
             var model = newsDbProv.GetAllData(param.iDisplayStart, param.iDisplayLength, param.iSortCol_0, param.sSortDir_0, param.sSearch);
@@ -136,7 +140,8 @@ namespace Schedule.Controllers
         #region Update
 
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult Edit(int? id)
         {
             //if (!User.IsInRole("admin"))
@@ -153,7 +158,8 @@ namespace Schedule.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult Edit(BLL.Model.NewsViewModelItem item)
         {
             if (!ModelState.IsValid)
@@ -193,7 +199,8 @@ namespace Schedule.Controllers
 
         #region Delete
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult Delete(int id)
         {
             //if (!User.IsInRole("admin"))
@@ -207,7 +214,8 @@ namespace Schedule.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AdminAuth]
         public ActionResult DeleteMany(List<int> id)
         {
             foreach (var i in id)
