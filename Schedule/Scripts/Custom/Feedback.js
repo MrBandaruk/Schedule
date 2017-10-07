@@ -12,7 +12,7 @@ $(document).ready(function () {
     $("#btnSend").click(function () {
     	var mail = $("#tbName").val();
     	var message = $("#tbMessage").val();
-    	if (((mail.length != 0) && (mail.indexOf('@') == 1)) && (message.length != 0)) {
+    	if (((mail.length != 0) && (mail.indexOf('@') >= 0)) && (message.length != 0)) {
     		var letter = 'mailto:nbandaruk@gmail.com' + '?subject=' + mail + '&body=' + message;
     		$("#frmFeedback").attr('action', letter);
     	} else {
