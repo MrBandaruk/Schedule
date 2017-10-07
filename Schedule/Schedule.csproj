@@ -249,6 +249,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Custom\Alert.js" />
+    <Content Include="Scripts\Custom\CharsLeft.js" />
     <Content Include="Views\Shared\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

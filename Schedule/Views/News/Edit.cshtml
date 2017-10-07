@@ -24,13 +24,13 @@
     <br />
     @Html.HiddenFor(x => x.Id, "Id")
     <h4>Short Title</h4>
-    @Html.TextBox("ShortTitle", (string)Model.ShortTitle, new { @class = "form-control", required = "required" })
+    @Html.TextBox("ShortTitle", (string)Model.ShortTitle, new { @class = "form-control", id = "tdShortTitle", name = "ShortTitle", required = "required" })	<span class="char">60 left</span>
     <br />
     <h4>Full Title</h4>
-    @Html.TextBox("FullTitle", (string)Model.FullTitle, new { @class = "form-control", required = "required" })
+    @Html.TextBox("FullTitle", (string)Model.FullTitle, new { @class = "form-control", id = "tdFullTitle", name = "ShortTitle", required = "required" })	<span class="char">256 left</span>
     <br />
     <h4>Images</h4>
-    @Html.TextBoxFor(x => x.NewsImages, new { type = "file", name = "uploadImage", multiple = "true", @class = "btn btn-default" })
+    @Html.TextBoxFor(x => x.NewsImages, new { type = "file", name = "uploadImage",  multiple = "true", @class = "btn btn-default" })
     <br />
     <div id="ImgPrew">
         @foreach (var img in Model.NewsImages)
@@ -40,7 +40,7 @@
     </div>
     <br />
     <h4>Short Article</h4>
-    @Html.TextArea("ShortArticle", (string)Model.ShortArticle, 5, 0, new { @class = "form-control", required = "required", id="article" })
+    @Html.TextArea("ShortArticle", (string)Model.ShortArticle, 5, 0, new { @class = "form-control", id = "tdShortArticle", name = "ShortTitle", required = "required" })	<span class="char">410 left</span>
     <br />
     <h4>Full Article</h4>
     @Html.TextArea("FullArticle", (string)Model.FullArticle, 20, 0, new { @class = "form-control", required = "required", id = "article" })
@@ -52,3 +52,4 @@
 }
 
 <script type="text/javascript" src="~/Scripts/Custom/isDirty.js"></script>
+<script type="text/javascript" src="~/Scripts/Custom/CharsLeft.js"></script>

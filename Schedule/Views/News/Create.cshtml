@@ -17,11 +17,11 @@
 {
     <br />
         <h4>Short Title</h4>
-        @Html.TextBoxFor(model => model.ShortTitle, new { @class = "form-control", required = "required", autocomplete = "off" })
+        @Html.TextBoxFor(model => model.ShortTitle, new { @class = "form-control", id = "tdShortTitle", name = "ShortTitle", required = "required", autocomplete = "off" }) <span class="char">60 left</span>
 		@Html.ValidationMessageFor(model => model.ShortTitle, "", new { @class = "text-danger" })
         <br />
         <h4>Full Title</h4>
-        @Html.TextBoxFor(model => model.FullTitle, new { @class = "form-control", required = "required", autocomplete = "off" })
+        @Html.TextBoxFor(model => model.FullTitle, new { @class = "form-control", id = "tdFullTitle", name = "FullTitle", required = "required", autocomplete = "off" }) <span class="char">256 left</span>
 		@Html.ValidationMessageFor(model => model.FullTitle, "", new { @class = "text-danger" })
         <br />
         <h4>Images</h4>
@@ -30,7 +30,7 @@
         <br />
         <br />
         <h4>Short Article</h4>
-        @Html.TextAreaFor(model => model.ShortArticle, 5, 0, new { @class = "form-control", required = "required", autocomplete = "off" })
+        @Html.TextAreaFor(model => model.ShortArticle, 5, 0, new { @class = "form-control", id = "tdShortArticle", name = "ShortArticle", required = "required", autocomplete = "off" }) <span class="char">410 left</span>
 		@Html.ValidationMessageFor(model => model.ShortArticle, "", new { @class = "text-danger" })
         <br />
         <h4>Full Article</h4>
@@ -42,3 +42,4 @@
 
 @Scripts.Render("~/bundles/jquery")
 <script type="text/javascript" src="~/Scripts/Custom/isDirty.js"></script>
+<script type="text/javascript" src="~/Scripts/Custom/CharsLeft.js"></script>
