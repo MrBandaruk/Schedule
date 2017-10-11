@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-	@*<link rel="stylesheet" href="~/Content/Pages/Index.css" />*@
+	<link rel="stylesheet" href="~/Content/animate.css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -39,10 +39,16 @@
 							@*<li class="identity-logout identity-log">@Html.ActionLink("Log In", "Login", "Account", null, new { style = "color: white", @class = "logout-link" })</li>
 								<li class="identity-logout identity-log">@Html.ActionLink("Sign Up", "Register", "Account", null, new { style = "color: white", @class = "logout-link" })</li>*@
 
-							<li class="identity-icon"><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-user"></span></a></li>
-						}
-						else
-						{
+                            //<li class="identity-icon"><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-user"></span></a></li>
+                            <li class="dropdown identity-icon">
+                                <a href="@Url.Action("Login", "Account")" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+                                <ul class="dropdown-menu dropdown-lr animated fadeIn" role="menu">
+                                    @*//ADD RENDER ACRION HERE*@
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
 							<li class="identity-name">@Schedule.Resources.HomeTexts.Hello, @User.Identity.Name</li>
 							<li class="identity-logout"> @Html.ActionLink(Schedule.Resources.HomeTexts.Log_Out, "Logout", "Account", null, new { style = "color: white", @class = "logout-link" }) </li>
 						}

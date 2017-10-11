@@ -17,7 +17,6 @@ namespace Schedule.DAL
         #region CRUD
 
         #region Create
-
         public void Add(NewsDtoItem newsItem)
         {
             using (var db = new DataBaseDataContext())
@@ -373,7 +372,7 @@ namespace Schedule.DAL
         {
             using (var db = new DataBaseDataContext())
             {
-                var dbItem = db.FinalNewsImages.Where(x => x.Id == id).FirstOrDefault();
+                var dbItem = db.FinalNewsImages.FirstOrDefault(x => x.Id == id);
 
                 return MapDbToDto(dbItem);
 
@@ -461,7 +460,7 @@ namespace Schedule.DAL
         {
             using (var db = new DataBaseDataContext())
             {
-                var item = db.FinalNews.Where(i => i.Id == id).FirstOrDefault();
+                var item = db.FinalNews.FirstOrDefault(i => i.Id == id);
                 var image = db.FinalNewsImages.Where(i => i.NewsId == id);
                 db.FinalNewsImages.DeleteAllOnSubmit(image);
                 db.FinalNews.DeleteOnSubmit(item);

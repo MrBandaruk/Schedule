@@ -370,3 +370,7 @@ tr.shown td.details-control {
     margin: 5px 5px;
     color: gray;
 }
+
+ul.dropdown-lr {
+    width: 300px;
+}
