@@ -97,6 +97,7 @@ namespace Schedule.Controllers
             }
             return View(model);
         }
+
         private async Task SetInitialDataAsync()
         {
             await UserService.SetInitialData(new UserDTO
@@ -110,6 +111,13 @@ namespace Schedule.Controllers
 
                 Role = "admin",
             }, new List<string> { "user", "admin" });
+        }
+
+        [ChildActionOnly]
+        public ActionResult HeaderLogin()
+        {
+            var model = new LoginModel();
+            return PartialView("", model);
         }
     }
 }

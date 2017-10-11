@@ -276,9 +276,7 @@ tr.shown td.details-control {
 .navbar-header{
     height: 80px;
 }
-.navbar-collapse {    
 
-}
 
 .navbar-nav{
     height: 80px;
@@ -373,4 +371,16 @@ tr.shown td.details-control {
 
 ul.dropdown-lr {
     width: 300px;
+}
+
+.dropdown {
+    line-height: 20px;
+}
+
+.dropdown:hover {
+    border-bottom: none !important;
+}
+
+.dropdown-toggle:visited {
+    background-color: #383F4B !important;
 }

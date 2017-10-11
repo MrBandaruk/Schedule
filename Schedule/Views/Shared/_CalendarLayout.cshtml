@@ -35,7 +35,12 @@
 					{
 						@*<li class="identity-logout identity-log">@Html.ActionLink("Log In", "Login", "Account", null, new { style = "color: white", @class = "logout-link" })</li>
 						<li class="identity-logout identity-log">@Html.ActionLink("Sign Up", "Register", "Account", null, new { style = "color: white", @class = "logout-link" })</li>*@
-						<li class="identity-icon"><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-user"></span></a></li>
+					    <li class="dropdown identity-icon">
+					        <a href="@Url.Action("Login", "Account")" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+					        <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
+					            @Html.Partial("LoginPartial", new Schedule.BLL.Model.LoginModel())
+					        </ul>
+					    </li>
 					}
 					else
 					{
