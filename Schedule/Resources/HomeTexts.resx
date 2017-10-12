@@ -132,6 +132,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="News" xml:space="preserve">
     <value>News</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="Registration" xml:space="preserve">
     <value>Registration</value>

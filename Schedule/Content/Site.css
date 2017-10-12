@@ -377,6 +377,11 @@ ul.dropdown-lr {
     line-height: 20px;
 }
 
+.form-group .reg-link {
+    margin: 0 5px;
+    color: rgb(70, 87, 117) !important;
+}
+
 .dropdown:hover {
     border-bottom: none !important;
 }
