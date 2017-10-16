@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Attributes\AdminAuthAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -251,6 +252,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Custom\Alert.js" />
     <Content Include="Scripts\Custom\CharsLeft.js" />
+    <Content Include="Scripts\Custom\enFullCal.js" />
     <Content Include="Views\Shared\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -335,6 +337,8 @@
     <Content Include="Views\Error\ServerError.cshtml" />
     <Content Include="Views\Shared\AuthorizeFaild.cshtml" />
     <Content Include="Views\Shared\LoginPartial.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

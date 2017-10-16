@@ -15,21 +15,9 @@ namespace Schedule.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserService UserService
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().GetUserManager<IUserService>();
-            }
-        }
+        private IUserService UserService => HttpContext.GetOwinContext().GetUserManager<IUserService>();
 
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
         public ActionResult Login()
         {
@@ -43,7 +31,7 @@ namespace Schedule.Controllers
             await SetInitialDataAsync();
             if (ModelState.IsValid)
             {
-                UserDTO userDto = new UserDTO { Email = model.Email, Password = model.Password };
+                UserDto userDto = new UserDto { Email = model.Email, Password = model.Password };
                 ClaimsIdentity claim = await UserService.Authenticate(userDto);
                 if (claim == null)
                 {
@@ -80,7 +68,7 @@ namespace Schedule.Controllers
             await SetInitialDataAsync();
             if (ModelState.IsValid)
             {
-                UserDTO userDto = new UserDTO
+                UserDto userDto = new UserDto
                 {
                     Email = model.Email,
                     Password = model.Password,
@@ -100,7 +88,7 @@ namespace Schedule.Controllers
 
         private async Task SetInitialDataAsync()
         {
-            await UserService.SetInitialData(new UserDTO
+            await UserService.SetInitialData(new UserDto
             {
                 Email = "nbandaruk@gmail.com",
                 UserName = "admin",
@@ -113,11 +101,10 @@ namespace Schedule.Controllers
             }, new List<string> { "user", "admin" });
         }
 
-        [ChildActionOnly]
-        public ActionResult HeaderLogin()
+        public ActionResult Profile(string user)
         {
-            var model = new LoginModel();
-            return PartialView("", model);
+            
+            return View();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Schedule.BLL.Services
         }
 
 
-        public async Task<OperationDetails> Create(UserDTO userDto)
+        public async Task<OperationDetails> Create(UserDto userDto)
         {
             ApplicationUser user = await Database.UserManager.FindByEmailAsync(userDto.Email);
             if (user == null)
@@ -46,7 +46,7 @@ namespace Schedule.BLL.Services
             }
         }
 
-        public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)
+        public async Task<ClaimsIdentity> Authenticate(UserDto userDto)
         {
             ClaimsIdentity claim = null;
             // находим пользователя
@@ -59,7 +59,7 @@ namespace Schedule.BLL.Services
         }
 
         // начальная инициализация бд
-        public async Task SetInitialData(UserDTO adminDto, List<string> roles)
+        public async Task SetInitialData(UserDto adminDto, List<string> roles)
         {
             foreach (string roleName in roles)
             {

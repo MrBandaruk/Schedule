@@ -20,7 +20,10 @@
     $('#calendar').fullCalendar({
         schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
         firstDay: 1,
-        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        monthNames: [
+            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь',
+            'Декабрь'
+        ],
         monthNamesShort: ['Янв', 'Фев', 'Мрт', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
         dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
         dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
@@ -46,7 +49,6 @@
         slotLabelFormat: "HH:mm",
         titleFormat: 'D, MMMM, YYYY',
         businessHours: {
-
             dow: [1, 2, 3, 4, 5, 6],
 
             start: '06:00',
@@ -55,7 +57,14 @@
 
         minTime: "06:00",
         maxTime: "20:00",
-        contentHeight: 685,
+        //contentHeight: $(window).height() * 0.80,
+        viewRender: function(view, element) {
+            if (view.name === "month" || view.name === "listWeek") {
+                $('#calendar').fullCalendar('option', 'contentHeight', $(window).height() * 0.80);
+            } else {
+                $('#calendar').fullCalendar('option', 'contentHeight', "auto");
+            }
+        },       
         columnFormat: 'dddd',
         //timeFormat: 'h:mm',
         timezone: 'local',

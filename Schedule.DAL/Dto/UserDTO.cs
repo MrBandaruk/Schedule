@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Schedule.DAL.Dto
 {
-    public class UserDTO
+    public class UserDto
     {
         public string Id { get; set; }
         public string Email { get; set; }

@@ -11,8 +11,8 @@ namespace Schedule.BLL.Interfaces
 {
     public interface IUserService : IDisposable
     {
-        Task<OperationDetails> Create(UserDTO userDto);
-        Task<ClaimsIdentity> Authenticate(UserDTO userDto);
-        Task SetInitialData(UserDTO adminDto, List<string> roles); //создает таблицы в базе, если их нет.
+        Task<OperationDetails> Create(UserDto userDto);
+        Task<ClaimsIdentity> Authenticate(UserDto userDto);
+        Task SetInitialData(UserDto adminDto, List<string> roles); //создает таблицы в базе, если их нет.
     }
 }
