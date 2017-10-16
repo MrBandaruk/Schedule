@@ -23,9 +23,11 @@
   - CRUD
   - jQuery fullCalendar + jQuery Scheduler
   - jQuery dataTables + moment.js
+  - alertify.js
 
 - **Authentication**:
   - ASP.NET Identity
   
 - **Other**:
   - Log4Net
+  - animate.css
