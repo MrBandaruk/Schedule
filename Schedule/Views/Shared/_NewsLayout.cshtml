@@ -45,7 +45,7 @@
 					}
 					else
 					{
-						<li class="identity-name">@Schedule.Resources.HomeTexts.Hello, @User.Identity.Name</li>
+					    <li class="identity-name">@Html.ActionLink($"{@Schedule.Resources.HomeTexts.Hello}, {@User.Identity.Name}", "Profile", "Account", null, new { style = "color: white", @class = "ActionLink" })</li>
 						<li class="identity-logout"> @Html.ActionLink(Schedule.Resources.HomeTexts.Log_Out, "Logout", "Account", null, new { style = "color: white", @class = "logout-link" }) </li>
 					}
 

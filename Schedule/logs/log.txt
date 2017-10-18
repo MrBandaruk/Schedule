@@ -482,3 +482,7 @@ ERROR 2017-10-12 02:08:21,435  1855ms MvcApplication         Application_Error  
 ERROR 2017-10-12 03:09:40,201   957ms MvcApplication         Application_Error  - The controller for path '/Shared/LoginPartial' was not found or does not implement IController.
 ERROR 2017-10-18 13:02:35,194  5423ms MvcApplication         Application_Error  - The model item passed into the dictionary is of type 'System.Data.Entity.DynamicProxies.IdentityUser_2548124B49FAC76147DF01624C1A41CA66AB8347FFCD4467D240422DFEDE7E97', but this dictionary requires a model item of type 'Schedule.DAL.Entities.ClientProfile'.
 ERROR 2017-10-18 13:02:40,715 10944ms MvcApplication         Application_Error  - The model item passed into the dictionary is of type 'System.Data.Entity.DynamicProxies.IdentityUser_2548124B49FAC76147DF01624C1A41CA66AB8347FFCD4467D240422DFEDE7E97', but this dictionary requires a model item of type 'Schedule.DAL.Entities.ClientProfile'.
+ERROR 2017-10-18 14:11:23,620 101709ms MvcApplication         Application_Error  - Object reference not set to an instance of an object.
+ERROR 2017-10-18 14:19:02,366 46004ms MvcApplication         Application_Error  - Value cannot be null.
+Parameter name: userName
+ERROR 2017-10-18 14:27:38,970  1030ms MvcApplication         Application_Error  - The controller for path '/Shared/LoginPartial' was not found or does not implement IController.

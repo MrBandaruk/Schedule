@@ -153,6 +153,9 @@
   <data name="Log Out" xml:space="preserve">
     <value>Выйти</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
   <data name="News" xml:space="preserve">
     <value>Новости</value>
   </data>
@@ -161,5 +164,8 @@
   </data>
   <data name="Registration" xml:space="preserve">
     <value>Регистрация</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Логин</value>
   </data>
 </root>

@@ -37,7 +37,7 @@ namespace Schedule.Controllers
             await SetInitialDataAsync();
             if (ModelState.IsValid)
             {
-                UserDto userDto = new UserDto { Email = model.Email, Password = model.Password };
+                UserDto userDto = new UserDto { UserName = model.UserName, Password = model.Password };
                 ClaimsIdentity claim = await UserService.Authenticate(userDto);
                 if (claim == null)
                 {
@@ -77,6 +77,7 @@ namespace Schedule.Controllers
                 UserDto userDto = new UserDto
                 {
                     Email = model.Email,
+                    UserName = model.UserName,
                     Password = model.Password,
                     Age = model.Age,
                     Name = model.Name,
