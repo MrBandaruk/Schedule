@@ -1,4 +1,5 @@
-﻿
+﻿@using Schedule.DAL.Entities
+@model IEnumerable<Schedule.DAL.Entities.ApplicationUser>
 @{
     ViewBag.Title = "Admin";
     Layout = "~/Views/Shared/_IndexLayout.cshtml";
@@ -6,3 +7,27 @@
 
 <h2>Admin</h2>
 
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        User Profiles
+    </div>
+    <table class="table table-striped">
+        <thead style="font-weight: bold">
+            <tr>
+                <td style="width: 300px">Id</td>
+                <td>Name</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ApplicationUser user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

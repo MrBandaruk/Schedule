@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Owin.Security;
@@ -7,9 +8,14 @@ using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
 using Schedule.BLL.Model;
 using System.Security.Claims;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Schedule.BLL.Interfaces;
 using Schedule.BLL.Infrastructure;
+using Schedule.DAL;
 using Schedule.DAL.Dto;
+using Schedule.DAL.Entities;
+using Schedule.DAL.Identity;
 
 namespace Schedule.Controllers
 {
@@ -101,9 +107,16 @@ namespace Schedule.Controllers
             }, new List<string> { "user", "admin" });
         }
 
-        public ActionResult Profile(string user)
+        public ActionResult Profile()
         {
-            
+            //var model = User.Identity.GetUserId();
+            //var manager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new IdentityDbContext()));
+            //var userModel = manager.FindById(model);
+            //var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            if (User.IsInRole("admin"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
             return View();
         }
     }
