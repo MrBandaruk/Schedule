@@ -7,7 +7,11 @@
 <div> 
 	<hgroup>
 		<h1>Error.</h1>
-		<h2>An error occurred while processing your request.</h2>
+	    <h2>An error occurred while processing your request.</h2>      
+        @if (User.IsInRole("admin"))
+        {
+            <p>@ViewData.Model</p>
+        }
 	</hgroup>
 </div>
 

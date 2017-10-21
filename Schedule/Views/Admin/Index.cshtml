@@ -5,7 +5,18 @@
     Layout = "~/Views/Shared/_IndexLayout.cshtml";
 }
 
+<script type="text/javascript" src="~/Scripts/Custom/Alert.js"></script>
+
 <h2>Admin</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Error!</strong> 
+        <p>@TempData["Error"]</p>
+    </div>
+}
 
 <div class="panel panel-primary">
     <div class="panel-heading">
@@ -26,6 +37,7 @@
                     <td>@user.Id</td>
                     <td>@user.UserName</td>
                     <td>@user.Email</td>
+                    <td>@Html.ActionLink(@Schedule.Resources.HomeTexts.Delete, "Delete", new {id = @user.Id}, new {@class = "btn btn-danger"})</td>
                 </tr>
             }
         </tbody>

@@ -20,6 +20,7 @@ namespace Schedule.Controllers
             return View();
         }
 
+
         public ViewResult ServerError()
         {
             Response.StatusCode = 500;

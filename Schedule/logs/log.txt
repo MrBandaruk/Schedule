@@ -486,3 +486,32 @@ ERROR 2017-10-18 14:11:23,620 101709ms MvcApplication         Application_Error 
 ERROR 2017-10-18 14:19:02,366 46004ms MvcApplication         Application_Error  - Value cannot be null.
 Parameter name: userName
 ERROR 2017-10-18 14:27:38,970  1030ms MvcApplication         Application_Error  - The controller for path '/Shared/LoginPartial' was not found or does not implement IController.
+ERROR 2017-10-21 04:28:53,603 154018ms MvcApplication         Application_Error  - A public action method 'Delete' was not found on controller 'Schedule.Controllers.AdminController'.
+ERROR 2017-10-21 04:30:49,367  6543ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:31:37,379 54555ms MvcApplication         Application_Error  - The view 'Delete' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Admin/Delete.aspx
+~/Views/Admin/Delete.ascx
+~/Views/Shared/Delete.aspx
+~/Views/Shared/Delete.ascx
+~/Views/Admin/Delete.cshtml
+~/Views/Admin/Delete.vbhtml
+~/Views/Shared/Delete.cshtml
+~/Views/Shared/Delete.vbhtml
+ERROR 2017-10-21 04:31:56,227 73403ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:33:37,820 10598ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:33:42,927 15705ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:33:46,590 19368ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:37:14,917 62988ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:38:01,834 10838ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:38:06,745 15750ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:40:45,042  6600ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:41:22,546 44105ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:48:33,950  9525ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 04:52:00,123 12418ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 05:18:29,088 35609ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 05:35:04,012 112124ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 05:43:18,160 14301ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 05:54:54,758  8525ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 05:58:34,669  5852ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 06:00:50,470 141653ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-21 06:01:15,504 166686ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
