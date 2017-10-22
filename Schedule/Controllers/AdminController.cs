@@ -26,26 +26,32 @@ namespace Schedule.Controllers
         }
 
         [AdminAuth]
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> LockOut(string id)
         {
             ApplicationUser user = await userManager.FindByIdAsync(id);
 
             if (user != null)
             {
-                IdentityResult result = await userManager.DeleteAsync(user);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    TempData["Error"] = "Error!";
-                    return RedirectToAction("Index");
-                }
+                userManager.SetLockoutEnabled(id, true);
+                user.LockoutEnabled = true;
+                user.LockoutEndDateUtc = DateTime.UtcNow.AddMinutes(10);
+                await userManager.UpdateAsync(user);
             }
 
-            TempData["Error"] = "Error!";
+            return RedirectToAction("Index");
+        }
+
+        [AdminAuth]
+        public async Task<ActionResult> DisableLockOut(string id)
+        {
+            ApplicationUser user = await userManager.FindByIdAsync(id);
+
+            if (user != null)
+            {
+                user.LockoutEnabled = false;
+                await userManager.UpdateAsync(user);
+            }
+
             return RedirectToAction("Index");
         }
     }

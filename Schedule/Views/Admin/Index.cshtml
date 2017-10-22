@@ -33,12 +33,24 @@
         <tbody>
             @foreach (ApplicationUser user in Model)
             {
-                <tr>
-                    <td>@user.Id</td>
-                    <td>@user.UserName</td>
-                    <td>@user.Email</td>
-                    <td>@Html.ActionLink(@Schedule.Resources.HomeTexts.Delete, "Delete", new {id = @user.Id}, new {@class = "btn btn-danger"})</td>
-                </tr>
+                if (user.LockoutEnabled)
+                 {
+                     <tr style="color: grey">
+                         <td>@user.Id</td>
+                         <td>@user.UserName</td>
+                         <td>@user.Email</td>
+                         <td>@Html.ActionLink("UnBan", "DisableLockOut", new {id = @user.Id}, new {@class = "btn btn-success"})</td>
+                     </tr>
+                 }
+                 else
+                 {
+                     <tr>
+                         <td>@user.Id</td>
+                         <td>@user.UserName</td>
+                         <td>@user.Email</td>
+                         <td>@Html.ActionLink("Ban for 10 min", "LockOut", new {id = @user.Id}, new {@class = "btn btn-danger"})</td>
+                     </tr>
+                 }
             }
         </tbody>
     </table>
