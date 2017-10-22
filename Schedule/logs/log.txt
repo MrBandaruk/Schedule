@@ -515,3 +515,7 @@ ERROR 2017-10-21 05:54:54,758  8525ms MvcApplication         Application_Error  
 ERROR 2017-10-21 05:58:34,669  5852ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
 ERROR 2017-10-21 06:00:50,470 141653ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
 ERROR 2017-10-21 06:01:15,504 166686ms MvcApplication         Application_Error  - An error occurred while updating the entries. See the inner exception for details.
+ERROR 2017-10-22 23:07:19,049 16989ms MvcApplication         Application_Error  - Value cannot be null.
+Parameter name: userName
+ERROR 2017-10-22 23:35:39,194  8553ms MvcApplication         Application_Error  - Value cannot be null.
+Parameter name: userName

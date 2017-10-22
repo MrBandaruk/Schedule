@@ -13,6 +13,8 @@ namespace Schedule.DAL.Identity
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
                 : base(store)
         {
+            UserLockoutEnabledByDefault = true;
+            DefaultAccountLockoutTimeSpan = DateTime.Now.AddYears(100).TimeOfDay;          
         }
     }
 }

@@ -6,8 +6,6 @@
 
 <h2>Profile</h2>
 
-<p>Empty</p>
-
-@*<p>@Model.Name</p>
-<p>@Model.Surname</p>
-<p>@Model.Age</p>*@
+@Html.LabelFor(name => Model.Name):<p>@Model.Name [Edit]</p> 
+@Html.LabelFor(surname => Model.Surname):<p>@Model.Surname [Edit]</p> 
+@Html.LabelFor(age => Model.Age):<p>@Model.Age [Edit]</p>

@@ -18,6 +18,12 @@ namespace Schedule
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                "Profile",                                          
+                "Profile/{name}",                                   
+                new { controller = "Account", action = "Profile" }   
+            );
         }
     }
 }

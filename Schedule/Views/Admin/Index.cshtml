@@ -39,7 +39,7 @@
                          <td>@user.Id</td>
                          <td>@user.UserName</td>
                          <td>@user.Email</td>
-                         <td>@Html.ActionLink("UnBan", "DisableLockOut", new {id = @user.Id}, new {@class = "btn btn-success"})</td>
+                         <td style="width: 100px">@Html.ActionLink("UnBlock", "DisableLockOut", new {id = @user.Id}, new {@class = "btn btn-success"})</td>
                      </tr>
                  }
                  else
@@ -48,7 +48,7 @@
                          <td>@user.Id</td>
                          <td>@user.UserName</td>
                          <td>@user.Email</td>
-                         <td>@Html.ActionLink("Ban for 10 min", "LockOut", new {id = @user.Id}, new {@class = "btn btn-danger"})</td>
+                         <td style="width: 100px">@Html.ActionLink("Block", "LockOut", new {id = @user.Id}, new {@class = "btn btn-danger"})</td>
                      </tr>
                  }
             }

@@ -32,9 +32,7 @@ namespace Schedule.Controllers
 
             if (user != null)
             {
-                userManager.SetLockoutEnabled(id, true);
                 user.LockoutEnabled = true;
-                user.LockoutEndDateUtc = DateTime.UtcNow.AddMinutes(10);
                 await userManager.UpdateAsync(user);
             }
 

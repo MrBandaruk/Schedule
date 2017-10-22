@@ -18,7 +18,7 @@ namespace Schedule.DAL.Repositories
         }
 
         public void Create(ClientProfile item)
-        {
+        {           
             Database.ClientProfiles.Add(item);
             Database.SaveChanges();
         }

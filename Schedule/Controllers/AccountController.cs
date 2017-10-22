@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
@@ -16,12 +17,15 @@ using Schedule.DAL;
 using Schedule.DAL.Dto;
 using Schedule.DAL.Entities;
 using Schedule.DAL.Identity;
+using Schedule.DAL.Repositories;
 
 namespace Schedule.Controllers
 {
     public class AccountController : Controller
     {
         private IUserService UserService => HttpContext.GetOwinContext().GetUserManager<IUserService>();
+        ApplicationUserManager userManager = new IdentityUnitOfWork(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString).UserManager;
+
 
         private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
@@ -108,16 +112,19 @@ namespace Schedule.Controllers
             }, new List<string> { "user", "admin" });
         }
 
-        public ActionResult Profile()
+        public async Task<ActionResult> Profile(string name)
         {
-            //var model = User.Identity.GetUserId();
-            //var manager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new IdentityDbContext()));
-            //var userModel = manager.FindById(model);
-            //var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             if (User.IsInRole("admin"))
             {
                 return RedirectToAction("Index", "Admin");
             }
+
+            var user = await userManager.FindByNameAsync(name);
+            if (user != null)
+            {
+                return View(user.ClientProfile);
+            }
+
             return View();
         }
     }
