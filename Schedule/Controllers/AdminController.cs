@@ -52,5 +52,19 @@ namespace Schedule.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [AdminAuth]
+        [HttpGet]
+        public async Task<ActionResult> Edit(string id)
+        {
+            ApplicationUser user = await userManager.FindByIdAsync(id);
+
+            if (user != null)
+            {
+                return View(user);
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

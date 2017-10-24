@@ -52,10 +52,16 @@ namespace Schedule.BLL.Services
             // находим пользователя
             ApplicationUser user = await Database.UserManager.FindAsync(userDto.UserName, userDto.Password);
             // авторизуем его и возвращаем объект ClaimsIdentity
-            if (user != null && !user.LockoutEnabled)
-                claim = await Database.UserManager.CreateIdentityAsync(user,
-                                            DefaultAuthenticationTypes.ApplicationCookie);
-            
+            if (user != null)
+            {
+                if (!user.LockoutEnabled)
+                {
+                    claim = await Database.UserManager.CreateIdentityAsync(user,
+                        DefaultAuthenticationTypes.ApplicationCookie);
+                }
+
+            }
+
             return claim;
         }
 

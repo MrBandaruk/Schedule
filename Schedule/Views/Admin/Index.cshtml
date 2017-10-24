@@ -49,6 +49,7 @@
                          <td>@user.UserName</td>
                          <td>@user.Email</td>
                          <td style="width: 100px">@Html.ActionLink("Block", "LockOut", new {id = @user.Id}, new {@class = "btn btn-danger"})</td>
+                         <td style="width: 100px">@Html.ActionLink("Edit", "Edit", new { id = @user.Id }, new { @class = "btn btn-default" })</td>
                      </tr>
                  }
             }
