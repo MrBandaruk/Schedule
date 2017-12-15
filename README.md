@@ -32,3 +32,34 @@ Create an application which will help students to manage their timetable. With t
   
 - ### **Other**:
   - Log4Net
+
+
+### **Screenshots**:
+<details> 
+  <summary>Home Page</summary>
+   <img src="https://i.imgur.com/T5of2Gm.jpg" alt="Home Page" >
+</details>
+
+<details> 
+  <summary>News</summary>
+   <img src="https://i.imgur.com/njkFUp1.jpg" alt="Home Page" >
+</details>
+
+<details> 
+  <summary>News Panel</summary>
+   <img src="https://i.imgur.com/6DTaXxN.jpg" alt="News Panel" >
+   <img src="https://i.imgur.com/mlH7b5P.jpg" alt="News Panel" >
+</details>
+
+<details> 
+  <summary>Calendar</summary>
+   <img src="https://i.imgur.com/c0ve4UX.jpg" alt="Calendar" >
+   <img src="https://i.imgur.com/noWCBS4.jpg" alt="Calendar" >
+   <img src="https://i.imgur.com/L0Svxvq.jpg" alt="Calendar" >
+</details>
+
+<details> 
+  <summary>Admin Panel</summary>
+   <img src="https://i.imgur.com/KjjjPlx.jpg" alt="Admin Panel" >
+</details>
+
